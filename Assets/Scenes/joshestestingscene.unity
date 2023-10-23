@@ -375,6 +375,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2969592565544409526, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c6c13ca6e1110f5498761a5e1994ea5e, type: 3}
+    - target: {fileID: 2969592565544409526, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3729010272355363180, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
