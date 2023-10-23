@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    public Vector2 movementSpeed = new Vector2(100f, 100f);
+    public Vector2 movementSpeed = new Vector2(7f, 7f);
     private new Rigidbody2D _rigidbody2D;
     private Vector2 _input = new Vector2(0f, 0f);
     private void Awake()
