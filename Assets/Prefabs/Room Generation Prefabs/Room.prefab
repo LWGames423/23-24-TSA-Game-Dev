@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8595453393177282064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4809694239542855341}
+  - component: {fileID: 3187519422216091927}
+  m_Layer: 0
+  m_Name: Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4809694239542855341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595453393177282064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3187519422216091927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595453393177282064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4007c1abde0fbd4d8e649dee83068cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls:
+  - {fileID: 6812011308754349100, guid: 37bad6d0f48a9464b9bc58e23056fcfa, type: 3}
+  - {fileID: 9055479523572255937, guid: 73f76897f49d4e2428c5a12e6629f43b, type: 3}
+  - {fileID: 1498769498517445361, guid: 13448d7b72127f34abd51b0fbae4b25c, type: 3}
+  - {fileID: 7136661004078291095, guid: ee01ee2f882d26d4a90d0711d2bc8ae5, type: 3}
+  doors:
+  - {fileID: 4084423001165209446, guid: 6eac9d45f4cb7a44791c8bd9d9378a1b, type: 3}
+  - {fileID: 7475132405685929915, guid: 8685a5e4749806b47be8c43665389584, type: 3}
+  - {fileID: 6144426987830788981, guid: 2496a973da8ef9b4abd64918e02f4015, type: 3}
+  - {fileID: 7431247306648030262, guid: fe1d3682edf97864596e98e16fb80ba8, type: 3}
+  roomGeneration: {fileID: 0}
