@@ -7,9 +7,20 @@ using UnityEngine.UI;
 
 public class HealthBarControler : MonoBehaviour
 {
+    #region Health Bar Assets
     public Image HealthBar;
     public float healthAmount = 100f;
     public TMP_Text healthText;
+    #endregion
+
+    #region Blinking Assets
+   public Image image;
+   #endregion
+
+   void Start()
+   {
+    
+   }
 
 
    private void Update()
