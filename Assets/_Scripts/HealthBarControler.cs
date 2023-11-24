@@ -14,7 +14,10 @@ public class HealthBarControler : MonoBehaviour
     #endregion
 
     #region Blinking Assets
-   public Image image;
+   public Image heartIcon;
+   public Animator _anim;
+   bool _isMortallyInjured = false;
+   private static readonly int Flash = Animator.StringToHash("HeartFlashing");
    #endregion
 
    void Start()
@@ -22,7 +25,14 @@ public class HealthBarControler : MonoBehaviour
     
    }
 
-
+    private bool isMortallyInjured
+    {
+        set
+        {
+            _isMortallyInjured = value;
+            _anim.SetBool(Flash, _isMortallyInjured);
+        }
+    }
    private void Update()
     {
        /* if (healthAmount <= 0)
@@ -36,7 +46,19 @@ public class HealthBarControler : MonoBehaviour
             TakeDamage(20);
         }
 
+        
+
         healthText.text = "Health: " + healthAmount;
+
+        if(healthAmount <= 50f)
+        {
+            isMortallyInjured = true;
+        }
+        else
+        {
+            isMortallyInjured = false;
+        }
+
     }
     
     public void TakeDamage(float Damage)

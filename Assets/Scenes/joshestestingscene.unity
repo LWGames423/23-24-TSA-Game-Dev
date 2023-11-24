@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 225854845}
   - component: {fileID: 225854847}
   - component: {fileID: 225854846}
+  - component: {fileID: 225854849}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -405,6 +406,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225854844}
   m_CullTransparentMesh: 1
+--- !u!95 &225854849
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225854844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92a7c7d26d0044e1da3ab80a82849de9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &418029749 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7012896118562431006, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
@@ -1083,7 +1105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7158869989664764012, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0000031590462
+      value: -0.000053106865
       objectReference: {fileID: 0}
     - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: idleFriction
@@ -1772,6 +1794,8 @@ MonoBehaviour:
   HealthBar: {fileID: 977977149}
   healthAmount: 100
   healthText: {fileID: 110590231}
+  heartIcon: {fileID: 225854846}
+  _anim: {fileID: 225854849}
 --- !u!114 &2077179750
 MonoBehaviour:
   m_ObjectHideFlags: 0
