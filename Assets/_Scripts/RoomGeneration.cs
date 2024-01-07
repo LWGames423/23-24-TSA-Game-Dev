@@ -21,7 +21,7 @@ public class RoomGeneration : MonoBehaviour
 
         public int roomID;
 
-        public bool[,] roomFormat = {{ false, false, false }, { false, true, false }, { false, false, false } };
+        public string roomType = "Standard";
     }
 
     /**
@@ -40,6 +40,9 @@ public class RoomGeneration : MonoBehaviour
     public Vector2 offset;
 
     public List<Room> dungeon;
+
+    private bool generating = true;
+    private int recentEnd;
     #endregion
 
     /// I really hope that this comment is unnecessary, but this is called before the first update (when this script is loaded)
@@ -91,11 +94,21 @@ public class RoomGeneration : MonoBehaviour
             {
                 if (path.Count == 0)
                 {
+                    dungeon[recentEnd].roomType = "Boss";
+
                     /// Break out of the loop once all rooms have been generated
-                    break;
+                    break;                    
                 }
                 else
                 {
+                    if (generating)
+                    {
+                        dungeon[currentRoom].roomType = "Miniboss";
+                        recentEnd = currentRoom;
+                    }
+
+                    generating = false;
+
                     /// Remove this cell and continue to the cell behind it
                     currentRoom = path.Pop();
                 }
@@ -103,6 +116,8 @@ public class RoomGeneration : MonoBehaviour
             /// This room has available neighbors to generate into
             else
             {
+                generating = true;
+
                 #region Generate a neighbor of the current room and select the neighbor room
                 /// Add the current room to the stack
                 path.Push(currentRoom);
@@ -179,7 +194,7 @@ public class RoomGeneration : MonoBehaviour
                 {
                     /// Instantiate the room with the proper name for labeling purposes
                     GameObject newRoom = Instantiate(roomObject, new Vector2(w * offset.x, -h * offset.y), Quaternion.identity);
-                    Debug.Log(currentRoom.roomID);
+                    /// Debug.Log(currentRoom.roomID);
                     newRoom.GetComponent<RoomBehavior>().UpdateRoom(currentRoom.status, currentRoom.roomSize, currentRoom);
                     newRoom.name += " " + w + "-" + h;
                 }
@@ -224,14 +239,5 @@ public class RoomGeneration : MonoBehaviour
 
         /// Returns the list of potential neighbors
         return neighbors;
-    }
-
-    bool[,] FormatRoom(Room room)
-    {
-        bool[,] roomFormat = room.roomFormat;
-
-
-
-        return roomFormat;
     }
 }
