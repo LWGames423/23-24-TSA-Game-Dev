@@ -177,8 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 150
-  maxSpeed: 8
+  maxSpeed: 6
   idleFriction: 0.9
+  canMove: 1
 --- !u!114 &9085821910855940975
 MonoBehaviour:
   m_ObjectHideFlags: 0

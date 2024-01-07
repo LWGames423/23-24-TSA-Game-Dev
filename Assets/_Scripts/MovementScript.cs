@@ -14,7 +14,11 @@ public class MovementScript : MonoBehaviour
             _anim.SetBool(Moving, _isMoving);
         }
     }
-    
+
+
+
+    private PlayerInput _controls;
+    private InputAction _sprint;
     public float moveSpeed = 150f;
     public float maxSpeed = 8f;
     public float idleFriction = 0.9f; // % of speed deleted from velocity
@@ -22,6 +26,14 @@ public class MovementScript : MonoBehaviour
     private Vector2 _input = Vector2.zero;
     private SpriteRenderer _sr;
     private Animator _anim;
+    
+    
+    public bool _isSprinting = false;
+    public float sprintMultiplier = 1.5f;
+    
+    bool _isSliding = false;
+    private bool _canSlide = false;
+    public float slideMultiplier = 1.2f;
 
     bool _isMoving = false;
     public bool canMove = true;
@@ -35,13 +47,23 @@ public class MovementScript : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb.angularDrag = 0f;
         _rb.gravityScale = 0f;
+        _controls = GetComponent<PlayerInput>();
+        _sprint = _controls.actions["Sprint"];
+
     }
     
     private void FixedUpdate()
     {
         if (canMove && _input != Vector2.zero)
         {
-            _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed);
+            if (_isSprinting)
+            {
+                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier );
+            }
+            else
+            {
+                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed);
+            }
 
             if (_input.x > 0)
             {
@@ -53,12 +75,13 @@ public class MovementScript : MonoBehaviour
             }
 
             IsMoving = true;
-        }
+        } 
         else
         {
             _rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, idleFriction);
             IsMoving = false;
         }
+        CheckSprint();
     }
 
     void OnMove(InputValue value)
@@ -79,5 +102,17 @@ public class MovementScript : MonoBehaviour
     void UnlockMovement()
     {
         canMove = true;
+    }
+    
+    private void CheckSprint()
+    {
+        if (_sprint.WasPressedThisFrame())
+        {
+            _isSprinting = true;
+        }
+        else if(_sprint.WasReleasedThisFrame())
+        {
+            _isSprinting = false;
+        }
     }
 }
