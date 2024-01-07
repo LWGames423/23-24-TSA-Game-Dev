@@ -17,8 +17,9 @@ public class MovementScript : MonoBehaviour
 
 
 
-    private PlayerInput _controls;
-    private InputAction _sprint;
+    public InputAction playerMovement;
+    public InputAction playerSide;
+
     public float moveSpeed = 150f;
     public float maxSpeed = 8f;
     public float idleFriction = 0.9f; // % of speed deleted from velocity
@@ -26,20 +27,28 @@ public class MovementScript : MonoBehaviour
     private Vector2 _input = Vector2.zero;
     private SpriteRenderer _sr;
     private Animator _anim;
-    
-    
+
+
     public bool _isSprinting = false;
     public float sprintMultiplier = 1.5f;
-    
+
     bool _isSliding = false;
     private bool _canSlide = false;
     public float slideMultiplier = 1.2f;
+
+    private Vector2 _slideDir;
+    private bool _isSliding;
+    private bool _canSlide = true;
+    private Vector2 _slideInput;
+    private float _ctc;
 
     bool _isMoving = false;
     public bool canMove = true;
     private static readonly int Moving = Animator.StringToHash("isMoving");
     private static readonly int SwordAttack = Animator.StringToHash("swordAttack");
-    
+
+
+
     private void Awake()
     {
         _rb = gameObject.AddComponent<Rigidbody2D>();
@@ -51,14 +60,14 @@ public class MovementScript : MonoBehaviour
         _sprint = _controls.actions["Sprint"];
 
     }
-    
+
     private void FixedUpdate()
     {
         if (canMove && _input != Vector2.zero)
         {
             if (_isSprinting)
             {
-                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier );
+                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier);
             }
             else
             {
@@ -69,13 +78,13 @@ public class MovementScript : MonoBehaviour
             {
                 _sr.flipX = false;
             }
-            else if(_input.x < 0)
+            else if (_input.x < 0)
             {
                 _sr.flipX = true;
             }
 
             IsMoving = true;
-        } 
+        }
         else
         {
             _rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, idleFriction);
@@ -103,14 +112,15 @@ public class MovementScript : MonoBehaviour
     {
         canMove = true;
     }
-    
+
     private void CheckSprint()
     {
-        if (_sprint.WasPressedThisFrame())
+        if (Mathf.Abs(_sprint.ReadValue<float>()) > 0f
+)
         {
             _isSprinting = true;
         }
-        else if(_sprint.WasReleasedThisFrame())
+        else
         {
             _isSprinting = false;
         }

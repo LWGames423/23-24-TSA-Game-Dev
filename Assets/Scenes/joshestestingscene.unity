@@ -585,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6766111665172185760, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_Name
-      value: PlayerManager
+      value: PlayerStatsManager
       objectReference: {fileID: 0}
     - target: {fileID: 7012896118562431006, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_IsActive
