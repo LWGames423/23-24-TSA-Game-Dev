@@ -43,6 +43,7 @@ public class RoomGeneration : MonoBehaviour
 
     private bool generating = true;
     private int recentEnd;
+    private int minibossGeneration = 0;
     #endregion
 
     /// I really hope that this comment is unnecessary, but this is called before the first update (when this script is loaded)
@@ -95,6 +96,7 @@ public class RoomGeneration : MonoBehaviour
                 if (path.Count == 0)
                 {
                     dungeon[recentEnd].roomType = "Boss";
+                    dungeon[recentEnd].roomSize = new Vector2Int(7, 7);
 
                     /// Break out of the loop once all rooms have been generated
                     break;                    
@@ -103,7 +105,19 @@ public class RoomGeneration : MonoBehaviour
                 {
                     if (generating)
                     {
-                        dungeon[currentRoom].roomType = "Miniboss";
+                        if (Random.Range(0, minibossGeneration) == 0)
+                        {
+                            dungeon[currentRoom].roomType = "Miniboss";
+                            dungeon[currentRoom].roomSize = new Vector2Int(5, 5);
+                            minibossGeneration++;
+                        }
+                        else
+                        {
+                            dungeon[currentRoom].roomType = "Treasure";
+                            dungeon[currentRoom].roomSize = new Vector2Int(3, 3);
+                            minibossGeneration = 0;
+                        }
+                            
                         recentEnd = currentRoom;
                     }
 

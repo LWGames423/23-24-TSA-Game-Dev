@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4809694239542855341}
   - component: {fileID: 3187519422216091927}
-  - component: {fileID: -4320070415908634909}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -57,16 +56,3 @@ MonoBehaviour:
   - {fileID: 7431247306648030262, guid: fe1d3682edf97864596e98e16fb80ba8, type: 3}
   roomGeneration: {fileID: 0}
   roomID: 0
-  halo: {fileID: 0}
---- !u!122 &-4320070415908634909
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8595453393177282064}
-  m_Enabled: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4278190335
-  m_Size: 5
