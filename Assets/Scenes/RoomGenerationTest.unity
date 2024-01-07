@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomObject: {fileID: 8595453393177282064, guid: 8b37256699913a34881b1bbac82d41c4, type: 3}
-  size: {x: 10, y: 10}
+  size: {x: 5, y: 5}
   startPos: 0
   offset: {x: 50, y: 50}
 --- !u!4 &1738850379

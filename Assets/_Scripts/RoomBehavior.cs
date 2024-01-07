@@ -12,10 +12,14 @@ public class RoomBehavior : MonoBehaviour
 
     public int roomID;
 
+    public Component halo;
+
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
         dungeon = roomGeneration.dungeon;
+
+        halo = GetComponent("Halo");
     }
 
     public void UpdateRoom(bool[] status, Vector2Int size, RoomGeneration.Room room)
@@ -152,6 +156,17 @@ public class RoomBehavior : MonoBehaviour
                 door.transform.parent = transform;
                 door.transform.position = new Vector2(transform.position.x + (size.x * -6.0f + 0.5f), transform.position.y + ((size.y + 1) * -6.0f + l * 12.0f));
             }
+        }
+
+        if (room.roomType != "Standard")
+        {
+            halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
+
+            Debug.Log(room.roomID.ToString() + " " + room.roomType);
+        }
+        else
+        {
+            halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
         }
     }
 }
