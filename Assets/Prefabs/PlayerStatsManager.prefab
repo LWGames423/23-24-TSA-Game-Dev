@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3729010272355363180}
   m_Layer: 0
-  m_Name: PlayerManager
+  m_Name: PlayerStatsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
