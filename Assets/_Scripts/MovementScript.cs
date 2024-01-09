@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class MovementScript : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class MovementScript : MonoBehaviour
 
 
 
-    public InputAction playerMovement;
-    public InputAction playerSide;
+    private PlayerInput _controls;
+    private InputAction _sprint;
 
     public float moveSpeed = 150f;
     public float maxSpeed = 8f;
@@ -28,16 +29,15 @@ public class MovementScript : MonoBehaviour
     private SpriteRenderer _sr;
     private Animator _anim;
 
+    public StaminaController stam;
+    public float maxStamina = 100f;
+    [FormerlySerializedAs("staminaSubtracter")] public float sprintStaminaSubtracter = 1f;
 
-    public bool _isSprinting = false;
+    private bool _isSprinting = false;
     public float sprintMultiplier = 1.5f;
 
-    bool _isSliding = false;
-    private bool _canSlide = false;
-    public float slideMultiplier = 1.2f;
-
     private Vector2 _slideDir;
-    private bool _isSliding;
+    private bool _isSliding = false;
     private bool _canSlide = true;
     private Vector2 _slideInput;
     private float _ctc;
@@ -59,15 +59,18 @@ public class MovementScript : MonoBehaviour
         _controls = GetComponent<PlayerInput>();
         _sprint = _controls.actions["Sprint"];
 
+        stam.maxStam = maxStamina;
+
     }
 
     private void FixedUpdate()
     {
         if (canMove && _input != Vector2.zero)
         {
-            if (_isSprinting)
+            if (_isSprinting && stam.currentStam > 0)
             {
                 _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier);
+                stam.LoseStamina(sprintStaminaSubtracter);
             }
             else
             {

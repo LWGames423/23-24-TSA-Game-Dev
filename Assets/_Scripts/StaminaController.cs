@@ -1,33 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 public class StaminaController : MonoBehaviour
 {
     public Image stamBar;
-    public float stamAmount = 100f;
+    [FormerlySerializedAs("stamAmount")] public float maxStam = 100f;
+    public float currentStam;
     public TMP_Text stamText;
-
-
-   private void Update()
+    
+    public float regenRate = 2f;
+    private float _elapsed;
+    public float regenDelay;
+    
+    private void Awake()
     {
-      
+        currentStam = maxStam;
+        _elapsed = 0f;
+        regenDelay = 1f;
+    }
 
-        if (Input.GetKeyDown(KeyCode.H))
+    private void Update()
+    {
+        RegenStamina();
+        stamText.text = "Stamina: " + Decimal.Round((decimal)currentStam, 0);
+    }
+
+    public void RegenStamina()
+    {
+        if (_elapsed > regenDelay)
         {
-            LoseStamina(20);
-        }
+            currentStam = Mathf.Min(currentStam + regenRate * Time.deltaTime, maxStam);
+        }    
+        _elapsed += Time.deltaTime;
 
-        stamText.text = "Stamina: " + stamAmount;
     }
     
-    public void LoseStamina(float Stamina)
+    public void LoseStamina(float stamina)
     {
-        stamAmount -= Stamina;
-        stamBar.fillAmount = stamAmount / 100;
-
+        _elapsed = 0f;
+        currentStam = Mathf.Max(currentStam - stamina, 0);
+        stamBar.fillAmount = currentStam / 100;
     }
 }
