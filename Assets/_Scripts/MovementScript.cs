@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -20,6 +21,7 @@ public class MovementScript : MonoBehaviour
 
     private PlayerInput _controls;
     private InputAction _sprint;
+    private InputAction _slide;
 
     public float moveSpeed = 150f;
     public float maxSpeed = 8f;
@@ -34,13 +36,16 @@ public class MovementScript : MonoBehaviour
     [FormerlySerializedAs("staminaSubtracter")] public float sprintStaminaSubtracter = 1f;
 
     private bool _isSprinting = false;
+    private bool _canSprint = true;
     public float sprintMultiplier = 1.5f;
 
     private Vector2 _slideDir;
-    private bool _isSliding = false;
+    public bool _isSliding = false;
     private bool _canSlide = true;
     private Vector2 _slideInput;
-    private float _ctc;
+    public float slideMultiplier = 4f;
+    public float slideTime = .5f;
+    public float slideCooldown = 1f;
 
     bool _isMoving = false;
     public bool canMove = true;
@@ -58,6 +63,7 @@ public class MovementScript : MonoBehaviour
         _rb.gravityScale = 0f;
         _controls = GetComponent<PlayerInput>();
         _sprint = _controls.actions["Sprint"];
+        _slide = _controls.actions["Slide"];
 
         stam.maxStam = maxStamina;
 
@@ -67,7 +73,7 @@ public class MovementScript : MonoBehaviour
     {
         if (canMove && _input != Vector2.zero)
         {
-            if (_isSprinting && stam.currentStam > 0)
+            if (_isSprinting)
             {
                 _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier);
                 stam.LoseStamina(sprintStaminaSubtracter);
@@ -93,7 +99,10 @@ public class MovementScript : MonoBehaviour
             _rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, idleFriction);
             IsMoving = false;
         }
+
+        checkStam();
         CheckSprint();
+        Slide();
     }
 
     void OnMove(InputValue value)
@@ -118,8 +127,7 @@ public class MovementScript : MonoBehaviour
 
     private void CheckSprint()
     {
-        if (Mathf.Abs(_sprint.ReadValue<float>()) > 0f
-)
+        if (Mathf.Abs(_sprint.ReadValue<float>()) > 0f && _canSprint)
         {
             _isSprinting = true;
         }
@@ -127,5 +135,46 @@ public class MovementScript : MonoBehaviour
         {
             _isSprinting = false;
         }
+    }
+
+    private void Slide()
+    {
+        if(Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _canSlide)
+        {
+            _isSliding = true;
+            _slideDir = new Vector2(_input.x, _input.y);
+            stam.LoseStamina(stam.maxStam / 10f);
+            StartCoroutine(StopSliding());
+        }
+
+        if (_isSliding)
+        {
+            _rb.velocity = _slideDir * slideMultiplier;
+            ResetSlide();
+        }
+    }
+    
+    private void ResetSlide()
+    {
+        _canSlide = false;
+        StartCoroutine(SlideCooldown());
+    }
+    
+    private IEnumerator StopSliding()
+    {
+        yield return new WaitForSeconds(slideTime);
+        _isSliding = false;
+    }
+    
+    private IEnumerator SlideCooldown()
+    {
+        yield return new WaitForSeconds(slideCooldown);
+        _canSlide = true;
+    }
+
+    private void checkStam()
+    {
+        _canSlide = stam.currentStam - (stam.maxStam / 10f) >= 0;
+        _canSprint = stam.currentStam - sprintStaminaSubtracter >= 0;
     }
 }
