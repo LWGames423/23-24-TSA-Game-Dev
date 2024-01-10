@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 
 public class MovementScript : MonoBehaviour
 {
+    // useful func
     private bool IsMoving
     {
         set
@@ -19,40 +20,50 @@ public class MovementScript : MonoBehaviour
 
 
 
+    #region Variables
+    [Header("Inputs")]
     private PlayerInput _controls;
     private InputAction _sprint;
     private InputAction _slide;
 
-    public float moveSpeed = 150f;
-    public float maxSpeed = 8f;
-    public float idleFriction = 0.9f; // % of speed deleted from velocity
+    [Header("Useful Setup")]
     private new Rigidbody2D _rb;
     private Vector2 _input = Vector2.zero;
     private SpriteRenderer _sr;
     private Animator _anim;
 
+    [Header("Stat Controllers")]
     public StaminaController stam;
     public float maxStamina = 100f;
     [FormerlySerializedAs("staminaSubtracter")] public float sprintStaminaSubtracter = 1f;
 
+    [Header("Movement")]
+    public float moveSpeed = 150f;
+    public float maxSpeed = 8f;
+    public float idleFriction = 0.9f; // % of speed deleted from velocity per Time.deltaTime
+    bool _isMoving = false;
+    public bool canMove = true;
+
+    [Header("Sprint")]
+    public float sprintMultiplier = 1.5f;
     private bool _isSprinting = false;
     private bool _canSprint = true;
-    public float sprintMultiplier = 1.5f;
 
-    private Vector2 _slideDir;
-    public bool _isSliding = false;
-    private bool _canSlide = true;
-    private bool _slideStam = false;
-    private Vector2 _slideInput;
+    [Header("Slide")]
     public float slideMultiplier = 10f;
     public float slideTime = .1f;
     public float slideCooldown = 1f;
+    private Vector2 _slideDir;
+    private bool _isSliding = false;
+    private bool _canSlide = true;
+    private bool _slideStam = false;
+    private Vector2 _slideInput;
 
-    bool _isMoving = false;
-    public bool canMove = true;
+    [Header("Animator Hashes")]
     private static readonly int Moving = Animator.StringToHash("isMoving");
     private static readonly int SwordAttack = Animator.StringToHash("swordAttack");
 
+    #endregion
 
 
     private void Awake()
