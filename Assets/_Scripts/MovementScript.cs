@@ -42,9 +42,10 @@ public class MovementScript : MonoBehaviour
     private Vector2 _slideDir;
     public bool _isSliding = false;
     private bool _canSlide = true;
+    private bool _slideStam = false;
     private Vector2 _slideInput;
-    public float slideMultiplier = 4f;
-    public float slideTime = .5f;
+    public float slideMultiplier = 10f;
+    public float slideTime = .1f;
     public float slideCooldown = 1f;
 
     bool _isMoving = false;
@@ -139,7 +140,7 @@ public class MovementScript : MonoBehaviour
 
     private void Slide()
     {
-        if(Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _canSlide)
+        if (Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _slideStam)
         {
             _isSliding = true;
             _slideDir = new Vector2(_input.x, _input.y);
@@ -149,23 +150,23 @@ public class MovementScript : MonoBehaviour
 
         if (_isSliding)
         {
-            _rb.velocity = _slideDir * slideMultiplier;
+            _rb.velocity = Vector2.ClampMagnitude(_slideDir * slideMultiplier, maxSpeed * slideMultiplier);
             ResetSlide();
         }
     }
-    
+
     private void ResetSlide()
     {
         _canSlide = false;
         StartCoroutine(SlideCooldown());
     }
-    
+
     private IEnumerator StopSliding()
     {
         yield return new WaitForSeconds(slideTime);
         _isSliding = false;
     }
-    
+
     private IEnumerator SlideCooldown()
     {
         yield return new WaitForSeconds(slideCooldown);
@@ -174,7 +175,7 @@ public class MovementScript : MonoBehaviour
 
     private void checkStam()
     {
-        _canSlide = stam.currentStam - (stam.maxStam / 10f) >= 0;
+        _slideStam = stam.currentStam - (stam.maxStam / 10f) >= 0;
         _canSprint = stam.currentStam - sprintStaminaSubtracter >= 0;
     }
 }

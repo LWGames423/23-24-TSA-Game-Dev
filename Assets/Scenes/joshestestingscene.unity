@@ -600,8 +600,20 @@ PrefabInstance:
       value: -0.00005007993
       objectReference: {fileID: 0}
     - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: stam
+      value: 
+      objectReference: {fileID: 2077179750}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: maxSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: slideTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: _isSliding
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: idleFriction
@@ -614,6 +626,10 @@ PrefabInstance:
     - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: movementSpeed.y
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: slideMultiplier
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7913729961964460643, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_Constraints
@@ -811,8 +827,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stamBar: {fileID: 721000501}
-  stamAmount: 100
+  maxStam: 100
+  currentStam: 0
   stamText: {fileID: 2116612743}
+  regenRate: 2
+  regenDelay: 0
 --- !u!114 &2116612743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2002372662873625528, guid: 2b4d4ce1de6542642a0ac33e335a1a13, type: 3}
