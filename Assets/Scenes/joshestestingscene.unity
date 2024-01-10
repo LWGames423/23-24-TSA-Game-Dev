@@ -631,6 +631,10 @@ PrefabInstance:
       propertyPath: slideMultiplier
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: sprintStaminaSubtracter
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7913729961964460643, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -830,7 +834,7 @@ MonoBehaviour:
   maxStam: 100
   currentStam: 0
   stamText: {fileID: 2116612743}
-  regenRate: 2
+  regenRate: 5
   regenDelay: 0
 --- !u!114 &2116612743 stripped
 MonoBehaviour:
@@ -854,6 +858,14 @@ PrefabInstance:
     - target: {fileID: 2314181625795962979, guid: 2b4d4ce1de6542642a0ac33e335a1a13, type: 3}
       propertyPath: m_Name
       value: HealthBar Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547676731071006379, guid: 2b4d4ce1de6542642a0ac33e335a1a13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547676731071006379, guid: 2b4d4ce1de6542642a0ac33e335a1a13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6212611913583137199, guid: 2b4d4ce1de6542642a0ac33e335a1a13, type: 3}
       propertyPath: m_Pivot.x

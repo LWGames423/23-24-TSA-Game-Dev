@@ -154,6 +154,7 @@ public class MovementScript : MonoBehaviour
         if (Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _slideStam)
         {
             _isSliding = true;
+            ResetSlide();
             _slideDir = new Vector2(_input.x, _input.y);
             stam.LoseStamina(stam.maxStam / 10f);
             StartCoroutine(StopSliding());
@@ -162,7 +163,6 @@ public class MovementScript : MonoBehaviour
         if (_isSliding)
         {
             _rb.velocity = Vector2.ClampMagnitude(_slideDir * slideMultiplier, maxSpeed * slideMultiplier);
-            ResetSlide();
         }
     }
 
