@@ -27,7 +27,7 @@ public class MovementScript : MonoBehaviour
     private InputAction _slide;
 
     [Header("Useful Setup")]
-    private new Rigidbody2D _rb;
+    private Rigidbody2D _rb;
     private Vector2 _input = Vector2.zero;
     private SpriteRenderer _sr;
     private Animator _anim;
