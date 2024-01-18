@@ -19,10 +19,23 @@ public class HealthBarControler : MonoBehaviour
    bool _isMortallyInjured = false;
    private static readonly int Flash = Animator.StringToHash("HeartFlashing");
    #endregion
+   
+   public int  healthInvAmount;
 
    void Start()
    {
-    
+    /*
+    if (InventoryMaster.instance != null)
+    {
+        healthInvAmount = InventoryMaster.instance.healthAmt;
+        Debug.Log("Initial healthInvAmount: " + healthInvAmount);
+    }
+    else
+    {
+        Debug.LogError("Inventory Master instance is null lmfao");
+    }
+
+    */
    }
 
     private bool isMortallyInjured
@@ -35,16 +48,39 @@ public class HealthBarControler : MonoBehaviour
     }
    private void Update()
     {
-       /* if (healthAmount <= 0)
-        {
-            Application.LoadLevel(Application.loadedLevel);
 
-        }
-*/
+        if (InventoryMaster.instance != null)
+    {
+        healthInvAmount = InventoryMaster.instance.healthAmt;
+        Debug.Log("Initial healthInvAmount: " + healthInvAmount);
+    }
+    else
+    {
+        Debug.LogError("Inventory Master instance is null lmfao");
+    }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             TakeDamage(20);
         }
+
+        
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+             Debug.Log("Key pressed");
+            if (healthInvAmount > 0)
+            {
+                HealDamage(20);
+                healthInvAmount--;
+                InventoryMaster.instance.DecreaseHealthAmt(1);
+                Debug.Log("Decreased healthInvAmount. New value: " + healthInvAmount);
+            }
+            
+            
+        }
+       
+        
 
         
 
@@ -68,12 +104,11 @@ public class HealthBarControler : MonoBehaviour
 
     }
 
-    /*public void HealingBlue(float healPoints)
+    public void HealDamage(float Heal)
     {
-        healthAmount += healPoints;
-        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
-
-        HBB.fillAmount = healthAmount / 100;
+        healthAmount += Heal;
+        HealthBar.fillAmount = healthAmount / 100;
     }
-*/
+
+    
 }
