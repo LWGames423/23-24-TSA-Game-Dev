@@ -73,6 +73,7 @@ public class MovementScript : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb.angularDrag = 0f;
         _rb.gravityScale = 0f;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         _controls = GetComponent<PlayerInput>();
         _sprint = _controls.actions["Sprint"];
         _slide = _controls.actions["Slide"];

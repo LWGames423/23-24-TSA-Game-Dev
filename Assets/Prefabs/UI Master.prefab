@@ -136,11 +136,11 @@ RectTransform:
   - {fileID: 7233878120572258631}
   m_Father: {fileID: 8292713366192340465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -722, y: -102.2}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 20, y: -40}
   m_SizeDelta: {x: 60, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1219146811600665104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -666,11 +666,11 @@ RectTransform:
   - {fileID: 1205361662320066134}
   m_Father: {fileID: 8292713366192340465}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -722, y: -20}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 20, y: 40}
   m_SizeDelta: {x: 60, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6605082121898729172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -832,6 +832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaInvText: {fileID: 8531980918965067891}
   healthInvText: {fileID: 6098568767959673661}
+  healthAmt: 0
+  manaAmt: 0
 --- !u!1 &8634551438890492317
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,14 +56,13 @@ public class HealthBarControler : MonoBehaviour
         }
 
         if (InventoryMaster.instance != null)
-    {
-        healthInvAmount = InventoryMaster.instance.healthAmt;
-        Debug.Log("Initial healthInvAmount: " + healthInvAmount);
-    }
-    else
-    {
-        Debug.LogError("Inventory Master instance is null lmfao");
-    }
+        {
+            healthInvAmount = InventoryMaster.instance.healthAmt;
+        }
+        else
+        {
+            Debug.LogError("Inventory Master instance is null lmfao");
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -76,17 +75,11 @@ public class HealthBarControler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-             Debug.Log("Key pressed");
             if (healthInvAmount > 0 && currentHealth < 100f)
             {
                 HealDamage(20);
                 healthInvAmount--;
                 InventoryMaster.instance.DecreaseHealthAmt(1);
-                Debug.Log("Decreased healthInvAmount. New value: " + healthInvAmount);
-            }
-            else
-            {
-                Debug.Log("You have no health pickups to consume!");
             }
             
             
@@ -108,9 +101,9 @@ public class HealthBarControler : MonoBehaviour
 
     
 
-    public void TakeDamage(float Damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= Damage;
+        currentHealth -= damage;
         HealthBar.fillAmount = currentHealth / 100;
         timeElapsed = Time.time;
     }
@@ -124,9 +117,9 @@ public class HealthBarControler : MonoBehaviour
         HealthBar.fillAmount = currentHealth / 100;
     }
 
-    public void HealDamage(float Heal)
+    public void HealDamage(float heal)
     {
-        currentHealth += Heal;
+        currentHealth += heal;
         HealthBar.fillAmount = currentHealth / 100;
     }
 
