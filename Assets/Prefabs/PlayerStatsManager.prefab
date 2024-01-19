@@ -47,10 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 0}
-  healthAmount: 100
+  maxHealth: 100
+  currentHealth: 0
   healthText: {fileID: 0}
   heartIcon: {fileID: 0}
   _anim: {fileID: 0}
+  regenRate: 5
+  regenDelay: 2
+  healthInvAmount: 0
 --- !u!114 &8906611356439796731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,14 +99,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3615578963308384743, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
       propertyPath: sprintStaminaSubtracter
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990429874264089809, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990429874264089809, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
-      propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4990429874264089809, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
