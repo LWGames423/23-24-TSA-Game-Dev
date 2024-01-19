@@ -79,7 +79,7 @@ public class MovementScript : MonoBehaviour
 
     [Header("Animator Hashes")]
     private static readonly int Moving = Animator.StringToHash("isMoving");
-    private static readonly int Sprinting = Animator.StringToHash("isSprinting");
+    private static readonly int Sprinting = Animator.StringToHash("isRunning");
     private static readonly int Sliding = Animator.StringToHash("isSliding");
     private static readonly int SwordAttack = Animator.StringToHash("swordAttack");
     #endregion
