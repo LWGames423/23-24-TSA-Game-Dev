@@ -638,9 +638,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 225854846}
     - target: {fileID: 1754761674772775844, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: regenRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754761674772775844, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 110590231}
+    - target: {fileID: 1754761674772775844, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: regenDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1754761674772775844, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: inventoryMaster
       value: 

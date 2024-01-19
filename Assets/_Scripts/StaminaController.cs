@@ -17,6 +17,7 @@ public class StaminaController : MonoBehaviour
     public float regenRate = 2f;
     private float _elapsed;
     public float regenDelay;
+    
 
     private void Awake()
     {

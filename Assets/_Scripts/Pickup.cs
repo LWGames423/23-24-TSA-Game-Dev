@@ -5,14 +5,13 @@ using UnityEngine.UIElements;
 
 public class Pickup : MonoBehaviour
 {
-    
 
     private Inventory inventory;
     public GameObject itemButton;
     // Start is called before the first frame update
    private void Start()
    {
-    
+    inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>(); 
    }
 
    void OnTriggerEnter2D(Collider2D other)
