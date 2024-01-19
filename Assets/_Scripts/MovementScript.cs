@@ -18,6 +18,24 @@ public class MovementScript : MonoBehaviour
         }
     }
 
+    private bool IsSprinting
+    {
+        set
+        {
+            _isSprinting = value;
+            _anim.SetBool(Sprinting, _isSprinting);
+        }
+    }
+    
+    private bool IsSliding
+    {
+        set
+        {
+            _isSliding = value;
+            _anim.SetBool(Sliding, _isSliding);
+        }
+    }
+
 
 
     #region Variables
@@ -61,8 +79,9 @@ public class MovementScript : MonoBehaviour
 
     [Header("Animator Hashes")]
     private static readonly int Moving = Animator.StringToHash("isMoving");
+    private static readonly int Sprinting = Animator.StringToHash("isRunning");
+    private static readonly int Sliding = Animator.StringToHash("isSliding");
     private static readonly int SwordAttack = Animator.StringToHash("swordAttack");
-
     #endregion
 
 
@@ -142,11 +161,11 @@ public class MovementScript : MonoBehaviour
     {
         if (Mathf.Abs(_sprint.ReadValue<float>()) > 0f && _canSprint)
         {
-            _isSprinting = true;
+            IsSprinting = true;
         }
         else
         {
-            _isSprinting = false;
+            IsSprinting = false;
         }
     }
 
@@ -154,7 +173,7 @@ public class MovementScript : MonoBehaviour
     {
         if (Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _slideStam)
         {
-            _isSliding = true;
+            IsSliding = true;
             ResetSlide();
             _slideDir = new Vector2(_input.x, _input.y);
             stam.LoseStamina(stam.maxStam / 10f);
@@ -176,7 +195,7 @@ public class MovementScript : MonoBehaviour
     private IEnumerator StopSliding()
     {
         yield return new WaitForSeconds(slideTime);
-        _isSliding = false;
+        IsSliding = false;
     }
 
     private IEnumerator SlideCooldown()
