@@ -50,6 +50,8 @@ public class HealthBarControler : MonoBehaviour
    private void Update()
     {
 
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
         if (Time.time - timeElapsed > regenDelay)
         {
             RegenHealth();
