@@ -508,10 +508,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.52, y: 6.6}
+    newSize: {x: 7.52, y: 6.6}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -530,7 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f3558d4658e4a3ab2ff504f1def356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  dmgAmt: 20
+  dmgCooldown: 3
 --- !u!114 &926656278 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8531980918965067891, guid: cb876faae86c94924b89142d5756d47f, type: 3}
@@ -683,6 +684,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 392358697168615462, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1953189211, guid: b8f2f8160d7e7d240a30066960e77cb3, type: 3}
+    - target: {fileID: 392358697168615462, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_Color.a
       value: 0.30980393
       objectReference: {fileID: 0}
@@ -813,6 +818,14 @@ PrefabInstance:
     - target: {fileID: 6766111665172185760, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_TagString
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: maxStamina
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281286777232569150, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: sprintMultiplier
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 8906611356439796731, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: stamBar
