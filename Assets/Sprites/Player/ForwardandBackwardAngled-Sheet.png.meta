@@ -126,10 +126,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 48
-        width: 64
-        height: 64
+        x: 51
+        y: 441
+        width: 23
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_1
       rect:
         serializedVersion: 2
-        x: 158
-        y: 48
-        width: 64
-        height: 64
+        x: 178
+        y: 439
+        width: 23
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_2
       rect:
         serializedVersion: 2
-        x: 286
-        y: 48
-        width: 64
-        height: 64
+        x: 306
+        y: 440
+        width: 23
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_3
       rect:
         serializedVersion: 2
-        x: 414
-        y: 48
-        width: 64
-        height: 64
+        x: 433
+        y: 437
+        width: 23
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_4
       rect:
         serializedVersion: 2
-        x: 542
-        y: 48
-        width: 64
-        height: 64
+        x: 561
+        y: 438
+        width: 23
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_5
       rect:
         serializedVersion: 2
-        x: 670
-        y: 48
-        width: 64
-        height: 64
+        x: 690
+        y: 438
+        width: 23
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_6
       rect:
         serializedVersion: 2
-        x: 798
-        y: 48
-        width: 64
-        height: 64
+        x: 819
+        y: 440
+        width: 23
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_7
       rect:
         serializedVersion: 2
-        x: 926
-        y: 48
-        width: 64
-        height: 64
+        x: 946
+        y: 443
+        width: 23
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1054
-        y: 48
-        width: 64
-        height: 64
+        x: 1073
+        y: 444
+        width: 23
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1182
-        y: 48
-        width: 64
-        height: 64
+        x: 1200
+        y: 442
+        width: 23
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: ForwardandBackwardAngled-Sheet_10
       rect:
         serializedVersion: 2
-        x: 1310
-        y: 48
-        width: 64
-        height: 64
+        x: 54
+        y: 317
+        width: 22
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,6 +349,615 @@ TextureImporter:
       bones: []
       spriteID: 4df5bef706b78cb44ba3fb7b8ae44d83
       internalID: -1426841144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 316
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe77290f6964a546b0996b2abcfb84b
+      internalID: -1036074913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 316
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5438fe0da17dd46b51019cdf533806
+      internalID: 1299629772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 315
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048686bdd75401f48a8f3942407a73f2
+      internalID: -1381121799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 317
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3e1180adfcfce4aa74e01ba431fc54
+      internalID: -1945641348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 318
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e97a9d66f7e0c4cb90c9aa42653757
+      internalID: -718451870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 318
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4359d3a5c6e5f754c83af2deba8cf235
+      internalID: -1928722177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 318
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65ccde658c27bb419ee65299335ef45
+      internalID: -640426864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 318
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c2628223c83e94d960e6ba079c42c3
+      internalID: -1414042022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 317
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128be3a9d7da5c2458412be279579d7f
+      internalID: -1642448762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 185
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ee10d323a7860439e8ac4bd6759501
+      internalID: -2046772583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 183
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b73216d171679c4d90a1bb8c6abfb6b
+      internalID: 45255484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 184
+        width: 22
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954f2e2cb4f5cb749a0151da087a2e89
+      internalID: 1461982163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 181
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a103a5d9073c74f8791378cd2ecd82
+      internalID: -1465491678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 182
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e185882e9d9ef404989c6cf186d5669a
+      internalID: 1145403514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 182
+        width: 22
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7260fcb200d148d4bb6e7dc9581d9299
+      internalID: 787585201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 184
+        width: 23
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0c7047ff186d6449403e53609b938a
+      internalID: 1241269519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 187
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b36532a307eeaa4b83de1e9ec25636f
+      internalID: 1859152323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 188
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145c281c0bc3fe745a37a22d77444a59
+      internalID: -483281605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 186
+        width: 23
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d90cb398f2ba14baefaad12b0f8530
+      internalID: 696922184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 61
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aecbc8f50390d94c842d35f0427bf72
+      internalID: -340598839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 60
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddd35e670deec64e914c6f77ff80e48
+      internalID: -324751701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 60
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b640e3ec268823e4f818b434c6b8030f
+      internalID: 540029826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 59
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016dd0ec58632ab4d882b22c60efeaac
+      internalID: -213679190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 61
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92805eedbdc30104e99109396367b83a
+      internalID: 9331070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 62
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9b268ab027dac409771471a2ba5988
+      internalID: -1169973801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 62
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1a589806a49d743a4ad9d1b10e2aa6
+      internalID: 1535828075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 62
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3262261e4037cd24e98adfbb941f0e83
+      internalID: 1599184108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 62
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388bee145ad1ac94ca823da8e834a5d4
+      internalID: 1327476016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForwardandBackwardAngled-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 61
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a683852784cf0824db45c421e103f0f6
+      internalID: 1655060365
       vertices: []
       indices: 
       edges: []
@@ -367,8 +976,37 @@ TextureImporter:
       ForwardandBackwardAngled-Sheet_0: -954120347
       ForwardandBackwardAngled-Sheet_1: -881540998
       ForwardandBackwardAngled-Sheet_10: -1426841144
+      ForwardandBackwardAngled-Sheet_11: -1036074913
+      ForwardandBackwardAngled-Sheet_12: 1299629772
+      ForwardandBackwardAngled-Sheet_13: -1381121799
+      ForwardandBackwardAngled-Sheet_14: -1945641348
+      ForwardandBackwardAngled-Sheet_15: -718451870
+      ForwardandBackwardAngled-Sheet_16: -1928722177
+      ForwardandBackwardAngled-Sheet_17: -640426864
+      ForwardandBackwardAngled-Sheet_18: -1414042022
+      ForwardandBackwardAngled-Sheet_19: -1642448762
       ForwardandBackwardAngled-Sheet_2: 95937059
+      ForwardandBackwardAngled-Sheet_20: -2046772583
+      ForwardandBackwardAngled-Sheet_21: 45255484
+      ForwardandBackwardAngled-Sheet_22: 1461982163
+      ForwardandBackwardAngled-Sheet_23: -1465491678
+      ForwardandBackwardAngled-Sheet_24: 1145403514
+      ForwardandBackwardAngled-Sheet_25: 787585201
+      ForwardandBackwardAngled-Sheet_26: 1241269519
+      ForwardandBackwardAngled-Sheet_27: 1859152323
+      ForwardandBackwardAngled-Sheet_28: -483281605
+      ForwardandBackwardAngled-Sheet_29: 696922184
       ForwardandBackwardAngled-Sheet_3: -304931209
+      ForwardandBackwardAngled-Sheet_30: -340598839
+      ForwardandBackwardAngled-Sheet_31: -324751701
+      ForwardandBackwardAngled-Sheet_32: 540029826
+      ForwardandBackwardAngled-Sheet_33: -213679190
+      ForwardandBackwardAngled-Sheet_34: 9331070
+      ForwardandBackwardAngled-Sheet_35: -1169973801
+      ForwardandBackwardAngled-Sheet_36: 1535828075
+      ForwardandBackwardAngled-Sheet_37: 1599184108
+      ForwardandBackwardAngled-Sheet_38: 1327476016
+      ForwardandBackwardAngled-Sheet_39: 1655060365
       ForwardandBackwardAngled-Sheet_4: -668771864
       ForwardandBackwardAngled-Sheet_5: 1916533964
       ForwardandBackwardAngled-Sheet_6: -1368410780
