@@ -5,7 +5,8 @@ using UnityEngine;
 public class Aiming : MonoBehaviour
 {
     private Transform aimTransform;
-    public GameObject arrow;
+    public Transform waveStartPos;
+    public GameObject arrow, wave;
     public PlayerCombat playerCombat;
     public static Vector3 GetMouseWorldPosition(){
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
@@ -43,15 +44,20 @@ public class Aiming : MonoBehaviour
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
         aimTransform.rotation = Quaternion.Euler(0,0,angle);
 
-        if(Input.GetMouseButton(0)){
+        if(Input.GetMouseButtonDown(0)){
             if(playerCombat.isBow == true){
                 aimTransform.GetComponent<Animator>().SetTrigger("Shoot");
             }   
-
+            if(playerCombat.isStaff == true){
+                aimTransform.GetComponent<Animator>().SetTrigger("Swipe");
+            }   
         }
     }
 
     public void spawnArrow(){
         Instantiate(arrow, aimTransform.position, Quaternion.identity);
+    }
+    public void spawnWave(){
+        Instantiate(wave, waveStartPos.position, Quaternion.identity);
     }
 }

@@ -5,18 +5,15 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator swordAnimator, bowAnimator, staffAnimator;
-    public bool isSword, isBow, isStaff, canStab;
+    public bool isSword, isBow, isStaff;
 
     void OnFire()
     {
         if(isSword){
             swordAnimator.SetTrigger("Swipe");
         }
-        if(isBow){
-
-        }
         if(isStaff){
-
+            staffAnimator.SetTrigger("Swipe");
         }
     
     }
@@ -26,11 +23,8 @@ public class PlayerCombat : MonoBehaviour
             if(isSword){
                 swordAnimator.SetTrigger("Stab");
             }
-            if(isBow){
-
-            }
             if(isStaff){
-
+                staffAnimator.SetTrigger("Beam");
             }
         }
     }

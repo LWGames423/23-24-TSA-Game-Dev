@@ -29,7 +29,6 @@ public class ArrowScript : MonoBehaviour
         EnemyHealthBar enemy = hitInfo.gameObject.GetComponentInChildren<EnemyHealthBar>();
         if(hitInfo.gameObject.CompareTag("Enemy")){
             
-            Debug.Log("hey y'all vsauce here");
             enemy.Change(-attackDamage);
             Destroy(gameObject);
         }
