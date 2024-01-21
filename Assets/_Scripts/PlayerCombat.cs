@@ -4,34 +4,21 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator swordAnimator;
+    public Animator swordAnimator, bowAnimator, staffAnimator;
+    public bool isSword, isBow, isStaff;
 
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
-    public int attackDamage;
-    float nextAttackTime = 0f;
-    bool canAttack = true;
     void OnFire()
     {
-        if(canAttack == true){
+        if(isSword){
             swordAnimator.SetTrigger("Swipe");
-
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-            foreach(Collider2D enemy in hitEnemies){
-                enemy.GetComponentInChildren<EnemyHealthBar>().Change(-attackDamage);
-            } 
-            StartCoroutine(AttackCorountine(0.25f));
         }
+        if(isBow){
+
+        }
+        if(isStaff){
+
+        }
+    
     }
 
-    IEnumerator AttackCorountine(float seconds)
-    {
-        canAttack = false;
-
-        yield return new WaitForSeconds(seconds);
-
-        canAttack = true;
-    }
 }
