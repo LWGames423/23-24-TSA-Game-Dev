@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator swordAnimator, bowAnimator, staffAnimator;
-    public bool isSword, isBow, isStaff;
+    public bool isSword, isBow, isStaff, canStab;
 
     void OnFire()
     {
@@ -20,5 +20,20 @@ public class PlayerCombat : MonoBehaviour
         }
     
     }
+
+    void Update(){
+        if(Input.GetMouseButtonDown(1)){
+            if(isSword){
+                swordAnimator.SetTrigger("Stab");
+            }
+            if(isBow){
+
+            }
+            if(isStaff){
+
+            }
+        }
+    }
+
 
 }

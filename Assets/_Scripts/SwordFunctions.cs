@@ -16,4 +16,11 @@ public class SwordFunctions : MonoBehaviour
             enemy.GetComponentInChildren<EnemyHealthBar>().Change(-attackDamage);
         } 
     }
+    void Stab(){
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange/2, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies){
+            enemy.GetComponentInChildren<EnemyHealthBar>().Change(-(attackDamage+5));
+        } 
+    }
 }
