@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RoomBehavior : MonoBehaviour
 {
     public GameObject[] walls;
     public GameObject[] doors;
+    public GameObject floor;
 
     public RoomGeneration roomGeneration;
     public List<RoomGeneration.Room> dungeon;
@@ -22,24 +24,41 @@ public class RoomBehavior : MonoBehaviour
     {
         roomID = room.roomID;
 
+        for (int horizontal = 0; horizontal < size.x; horizontal++)
+        {
+            for (int vertical = 0; vertical < size.y; vertical++)
+            {
+                GameObject generatedFloor = Instantiate(floor, transform.position, Quaternion.identity, transform);
+
+                generatedFloor.transform.parent = transform;
+                generatedFloor.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - vertical * 4.0f - horizontal * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * vertical + 2.0f * horizontal));
+            }
+        }
+
         int doorUp = Random.Range(1, size.x + 1);
         for (int i = 1; i < size.x + 1; i++)
         {
             GameObject wall = Instantiate(walls[0], transform.position, Quaternion.identity, transform);
             wall.transform.parent = transform;
-            wall.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + i * 12.0f), transform.position.y + (size.y * 6.0f - 0.5f));
+            wall.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (i - 1) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (i - 1)));
 
             if (status[0])
             {
                 GameObject door = Instantiate(doors[0], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + i * 12.0f), transform.position.y + (size.y * 6.0f - 0.5f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (i - 1) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (i - 1)));
 
                 if (doorUp == i)
                 {
-                    door.GetComponent<SpriteRenderer>().enabled = false;
-                    door.GetComponent<BoxCollider2D>().offset = new Vector2(0.0f, 1.1f);
-                    door.GetComponent<BoxCollider2D>().isTrigger = true;
+                    door.GetComponent<TilemapRenderer>().enabled = false;
+                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(0.5f, 0.25f);
+                    door.GetComponent<TilemapCollider2D>().isTrigger = true;
 
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID - (int)roomGeneration.size.x;
                     door.GetComponent<TeleportPlayer>().oppositeDoor = 1;
@@ -51,7 +70,9 @@ public class RoomBehavior : MonoBehaviour
             {
                 GameObject door = Instantiate(doors[0], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + i * 12.0f), transform.position.y + (size.y * 6.0f - 0.5f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (i - 1) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (i - 1)));
             }
         }
 
@@ -60,19 +81,23 @@ public class RoomBehavior : MonoBehaviour
         {
             GameObject wall = Instantiate(walls[1], transform.position, Quaternion.identity, transform);
             wall.transform.parent = transform;
-            wall.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + j * 12.0f), transform.position.y + (size.y * -6.0f + 0.5f));
+            wall.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (j - 1) * 4.0f - (size.y - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (j - 1) - 2.0f * (size.y - 1.0f)));
 
             if (status[1])
             {
                 GameObject door = Instantiate(doors[1], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + j * 12.0f), transform.position.y + (size.y * -6.0f + 0.5f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (j - 1) * 4.0f - (size.y - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (j - 1) - 2.0f * (size.y - 1.0f)));
 
                 if (doorDown == j)
                 {
-                    door.GetComponent<SpriteRenderer>().enabled = false;
-                    door.GetComponent<BoxCollider2D>().offset = new Vector2(0.0f, -1.1f);
-                    door.GetComponent<BoxCollider2D>().isTrigger = true;
+                    door.GetComponent<TilemapRenderer>().enabled = false;
+                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(-0.5f, -0.25f);
+                    door.GetComponent<TilemapCollider2D>().isTrigger = true;
 
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID + (int)roomGeneration.size.x;
                     door.GetComponent<TeleportPlayer>().oppositeDoor = 0;
@@ -84,7 +109,9 @@ public class RoomBehavior : MonoBehaviour
             {
                 GameObject door = Instantiate(doors[1], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + ((size.x + 1) * -6.0f + j * 12.0f), transform.position.y + (size.y * -6.0f + 0.5f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (j - 1) * 4.0f - (size.y - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f + 2.0f * (j - 1) - 2.0f * (size.y - 1.0f)));
             }
         }
 
@@ -93,19 +120,23 @@ public class RoomBehavior : MonoBehaviour
         {
             GameObject wall = Instantiate(walls[2], transform.position, Quaternion.identity, transform);
             wall.transform.parent = transform;
-            wall.transform.position = new Vector2(transform.position.x + (size.x * 6.0f - 0.5f), transform.position.y + ((size.y + 1) * -6.0f + k * 12.0f));
+            wall.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (k - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (k - 1.0f)));
 
             if (status[2])
             {
                 GameObject door = Instantiate(doors[2], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + (size.x * 6.0f - 0.5f), transform.position.y + ((size.y + 1) * -6.0f + k * 12.0f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (k - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (k - 1.0f)));
 
                 if (doorRight == k)
                 {
-                    door.GetComponent<SpriteRenderer>().enabled = false;
-                    door.GetComponent<BoxCollider2D>().offset = new Vector2(1.1f, 0.0f);
-                    door.GetComponent<BoxCollider2D>().isTrigger = true;
+                    door.GetComponent<TilemapRenderer>().enabled = false;
+                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(0.5f, -0.25f);
+                    door.GetComponent<TilemapCollider2D>().isTrigger = true;
 
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID + 1;
                     door.GetComponent<TeleportPlayer>().oppositeDoor = 3;
@@ -117,7 +148,9 @@ public class RoomBehavior : MonoBehaviour
             {
                 GameObject door = Instantiate(doors[2], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + (size.x * 6.0f - 0.5f), transform.position.y + ((size.y + 1) * -6.0f + k * 12.0f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (k - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (k - 1.0f)));
             }
         }
 
@@ -126,19 +159,23 @@ public class RoomBehavior : MonoBehaviour
         {
             GameObject wall = Instantiate(walls[3], transform.position, Quaternion.identity, transform);
             wall.transform.parent = transform;
-            wall.transform.position = new Vector2(transform.position.x + (size.x * -6.0f + 0.5f), transform.position.y + ((size.y + 1) * -6.0f + l * 12.0f));
+            wall.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (l - 1) * 4.0f - (size.x - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (l - 1) + 2.0f * (size.x - 1.0f)));
 
             if (status[3])
             {
                 GameObject door = Instantiate(doors[3], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + (size.x * -6.0f + 0.5f), transform.position.y + ((size.y + 1) * -6.0f + l * 12.0f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (l - 1) * 4.0f - (size.x - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (l - 1) + 2.0f * (size.x - 1.0f)));
 
                 if (doorLeft == l)
                 {
-                    door.GetComponent<SpriteRenderer>().enabled = false;
-                    door.GetComponent<BoxCollider2D>().offset = new Vector2(-1.1f, 0.0f);
-                    door.GetComponent<BoxCollider2D>().isTrigger = true;
+                    door.GetComponent<TilemapRenderer>().enabled = false;
+                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(-0.5f, -0.25f);
+                    door.GetComponent<TilemapCollider2D>().isTrigger = true;
 
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID - 1;
                     door.GetComponent<TeleportPlayer>().oppositeDoor = 2;
@@ -150,7 +187,9 @@ public class RoomBehavior : MonoBehaviour
             {
                 GameObject door = Instantiate(doors[3], transform.position, Quaternion.identity, transform);
                 door.transform.parent = transform;
-                door.transform.position = new Vector2(transform.position.x + (size.x * -6.0f + 0.5f), transform.position.y + ((size.y + 1) * -6.0f + l * 12.0f));
+                door.transform.position = new Vector2(
+                    transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (l - 1) * 4.0f - (size.x - 1.0f) * 4.0f),
+                    transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (l - 1) + 2.0f * (size.x - 1.0f)));
             }
         }
 
