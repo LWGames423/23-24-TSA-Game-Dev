@@ -386,6 +386,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8810486831535580627, guid: cb876faae86c94924b89142d5756d47f, type: 3}
   m_PrefabInstance: {fileID: 8682624060474612470}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &290345862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3918289258906176264, guid: cb876faae86c94924b89142d5756d47f, type: 3}
+  m_PrefabInstance: {fileID: 8682624060474612470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506687585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2444137254941872395, guid: 09bfa7f7ffd474a938438b74ac601e79, type: 3}
@@ -493,6 +504,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &656049070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5561406227704922661, guid: cb876faae86c94924b89142d5756d47f, type: 3}
+  m_PrefabInstance: {fileID: 8682624060474612470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701486003
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +580,7 @@ Transform:
   m_GameObject: {fileID: 701486003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0, z: -10}
+  m_LocalPosition: {x: -0.00000071525574, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -735,6 +757,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1984548997068903476, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 656049070}
+    - target: {fileID: -1984548997068903476, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: manaText
+      value: 
+      objectReference: {fileID: 290345862}
     - target: {fileID: 392358697168615462, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1052,7 +1082,7 @@ Transform:
   m_GameObject: {fileID: 1834086894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0, z: -10}
+  m_LocalPosition: {x: -0.00000071525574, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1112,7 +1142,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2362497912923508680, guid: f44088a71ddb8414f9054fc91f332668, type: 3}
       propertyPath: m_Name
-      value: A_
+      value: AStar
       objectReference: {fileID: 0}
     - target: {fileID: 5848818386239706176, guid: f44088a71ddb8414f9054fc91f332668, type: 3}
       propertyPath: m_LocalPosition.x
