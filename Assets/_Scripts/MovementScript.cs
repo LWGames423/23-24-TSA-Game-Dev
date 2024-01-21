@@ -78,8 +78,6 @@ public class MovementScript : MonoBehaviour
     private Vector2 _slideInput;
 
     [Header("Animator Hashes")]
-
-    public Animator swordAnimator;
     private static readonly int Moving = Animator.StringToHash("isMoving");
     private static readonly int Sprinting = Animator.StringToHash("isRunning");
     private static readonly int Sliding = Animator.StringToHash("isSliding");
@@ -142,12 +140,6 @@ public class MovementScript : MonoBehaviour
     void OnMove(InputValue value)
     {
         _input = value.Get<Vector2>();
-    }
-
-    void OnFire()
-    {
-        //change this so it depends on class type
-        swordAnimator.SetTrigger("Swipe");
     }
 
     void LockMovement()
