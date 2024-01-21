@@ -29,7 +29,7 @@ public class Aiming : MonoBehaviour
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         Vector3 aimDirection = (mousePosition-transform.position).normalized;
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 45;
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
         aimTransform.eulerAngles = new Vector3(0,0,angle);
         if(Input.GetKey(KeyCode.B)){
             bowRenderer.enabled = true;
