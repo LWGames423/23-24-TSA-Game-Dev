@@ -22,10 +22,6 @@ public class Aiming : MonoBehaviour
     void Awake()
     {
         aimTransform = transform.Find("ArrowCursor");
-        Vector3 mousePosition = GetMouseWorldPosition();
-        Vector3 aimDirection = (mousePosition-transform.position).normalized;
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        aimTransform.eulerAngles = new Vector3(0,0,angle);
     }
 
     // Update is called once per frame
@@ -33,7 +29,7 @@ public class Aiming : MonoBehaviour
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         Vector3 aimDirection = (mousePosition-transform.position).normalized;
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 45;
         aimTransform.eulerAngles = new Vector3(0,0,angle);
         if(Input.GetKey(KeyCode.B)){
             bowRenderer.enabled = true;
