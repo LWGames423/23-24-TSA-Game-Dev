@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
+
+    #region
     [field: SerializeField]
     public int maxHealth {get; private set;}
     [field: SerializeField]
@@ -24,10 +26,49 @@ public class EnemyHealthBar : MonoBehaviour
     public float animationSpeed = 10f;
 
     private Coroutine adjustBarWidthWidthCoroutine;
+    #endregion
 
-    private void Start()
+    #region 
+    public Animator animator;
+    bool isDead = false;
+
+    private static readonly int Dying = Animator.StringToHash("isDead");
+
+   
+    #endregion
+    
+
+    void Start()
     {
         fullWidth = topBar.rect.width;
+
+    }
+
+    public void PlayDeathAnimation()
+    {
+        animator.SetBool("isDead", true);
+
+        //GetComponent<AIPath (2D, 3D)>().SetBool(canMove, false);
+        float animationDuration = GetAnimationDuration("Death");
+        Invoke("DestroyGameObject", animationDuration);
+    }
+
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
+
+    float GetAnimationDuration(string Death)
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name.Equals(Death))
+            {
+                return clip.length;
+            }
+        }
+        return 0f;
     }
     public void Change(int amount)
     {
@@ -43,15 +84,12 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Health <= 0)
         {
-            Change(20);
+            PlayDeathAnimation();
         }
 
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            Change(-20);
-        }
+
     }
 
     private IEnumerator AdjustBarWidth(int amount)
@@ -69,4 +107,7 @@ public class EnemyHealthBar : MonoBehaviour
 
         slowChangeBar.SetWidth(targetWidth);
     }
+
+   
+    
 }
