@@ -50,7 +50,7 @@ MonoBehaviour:
   waveStartPos: {fileID: 0}
   arrow: {fileID: 4199224558238166843, guid: 185d4f71c2d4d8c4ba84c5f8de86c344, type: 3}
   wave: {fileID: 0}
-  playerCombat: {fileID: 9099037240071775475}
+  playerCombat: {fileID: 0}
 --- !u!1 &2348757186561989394
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +477,6 @@ GameObject:
   - component: {fileID: 4990429874264089809}
   - component: {fileID: 6557541456286088835}
   - component: {fileID: 3615578963308384743}
-  - component: {fileID: 9099037240071775475}
   - component: {fileID: 9085821910855940975}
   - component: {fileID: 4118771390692433379}
   - component: {fileID: 8893547982933864517}
@@ -572,24 +571,6 @@ MonoBehaviour:
   slideMultiplier: 10
   slideTime: 0.1
   slideCooldown: 1
---- !u!114 &9099037240071775475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019966049744290082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 057db81e090742644a657424a59304c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordAnimator: {fileID: 3382228911869502771}
-  bowAnimator: {fileID: 0}
-  staffAnimator: {fileID: 0}
-  isSword: 0
-  isBow: 0
-  isStaff: 0
 --- !u!114 &9085821910855940975
 MonoBehaviour:
   m_ObjectHideFlags: 0
