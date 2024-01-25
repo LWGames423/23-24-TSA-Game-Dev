@@ -27,6 +27,7 @@ public class MovementScript : MonoBehaviour
         }
     }
     
+    
     private bool IsSliding
     {
         set
@@ -51,9 +52,9 @@ public class MovementScript : MonoBehaviour
     private Animator _anim;
 
     [Header("Stat Controllers")]
-    public StaminaController stam;
-    public float maxStamina = 100f;
-    [FormerlySerializedAs("staminaSubtracter")] public float sprintStaminaSubtracter = 1f;
+    //public StaminaController stam;
+    //public float maxStamina = 100f;
+    //[FormerlySerializedAs("staminaSubtracter")] public float sprintStaminaSubtracter = 1f;
 
     [Header("Movement")]
     public float moveSpeed = 150f;
@@ -74,7 +75,7 @@ public class MovementScript : MonoBehaviour
     private Vector2 _slideDir;
     private bool _isSliding = false;
     private bool _canSlide = true;
-    private bool _slideStam = false;
+    //private bool _slideStam = false;
     private Vector2 _slideInput;
 
     [Header("Animator Hashes")]
@@ -97,7 +98,7 @@ public class MovementScript : MonoBehaviour
         _sprint = _controls.actions["Sprint"];
         _slide = _controls.actions["Slide"];
 
-        stam.maxStam = maxStamina;
+        //stam.maxStam = maxStamina;
 
     }
 
@@ -108,7 +109,7 @@ public class MovementScript : MonoBehaviour
             if (_isSprinting)
             {
                 _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier);
-                stam.LoseStamina(sprintStaminaSubtracter);
+                //stam.LoseStamina(sprintStaminaSubtracter);
             }
             else
             {
@@ -132,7 +133,7 @@ public class MovementScript : MonoBehaviour
             IsMoving = false;
         }
 
-        checkStam();
+        //checkStam();
         CheckSprint();
         Slide();
     }
@@ -166,12 +167,12 @@ public class MovementScript : MonoBehaviour
 
     private void Slide()
     {
-        if (Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide && _slideStam)
+        if (Mathf.Abs(_slide.ReadValue<float>()) > 0f && _canSlide)
         {
             IsSliding = true;
             ResetSlide();
             _slideDir = new Vector2(_input.x, _input.y);
-            stam.LoseStamina(stam.maxStam / 10f);
+            //stam.LoseStamina(stam.maxStam / 10f);
             StartCoroutine(StopSliding());
         }
 
@@ -198,10 +199,11 @@ public class MovementScript : MonoBehaviour
         yield return new WaitForSeconds(slideCooldown);
         _canSlide = true;
     }
-
+/*
     private void checkStam()
     {
         _slideStam = stam.currentStam - (stam.maxStam / 10f) >= 0;
         _canSprint = stam.currentStam - sprintStaminaSubtracter >= 0;
     }
+    */
 }

@@ -9,12 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3729010272355363180}
-  - component: {fileID: 1754761674772775844}
-  - component: {fileID: 8906611356439796731}
-  - component: {fileID: -1984548997068903476}
   m_Layer: 0
   m_Name: PlayerStatsManager
-  m_TagString: Untagged
+  m_TagString: PlayerManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,63 +32,6 @@ Transform:
   - {fileID: 1324304376804607496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1754761674772775844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766111665172185760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d04189b82fc04b94b47a9c4db393823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthBar: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 0
-  healthText: {fileID: 0}
-  heartIcon: {fileID: 0}
-  _anim: {fileID: 0}
-  regenRate: 5
-  regenDelay: 2
-  healthInvAmount: 0
---- !u!114 &8906611356439796731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766111665172185760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9863f6490cc3462c881bd453756740d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stamBar: {fileID: 0}
-  maxStam: 100
-  currentStam: 0
-  stamText: {fileID: 0}
-  regenRate: 5
-  regenDelay: 0
---- !u!114 &-1984548997068903476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766111665172185760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bdbc1cb2e794df09c684dfedd20086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manaBar: {fileID: 0}
-  maxMana: 100
-  currentMana: 0
-  manaText: {fileID: 0}
-  regenRate: 2
-  regenDelay: 0
 --- !u!1001 &6278385494555173593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,16 +49,36 @@ PrefabInstance:
       value: 0.020273209
       objectReference: {fileID: 0}
     - target: {fileID: 3615578963308384743, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
-      propertyPath: stam
-      value: 
-      objectReference: {fileID: 8906611356439796731}
+      propertyPath: maxStamina
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3615578963308384743, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
       propertyPath: slideMultiplier
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3615578963308384743, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: sprintMultiplier
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3615578963308384743, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
       propertyPath: sprintStaminaSubtracter
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863426593980309198, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863426593980309198, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863426593980309198, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863426593980309198, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0169
       objectReference: {fileID: 0}
     - target: {fileID: 4990429874264089809, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -160,6 +120,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5931450165350636287, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1953189211, guid: b8f2f8160d7e7d240a30066960e77cb3, type: 3}
+    - target: {fileID: 5931450165350636287, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      propertyPath: m_Color.a
+      value: 0.30980393
+      objectReference: {fileID: 0}
     - target: {fileID: 9019966049744290082, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -167,10 +135,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1153156251786203918, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4780610972153580335}
   m_SourcePrefab: {fileID: 100100000, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
 --- !u!4 &1324304376804607496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4990429874264089809, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
   m_PrefabInstance: {fileID: 6278385494555173593}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5125549201258836439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1153156251786203918, guid: 11a06801259f44f07b5994815cf971dc, type: 3}
+  m_PrefabInstance: {fileID: 6278385494555173593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &4780610972153580335
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125549201258836439}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
