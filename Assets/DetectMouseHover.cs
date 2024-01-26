@@ -7,6 +7,7 @@ public class DetectMouseHover : MonoBehaviour
     public SpriteRenderer renderer;
     public Sprite hoverSprite, regSprite;
     public bool isOnSprite;
+    public GameObject PuzzleUI;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class DetectMouseHover : MonoBehaviour
         if (Input.GetMouseButtonDown(0)){
             if (isOnSprite)
             {
-                Debug.Log("Pressed");
+                PuzzleUI.SetActive(true);
             }
         }
     }
