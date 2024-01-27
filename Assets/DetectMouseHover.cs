@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,8 @@ public class DetectMouseHover : MonoBehaviour
 {
     public SpriteRenderer renderer;
     public Sprite hoverSprite, regSprite;
-    public bool isOnSprite;
-    public GameObject PuzzleUI;
+    public bool isOnSprite, isInstructions, isChest;
+    public GameObject PuzzleUI, ChestSpecificUI;
 
     private void Awake()
     {
@@ -31,7 +32,12 @@ public class DetectMouseHover : MonoBehaviour
         if (Input.GetMouseButtonDown(0)){
             if (isOnSprite)
             {
-                PuzzleUI.SetActive(true);
+                if(isInstructions){
+                    PuzzleUI.SetActive(true);
+                }
+                if(isChest){
+                    ChestSpecificUI.GetComponent<Animator>().SetTrigger("Load");
+                }
             }
         }
     }
