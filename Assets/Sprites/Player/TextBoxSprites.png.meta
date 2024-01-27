@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f712cf260f9cf4922bc85c079e1f9001
+guid: 8211af36c9d6542db85b186e7d92ea3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TextBoxSprites-Sheet_0
+      name: TextBoxSprites_0
       rect:
         serializedVersion: 2
         x: 33
@@ -124,18 +124,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c388bbb1ef80a409190e149f7d14f760
-      internalID: 423694920
+      spriteID: fa37cb6190ed440368112d53e0e89639
+      internalID: 810509466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TextBoxSprites-Sheet_1
+      name: TextBoxSprites_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 224
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170f363a1a9e14c2d88b1bdc7ef95d5f
+      internalID: -646259062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBoxSprites_2
       rect:
         serializedVersion: 2
         x: 35
-        y: 119
+        y: 125
         width: 57
         height: 20
       alignment: 0
@@ -145,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a3978b5ceff4ffb9e3a4909c692179
-      internalID: 312064274
+      spriteID: d5fcaa5c36c004d8ba811951e27a1e4b
+      internalID: -1475542709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBoxSprites_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 96
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84d65adfc0364be58fa4d20da9e14af
+      internalID: 1920352642
       vertices: []
       indices: 
       edges: []
@@ -162,8 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TextBoxSprites-Sheet_0: 423694920
-      TextBoxSprites-Sheet_1: 312064274
+      TextBoxSprites_0: 810509466
+      TextBoxSprites_1: -646259062
+      TextBoxSprites_2: -1475542709
+      TextBoxSprites_3: 1920352642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
