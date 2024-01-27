@@ -14,6 +14,9 @@ public class RoomBehavior : MonoBehaviour
 
     public int roomID;
 
+    private Vector2 lockedDoorPos;
+    private GameObject lockedDoor;
+
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
@@ -192,10 +195,30 @@ public class RoomBehavior : MonoBehaviour
                     transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (l - 1) + 2.0f * (size.x - 1.0f)));
             }
         }
+    }
 
-        if (room.roomType != "Standard")
+    public bool CheckForUnlock()
+    {
+        if (roomGeneration.keyRooms == 0)
         {
-            Debug.Log(room.roomID.ToString() + " " + room.roomType);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void Update()
+    {
+        if (dungeon[roomID].unlocked == false)
+        {
+            if (CheckForUnlock() == true)
+            {
+                lockedDoor.GetComponent<TilemapRenderer>().enabled = false;
+                lockedDoor.GetComponent<TilemapCollider2D>().offset = new Vector2(0.5f * lockedDoorPos.x, 0.25f * lockedDoorPos.y);
+                lockedDoor.GetComponent<TilemapCollider2D>().isTrigger = true;
+            }
         }
     }
 }
