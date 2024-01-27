@@ -15,13 +15,15 @@ public class RoomGeneration : MonoBehaviour
         public bool[] status = new bool[4];
 
         /// Size of the room (width and height)
-        public Vector2Int roomSize = new Vector2Int(Random.Range(1, 4), Random.Range(1, 4));
+        public Vector2Int roomSize = new Vector2Int(Random.Range(3, 7), Random.Range(3, 7));
 
         public Vector2[] spawns = new Vector2[4];
 
         public int roomID;
 
         public string roomType = "Standard";
+
+        public bool unlocked = true;
     }
 
     /**
@@ -44,6 +46,8 @@ public class RoomGeneration : MonoBehaviour
     private bool generating = true;
     private int recentEnd;
     private int minibossGeneration = 0;
+
+    public int keyRooms = 0;
     #endregion
 
     /// I really hope that this comment is unnecessary, but this is called before the first update (when this script is loaded)
@@ -95,8 +99,9 @@ public class RoomGeneration : MonoBehaviour
             {
                 if (path.Count == 0)
                 {
-                    dungeon[recentEnd].roomType = "Boss";
-                    dungeon[recentEnd].roomSize = new Vector2Int(7, 7);
+                    dungeon[recentEnd].roomType = "Major Treasure";
+                    dungeon[recentEnd].roomSize = new Vector2Int(Random.Range(9, 13), Random.Range(9, 13));
+                    dungeon[recentEnd].unlocked = false;
 
                     /// Break out of the loop once all rooms have been generated
                     break;                    
@@ -107,14 +112,15 @@ public class RoomGeneration : MonoBehaviour
                     {
                         if (Random.Range(0, minibossGeneration) == 0)
                         {
-                            dungeon[currentRoom].roomType = "Miniboss";
-                            dungeon[currentRoom].roomSize = new Vector2Int(5, 5);
+                            dungeon[currentRoom].roomType = "Key Room";
+                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(5, 7), Random.Range(5, 7));
                             minibossGeneration++;
+                            keyRooms++;
                         }
                         else
                         {
-                            dungeon[currentRoom].roomType = "Treasure";
-                            dungeon[currentRoom].roomSize = new Vector2Int(3, 3);
+                            dungeon[currentRoom].roomType = "Minor Treasure";
+                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(4, 6), Random.Range(4,6));
                             minibossGeneration = 0;
                         }
                             
