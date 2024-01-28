@@ -11,7 +11,7 @@ public class ChestProblemNumGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        problemNum = rnd.Next(0, 7);
+        problemNum = rnd.Next(0, 6);
     }
 
 }
