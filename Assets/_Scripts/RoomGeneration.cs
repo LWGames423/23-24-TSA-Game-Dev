@@ -214,6 +214,12 @@ public class RoomGeneration : MonoBehaviour
                 {
                     /// Instantiate the room with the proper name for labeling purposes
                     GameObject newRoom = Instantiate(roomObject, new Vector2(w * offset.x, -h * offset.y), Quaternion.identity);
+                    
+                    if (currentRoom.roomID == 0)
+                    {
+                        currentRoom.roomType = "Start Room";
+                    }
+
                     /// Debug.Log(currentRoom.roomID);
                     newRoom.GetComponent<RoomBehavior>().UpdateRoom(currentRoom.status, currentRoom.roomSize, currentRoom);
                     newRoom.name += " " + w + "-" + h;
