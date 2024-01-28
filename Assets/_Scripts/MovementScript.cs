@@ -18,6 +18,7 @@ public class MovementScript : MonoBehaviour
         }
     }
 
+/*
     private bool IsSprinting
     {
         set
@@ -36,6 +37,7 @@ public class MovementScript : MonoBehaviour
             _anim.SetBool(Sliding, _isSliding);
         }
     }
+    */
 
 
 
@@ -63,6 +65,7 @@ public class MovementScript : MonoBehaviour
     bool _isMoving = false;
     public bool canMove = true;
 
+/*
     [Header("Sprint")]
     public float sprintMultiplier = 1.5f;
     private bool _isSprinting = false;
@@ -77,14 +80,19 @@ public class MovementScript : MonoBehaviour
     private bool _canSlide = true;
     //private bool _slideStam = false;
     private Vector2 _slideInput;
+    */
 
     [Header("Animator Hashes")]
     private static readonly int Moving = Animator.StringToHash("isMoving");
-    private static readonly int Sprinting = Animator.StringToHash("isRunning");
-    private static readonly int Sliding = Animator.StringToHash("isSliding");
+   // private static readonly int Sprinting = Animator.StringToHash("isRunning");
+    //private static readonly int Sliding = Animator.StringToHash("isSliding");
     private static readonly int SwordAttack = Animator.StringToHash("swordAttack");
     #endregion
 
+    #region Audio
+
+    
+    #endregion
 
     private void Awake()
     {
@@ -95,8 +103,8 @@ public class MovementScript : MonoBehaviour
         _rb.gravityScale = 0f;
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         _controls = GetComponent<PlayerInput>();
-        _sprint = _controls.actions["Sprint"];
-        _slide = _controls.actions["Slide"];
+        //_sprint = _controls.actions["Sprint"];
+        //_slide = _controls.actions["Slide"];
 
         //stam.maxStam = maxStamina;
 
@@ -106,15 +114,18 @@ public class MovementScript : MonoBehaviour
     {
         if (canMove && _input != Vector2.zero)
         {
+            /*
             if (_isSprinting)
             {
                 _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed * sprintMultiplier);
                 //stam.LoseStamina(sprintStaminaSubtracter);
             }
-            else
-            {
-                _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed);
-            }
+            */
+            //else
+            //{
+            _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed);
+            
+            //}
 
             if (_input.x > 0)
             {
@@ -126,6 +137,7 @@ public class MovementScript : MonoBehaviour
             }
 
             IsMoving = true;
+            
         }
         else
         {
@@ -134,8 +146,8 @@ public class MovementScript : MonoBehaviour
         }
 
         //checkStam();
-        CheckSprint();
-        Slide();
+        //CheckSprint();
+        //Slide();
     }
 
     void OnMove(InputValue value)
@@ -152,7 +164,7 @@ public class MovementScript : MonoBehaviour
     {
         canMove = true;
     }
-
+/*
     private void CheckSprint()
     {
         if (Mathf.Abs(_sprint.ReadValue<float>()) > 0f && _canSprint)
@@ -199,7 +211,7 @@ public class MovementScript : MonoBehaviour
         yield return new WaitForSeconds(slideCooldown);
         _canSlide = true;
     }
-/*
+
     private void checkStam()
     {
         _slideStam = stam.currentStam - (stam.maxStam / 10f) >= 0;
