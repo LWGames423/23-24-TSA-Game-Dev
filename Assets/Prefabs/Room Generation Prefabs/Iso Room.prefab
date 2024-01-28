@@ -73,4 +73,3 @@ MonoBehaviour:
   majorTreasureID: 0
   puzzles:
   - {fileID: 4396865871213301767, guid: e280815a450b840a09a33710715b335c, type: 3}
-  - {fileID: 3248511926667354700, guid: ab91b9988af6da0478f1535ca99e8002, type: 3}

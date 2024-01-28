@@ -21,12 +21,15 @@ public class DetectMouseHover : MonoBehaviour
     public List<string> Chest3Strings = new List<string>() { "The other chests tell the truth, and the treasure is not in Chest 1.", "Chest 1 tells the truth and the treasure is in his chest.", "One of the other chests lies.", "Both of the other chests lie, the treasure is in this chest.", "The treasure is not in this chest, and the others both lie.", "Both of the other chests tell the truth, and Chest 1 has the treasure." };
     public List<int> correctAnswers = new List<int>() { 1, 2, 2, 1, 1, 3 };
     public bool hasCompleted = false;
+    public RoomGeneration roomGeneration;
 
     private void Awake()
     {
         problemNum = numGenerator.problemNum;
         renderer = this.gameObject.GetComponent<SpriteRenderer>();
         correctChest = correctAnswers[problemNum];
+
+        roomGeneration = FindAnyObjectByType<RoomGeneration>();
     }
 
     void OnMouseOver()
@@ -92,7 +95,9 @@ public class DetectMouseHover : MonoBehaviour
         if (correctChest == 1)
         {
             PuzzleUI.SetActive(false);
-            //add function here
+            roomGeneration.keyRooms--;
+            Debug.Log("correctamundo");
+            Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
         }
         else
@@ -108,7 +113,9 @@ public class DetectMouseHover : MonoBehaviour
         if (correctChest == 2)
         {
             PuzzleUI.SetActive(false);
-            //add function here
+            roomGeneration.keyRooms--;
+            Debug.Log("correctamundo");
+            Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
         }
         else
@@ -124,7 +131,9 @@ public class DetectMouseHover : MonoBehaviour
         if (correctChest == 3)
         {
             PuzzleUI.SetActive(false);
-            //add function here
+            roomGeneration.keyRooms--;
+            Debug.Log("correctamundo");
+            Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
         }
         else
