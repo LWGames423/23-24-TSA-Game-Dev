@@ -17,7 +17,7 @@ public class RoomGeneration : MonoBehaviour
         /// Size of the room (width and height)
         public Vector2Int roomSize = new Vector2Int(Random.Range(3, 7), Random.Range(3, 7));
 
-        public Vector2[] spawns = new Vector2[4];
+        public GameObject[] spawns = new GameObject[4];
 
         public int roomID;
 

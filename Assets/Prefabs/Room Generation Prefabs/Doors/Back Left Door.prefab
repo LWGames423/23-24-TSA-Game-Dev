@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 7209316387025843490}
   - component: {fileID: 8208200181780231435}
   - component: {fileID: 1250699835586915635}
-  - component: {fileID: -1819770395458003244}
   - component: {fileID: -3360356525526619109}
+  - component: {fileID: -1819770395458003244}
+  - component: {fileID: -5840303099694066051}
+  - component: {fileID: 7500009633533303412}
   m_Layer: 0
   m_Name: Back Left Door
   m_TagString: Untagged
@@ -44,7 +46,7 @@ Tilemap:
   m_GameObject: {fileID: 2034466269872213818}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -4, y: -1, z: 2}
+  - first: {x: -4, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -54,7 +56,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -4, y: 0, z: 2}
+  - first: {x: -4, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -96,21 +98,21 @@ Tilemap:
       e33: 1
   - m_RefCount: 0
     m_Data:
-      e00: 1.1037238e-10
+      e00: 146149.5
       e01: NaN
-      e02: -78.687744
+      e02: 5.701017e-14
       e03: 0
-      e10: 1.15e-43
-      e11: 0
+      e10: 1.88e-43
+      e11: NaN
       e12: 4.5904e-41
       e13: 0
-      e20: NaN
-      e21: 8e-45
-      e22: 1.1037227e-10
+      e20: 4.3799e-41
+      e21: 0
+      e22: 146149.25
       e23: 0
       e30: 0
       e31: 7.34684e-40
-      e32: 1.15e-43
+      e32: 1.88e-43
       e33: 1
   m_TileColorArray:
   - m_RefCount: 2
@@ -188,23 +190,6 @@ TilemapRenderer:
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &-1819770395458003244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034466269872213818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomGeneration: {fileID: 0}
-  connectedRoom: 0
-  oppositeDoor: 0
-  teleportPos: {x: 0, y: 0}
-  teleportCooldown: 0
 --- !u!19719996 &-3360356525526619109
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -236,8 +221,142 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &-1819770395458003244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034466269872213818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomGeneration: {fileID: 0}
+  connectedRoom: 0
+  oppositeDoor: 0
+  teleportPos: {x: 0, y: 0}
+  teleportCooldown: 0
+--- !u!50 &-5840303099694066051
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034466269872213818}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &7500009633533303412
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034466269872213818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: -3360356525526619109}
+    m_ColliderPaths:
+    - - X: -29960000
+        Y: -5420000
+      - X: -29960000
+        Y: 979999
+      - X: -33960000
+        Y: 2580000
+      - X: -29960000
+        Y: 4580000
+      - X: -29960000
+        Y: 10980000
+      - X: -33960000
+        Y: 12580000
+      - X: -36840000
+        Y: 12580000
+      - X: -40040000
+        Y: 10500000
+      - X: -40040000
+        Y: 4580000
+      - X: -36040000
+        Y: 2580000
+      - X: -36840000
+        Y: 2580000
+      - X: -40040000
+        Y: 500000
+      - X: -40040000
+        Y: -5420000
+      - X: -35880000
+        Y: -7500000
+      - X: -34120000
+        Y: -7500000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: -3.4120061, y: -0.75}
+      - {x: -2.996, y: -0.5419834}
+      - {x: -2.9960172, y: 0.0980068}
+      - {x: -3.3959293, y: 0.2580354}
+      - {x: -2.996, y: 0.4580166}
+      - {x: -2.9960172, y: 1.098007}
+      - {x: -3.396005, y: 1.258}
+      - {x: -3.6840065, y: 1.257996}
+      - {x: -4.004, y: 1.0499856}
+      - {x: -4.0039854, y: 0.4579924}
+      - {x: -3.6041725, y: 0.25800002}
+      - {x: -3.6840065, y: 0.2579959}
+      - {x: -4.004, y: 0.0499856}
+      - {x: -4.0039854, y: -0.5420076}
+      - {x: -3.587994, y: -0.75}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 2034466269872213818}

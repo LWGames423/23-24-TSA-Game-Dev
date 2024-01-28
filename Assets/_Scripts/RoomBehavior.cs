@@ -16,12 +16,14 @@ public class RoomBehavior : MonoBehaviour
 
     private Vector2 lockedDoorPos;
     private GameObject lockedDoor;
-    private int majorTreasureID;
+    public int majorTreasureID;
 
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
         dungeon = roomGeneration.dungeon;
+
+        majorTreasureID = 0;
 
         foreach (RoomGeneration.Room room in dungeon)
         {
@@ -72,7 +74,7 @@ public class RoomBehavior : MonoBehaviour
                     if (dungeon[roomID - (int)roomGeneration.size.x].unlocked == true)
                     {
                         door.GetComponent<TilemapRenderer>().enabled = false;
-                        door.GetComponent<TilemapCollider2D>().isTrigger = true;
+                        door.GetComponent<CompositeCollider2D>().isTrigger = true;
                     }
                     else
                     {
@@ -81,11 +83,11 @@ public class RoomBehavior : MonoBehaviour
                     }
 
 
-                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(0.5f, 0.25f);
+                    door.GetComponent<CompositeCollider2D>().offset = new Vector2(0.5f, 0.25f);
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID - (int)roomGeneration.size.x;
-                    door.GetComponent<TeleportPlayer>().oppositeDoor = 1;
+                    door.GetComponent<TeleportPlayer>().oppositeDoorID = 1;
 
-                    room.spawns[0] = door.transform.position;
+                    room.spawns[0] = door;
                 }
             }
             else
@@ -120,7 +122,7 @@ public class RoomBehavior : MonoBehaviour
                     if (dungeon[roomID + (int)roomGeneration.size.x].unlocked == true)
                     {
                         door.GetComponent<TilemapRenderer>().enabled = false;
-                        door.GetComponent<TilemapCollider2D>().isTrigger = true;
+                        door.GetComponent<CompositeCollider2D>().isTrigger = true;
                     }
                     else
                     {
@@ -128,11 +130,11 @@ public class RoomBehavior : MonoBehaviour
                         lockedDoorPos = new Vector2(-1.0f, -1.0f);
                     }
 
-                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(-0.5f, -0.25f);
+                    door.GetComponent<CompositeCollider2D>().offset = new Vector2(-0.5f, -0.25f);
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID + (int)roomGeneration.size.x;
-                    door.GetComponent<TeleportPlayer>().oppositeDoor = 0;
+                    door.GetComponent<TeleportPlayer>().oppositeDoorID = 0;
 
-                    room.spawns[1] = door.transform.position;
+                    room.spawns[1] = door;
                 }
             }
             else
@@ -167,7 +169,7 @@ public class RoomBehavior : MonoBehaviour
                     if (dungeon[roomID + 1].unlocked == true)
                     {
                         door.GetComponent<TilemapRenderer>().enabled = false;
-                        door.GetComponent<TilemapCollider2D>().isTrigger = true;
+                        door.GetComponent<CompositeCollider2D>().isTrigger = true;
                     }
                     else
                     {
@@ -175,11 +177,11 @@ public class RoomBehavior : MonoBehaviour
                         lockedDoorPos = new Vector2(1.0f, -1.0f);
                     }
 
-                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(0.5f, -0.25f);
+                    door.GetComponent<CompositeCollider2D>().offset = new Vector2(0.5f, -0.25f);
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID + 1;
-                    door.GetComponent<TeleportPlayer>().oppositeDoor = 3;
+                    door.GetComponent<TeleportPlayer>().oppositeDoorID = 3;
 
-                    room.spawns[2] = door.transform.position;
+                    room.spawns[2] = door;
                 }
             }
             else
@@ -214,7 +216,7 @@ public class RoomBehavior : MonoBehaviour
                     if (dungeon[roomID - 1].unlocked == true)
                     {
                         door.GetComponent<TilemapRenderer>().enabled = false;
-                        door.GetComponent<TilemapCollider2D>().isTrigger = true;
+                        door.GetComponent<CompositeCollider2D>().isTrigger = true;
                     }
                     else
                     {
@@ -223,11 +225,11 @@ public class RoomBehavior : MonoBehaviour
                     }
 
 
-                    door.GetComponent<TilemapCollider2D>().offset = new Vector2(-0.5f, -0.25f);
+                    door.GetComponent<CompositeCollider2D>().offset = new Vector2(-0.5f, -0.25f);
                     door.GetComponent<TeleportPlayer>().connectedRoom = roomID - 1;
-                    door.GetComponent<TeleportPlayer>().oppositeDoor = 2;
+                    door.GetComponent<TeleportPlayer>().oppositeDoorID = 2;
 
-                    room.spawns[3] = door.transform.position;
+                    room.spawns[3] = door;
                 }
             }
             else
@@ -260,7 +262,7 @@ public class RoomBehavior : MonoBehaviour
             if (CheckForUnlock() == true)
             {
                 lockedDoor.GetComponent<TilemapRenderer>().enabled = false;
-                lockedDoor.GetComponent<TilemapCollider2D>().isTrigger = true;
+                lockedDoor.GetComponent<CompositeCollider2D>().isTrigger = true;
             }
         }
     }

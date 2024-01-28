@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TeleportPlayer : MonoBehaviour
 {
@@ -8,9 +9,8 @@ public class TeleportPlayer : MonoBehaviour
     public List<RoomGeneration.Room> dungeon;
 
     public int connectedRoom;
-    public int oppositeDoor;
-
-    public Vector2 teleportPos;
+    public int oppositeDoorID;
+    public GameObject oppositeDoor;
 
     public bool teleportCooldown;
 
@@ -19,7 +19,7 @@ public class TeleportPlayer : MonoBehaviour
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
         dungeon = roomGeneration.dungeon;
 
-        teleportPos = dungeon[connectedRoom].spawns[oppositeDoor];
+        oppositeDoor = dungeon[connectedRoom].spawns[oppositeDoorID];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,15 +30,39 @@ public class TeleportPlayer : MonoBehaviour
 
             if (!teleportCooldown)
             {
-                Teleport(GameObject.FindGameObjectWithTag("Player"), gameObject.transform.position, teleportPos);
+                Teleport(GameObject.FindGameObjectWithTag("Player"), oppositeDoor);
             }
         }
     }
 
-    public void Teleport(GameObject player, Vector2 door, Vector2 spawn)
+    public void Teleport(GameObject player, GameObject door)
     {
-        Vector2 offset = new Vector2(player.transform.position.x - door.x, player.transform.position.y - door.y);
+        Vector2 offset = Vector2.zero;
+        if (Mathf.Abs(this.transform.parent.position.x - door.transform.parent.position.x) > 50.0f)
+        {
+            if ((this.transform.parent.position.x - door.transform.parent.position.x) > 50.0f)
+            {
+                offset = new Vector2(1.3f, -0.2f);
+            }
+            else
+            {
+                offset = new Vector2(-1.3f, 0.6f);
+            }
+        }
+        else
+        {
+            if ((this.transform.parent.position.y - door.transform.parent.position.y) > 50.0f)
+            {
+                offset = new Vector2(1.3f, 0.8f);
+            }
+            else
+            {
+                offset = new Vector2(-1.3f, -0.1f);
+            }
+        }
 
-        player.transform.position = new Vector2(spawn.x + offset.x, spawn.y + offset.y);
+        Debug.Log(offset);
+
+        player.transform.position = new Vector3(offset.x + door.transform.localPosition.x, offset.y + door.transform.localPosition.y, 4.0f) + door.transform.parent.position;
     }
 }

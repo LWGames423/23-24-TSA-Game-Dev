@@ -203,7 +203,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 1112197730, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   regSprite: {fileID: -1508202399, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   isOnSprite: 0
+  isInstructions: 0
+  isChest: 0
   PuzzleUI: {fileID: 0}
+  ChestSpecificUI: {fileID: 0}
 --- !u!212 &111072833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -563,7 +566,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 1112197730, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   regSprite: {fileID: -1508202399, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   isOnSprite: 0
+  isInstructions: 0
+  isChest: 0
   PuzzleUI: {fileID: 0}
+  ChestSpecificUI: {fileID: 0}
 --- !u!212 &285596422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -853,6 +859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &593770977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3029819751220814843, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+  m_PrefabInstance: {fileID: 1384998937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &664372313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1063,7 @@ Transform:
   m_GameObject: {fileID: 701486003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000047683716, y: 0, z: -10}
+  m_LocalPosition: {x: 0.00000071525574, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1072,6 +1083,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 873803201151327322, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10893709
+      objectReference: {fileID: 0}
+    - target: {fileID: 873803201151327322, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.17542341
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324304376804607496, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324304376804607496, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324304376804607496, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3729010272355363180, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1128,7 +1159,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5125549201258836439, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3029819751220814843, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1875771847}
   m_SourcePrefab: {fileID: 100100000, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
 --- !u!1 &1405924298 stripped
 GameObject:
@@ -1548,7 +1582,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 1112197730, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   regSprite: {fileID: -1508202399, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   isOnSprite: 0
+  isInstructions: 0
+  isChest: 0
   PuzzleUI: {fileID: 0}
+  ChestSpecificUI: {fileID: 0}
 --- !u!212 &1769016818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1621,6 +1658,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1324304376804607496, guid: 837272b0714cb40f0b70c633e696f210, type: 3}
   m_PrefabInstance: {fileID: 1384998937}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1875771847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593770977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a190a73a77ae649866549f281a13db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportCooldown: 0
 --- !u!1 &1876446948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1751,10 @@ MonoBehaviour:
   hoverSprite: {fileID: 1112197730, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   regSprite: {fileID: -1508202399, guid: d502bca10b94e4b4896070e196e003b8, type: 3}
   isOnSprite: 0
+  isInstructions: 0
+  isChest: 0
   PuzzleUI: {fileID: 0}
+  ChestSpecificUI: {fileID: 0}
 --- !u!212 &1876446951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2151,15 +2204,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3339023339639148575, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3339023339639148575, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3802675761531099917, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: m_Name
       value: UI Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802675761531099917, guid: cb876faae86c94924b89142d5756d47f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3831665490953541365, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: m_Sprite
@@ -2201,7 +2258,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2312770625183359172, guid: f4c21d06ade6049f6b295860e71cb5bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000047683716
+      value: 0.00000071525574
       objectReference: {fileID: 0}
     - target: {fileID: 2312770625183359172, guid: f4c21d06ade6049f6b295860e71cb5bc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2209,7 +2266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312770625183359172, guid: f4c21d06ade6049f6b295860e71cb5bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2312770625183359172, guid: f4c21d06ade6049f6b295860e71cb5bc, type: 3}
       propertyPath: m_LocalRotation.w
