@@ -112,7 +112,7 @@ MonoBehaviour:
   correctChest: 1
   thisChestNum: 0
   problemNum: 0
-  numGenerator: {fileID: 0}
+  numGenerator: {fileID: 918957124006061311}
   Chest1Strings:
   - The treasure is not in this chest
   - All of the chests tell the truth.
@@ -135,6 +135,7 @@ MonoBehaviour:
   - The treasure is not in this chest, and the others both lie.
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
+  hasCompleted: 0
 --- !u!60 &8601467622148301447
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -727,6 +728,7 @@ MonoBehaviour:
   - The treasure is not in this chest, and the others both lie.
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
+  hasCompleted: 0
 --- !u!60 &2029791782089018645
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1307,6 +1309,7 @@ MonoBehaviour:
   - The treasure is not in this chest, and the others both lie.
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
+  hasCompleted: 0
 --- !u!60 &6396578026948773196
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1935,6 +1938,7 @@ MonoBehaviour:
   - The treasure is not in this chest, and the others both lie.
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
+  hasCompleted: 0
 --- !u!60 &8222499928014323904
 PolygonCollider2D:
   m_ObjectHideFlags: 0

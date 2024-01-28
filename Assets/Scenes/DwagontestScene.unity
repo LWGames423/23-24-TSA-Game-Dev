@@ -1032,7 +1032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770037593
 Transform:
   m_ObjectHideFlags: 0
@@ -1208,6 +1208,7 @@ MonoBehaviour:
   successColor: {r: 0.4490662, g: 1, b: 0.3443396, a: 1}
   failColor: {r: 1, g: 0.2688679, b: 0.2688679, a: 1}
   ssCorrectList: 
+  losses: 0
   runNum: 0
 --- !u!1 &930314447
 GameObject:
