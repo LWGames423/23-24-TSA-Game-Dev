@@ -22,7 +22,7 @@ public class DetectMouseHover : MonoBehaviour
     public List<int> correctAnswers = new List<int>() { 1, 2, 2, 1, 1, 3 };
     public bool hasCompleted = false;
 
-    private void Start()
+    private void Awake()
     {
         problemNum = numGenerator.problemNum;
         renderer = this.gameObject.GetComponent<SpriteRenderer>();
