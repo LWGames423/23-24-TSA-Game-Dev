@@ -15,7 +15,7 @@ public class RoomGeneration : MonoBehaviour
         public bool[] status = new bool[4];
 
         /// Size of the room (width and height)
-        public Vector2Int roomSize = new Vector2Int(Random.Range(1, 3), Random.Range(1, 3));
+        public Vector2Int roomSize = new Vector2Int(Random.Range(2, 3), Random.Range(2, 3));
 
         public GameObject[] spawns = new GameObject[4];
 
@@ -218,6 +218,14 @@ public class RoomGeneration : MonoBehaviour
                     if (currentRoom.roomID == 0)
                     {
                         currentRoom.roomType = "Start Room";
+                    }
+
+                    if (currentRoom.roomType == "Standard")
+                    {
+                        if (Random.Range(0, 10) == 0)
+                        {
+                            currentRoom.roomType = "Minor Treasure";
+                        }
                     }
 
                     /// Debug.Log(currentRoom.roomID);
