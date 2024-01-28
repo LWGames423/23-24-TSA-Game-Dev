@@ -10545,15 +10545,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063561789185357465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomGeneration: {fileID: 0}
   connectedRoom: 0
-  oppositeDoor: 0
-  teleportPos: {x: 0, y: 0}
+  oppositeDoorID: 0
+  oppositeDoor: {fileID: 0}
   teleportCooldown: 0
 --- !u!1 &4130488825275570513
 GameObject:
@@ -10596,15 +10596,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109740122574886140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomGeneration: {fileID: 0}
   connectedRoom: 0
-  oppositeDoor: 0
-  teleportPos: {x: 0, y: 0}
+  oppositeDoorID: 0
+  oppositeDoor: {fileID: 0}
   teleportCooldown: 0
 --- !u!483693784 &4359581607744760007
 TilemapRenderer:
@@ -10887,15 +10887,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3594110870860368590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomGeneration: {fileID: 0}
   connectedRoom: 0
-  oppositeDoor: 0
-  teleportPos: {x: 0, y: 0}
+  oppositeDoorID: 0
+  oppositeDoor: {fileID: 0}
   teleportCooldown: 0
 --- !u!1 &5526764137616443212
 GameObject:
@@ -11314,15 +11314,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8194561099550218125}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a1dc1d84f38124f93a9708a8340b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomGeneration: {fileID: 0}
   connectedRoom: 0
-  oppositeDoor: 0
-  teleportPos: {x: 0, y: 0}
+  oppositeDoorID: 0
+  oppositeDoor: {fileID: 0}
   teleportCooldown: 0
 --- !u!4 &6424757827304075691
 Transform:

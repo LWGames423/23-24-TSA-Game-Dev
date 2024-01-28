@@ -18,6 +18,8 @@ public class RoomBehavior : MonoBehaviour
     private GameObject lockedDoor;
     public int majorTreasureID;
 
+    public GameObject[] puzzles;
+
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
@@ -240,6 +242,15 @@ public class RoomBehavior : MonoBehaviour
                     transform.position.x + ((Mathf.Max(size.x, size.y) - 1.0f) * 4.0f - (Mathf.Abs(size.y - size.x)) * 2.0f - (l - 1) * 4.0f - (size.x - 1.0f) * 4.0f),
                     transform.position.y + ((size.y - size.x) * 1.0f - 2.0f * (l - 1) + 2.0f * (size.x - 1.0f)));
             }
+        }
+
+        Debug.Log(room.roomType);
+        if (room.roomType == "Minor Treasure" || room.roomType == "Key Room")
+        {
+            GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position, Quaternion.identity, transform);
+            puzzle.transform.parent = transform;
+
+            Debug.Log("Puzzle");
         }
     }
 

@@ -15,7 +15,7 @@ public class RoomGeneration : MonoBehaviour
         public bool[] status = new bool[4];
 
         /// Size of the room (width and height)
-        public Vector2Int roomSize = new Vector2Int(Random.Range(3, 7), Random.Range(3, 7));
+        public Vector2Int roomSize = new Vector2Int(Random.Range(1, 3), Random.Range(1, 3));
 
         public GameObject[] spawns = new GameObject[4];
 
@@ -100,7 +100,7 @@ public class RoomGeneration : MonoBehaviour
                 if (path.Count == 0)
                 {
                     dungeon[recentEnd].roomType = "Major Treasure";
-                    dungeon[recentEnd].roomSize = new Vector2Int(Random.Range(9, 13), Random.Range(9, 13));
+                    dungeon[recentEnd].roomSize = new Vector2Int(Random.Range(3, 5), Random.Range(3, 5));
                     dungeon[recentEnd].unlocked = false;
 
                     /// Break out of the loop once all rooms have been generated
@@ -113,14 +113,14 @@ public class RoomGeneration : MonoBehaviour
                         if (Random.Range(0, minibossGeneration) == 0)
                         {
                             dungeon[currentRoom].roomType = "Key Room";
-                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(5, 7), Random.Range(5, 7));
+                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(2, 4), Random.Range(2, 4));
                             minibossGeneration++;
                             keyRooms++;
                         }
                         else
                         {
                             dungeon[currentRoom].roomType = "Minor Treasure";
-                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(4, 6), Random.Range(4,6));
+                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(1, 3), Random.Range(1,3));
                             minibossGeneration = 0;
                         }
                             

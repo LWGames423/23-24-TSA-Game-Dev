@@ -70,3 +70,6 @@ MonoBehaviour:
   floor: {fileID: 7041818663965796526, guid: a880a6d6a141d874c9b42659a8e8408a, type: 3}
   roomGeneration: {fileID: 0}
   roomID: 0
+  majorTreasureID: 0
+  puzzles:
+  - {fileID: 4396865871213301767, guid: e280815a450b840a09a33710715b335c, type: 3}
