@@ -247,10 +247,9 @@ public class RoomBehavior : MonoBehaviour
         Debug.Log(room.roomType);
         if (room.roomType == "Minor Treasure" || room.roomType == "Key Room")
         {
+            Debug.Log(Random.Range(0, puzzles.Length));
             GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
             puzzle.transform.parent = transform;
-
-            Debug.Log("Puzzle");
         }
     }
 
