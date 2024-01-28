@@ -1,15 +1,17 @@
 using System;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class maketwentyfour : MonoBehaviour
 {
     public int[] num;
-    public TMP_Text one, two, three, four, texter;
-    public Button b1, b2, b3, b4;
+    public TMP_Text one, two, three, four, displayField, result;
+    public Button b1, b2, b3, b4, reset, add, sub, mult, div, regenerate;
+    public bool isSolved = false;
     
     // Start is called before the first frame update
     void Start()
@@ -28,12 +30,36 @@ public class maketwentyfour : MonoBehaviour
         two.text = num[1].ToString();
         three.text = num[2].ToString();
         four.text = num[3].ToString();
+        displayField.text = "";
+        b1.onClick.AddListener(ButtonOne);
+        b2.onClick.AddListener(ButtonTwo);
+        b3.onClick.AddListener(ButtonThree);
+        b4.onClick.AddListener(ButtonFour);
+        reset.onClick.AddListener(ButtonReset);
+        add.onClick.AddListener(Add);
+        sub.onClick.AddListener(Sub);
+        mult.onClick.AddListener(Mult);
+        div.onClick.AddListener(Div);
+        regenerate.onClick.AddListener(Regenerate);
     }
 
     void Update()
     {
-        
+        try
+        {
+            float r = Evaluate(displayField.text);
+            if (Mathf.Approximately(24f,r))
+            {
+                isSolved = true;
+            }
+            result.text = Math.Round(r,3).ToString();
+        }
+        catch
+        {
+            result.text = "#";
+        }
     }
+
 
     private int[] GenerateProblem()
     {
@@ -105,4 +131,107 @@ public class maketwentyfour : MonoBehaviour
 
         return false;
     }
+
+    private float Evaluate(string expression)
+    {
+        char[] operators = { '+', '-', '*', '/' };
+        string[] tokens = expression.Split(operators, StringSplitOptions.RemoveEmptyEntries);
+        char[] ops = expression.Where(c => IsOperator(c)).ToArray();
+
+        float result = int.Parse(tokens[0]);
+        for (int i = 0; i < ops.Length; i++)
+        {
+            result = ApplyOperation(result, int.Parse(tokens[i + 1]), ops[i]);
+        }
+        return result;
+
+    }
+
+    static bool IsOperator(char c)
+    {
+        return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+    
+    static float ApplyOperation(float a, int b, int op)
+    {
+        switch (op)
+        {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+            default:
+                throw new ArgumentException("Invalid operator: " + op);
+        }
+    }
+    
+    void ButtonOne()
+    {
+        b1.interactable = false;
+        displayField.text += num[0].ToString();
+    }
+
+    void ButtonTwo()
+    {
+        b2.interactable = false;
+        displayField.text += num[1].ToString();
+    }
+    
+    void ButtonThree()
+    {
+        b3.interactable = false;
+        displayField.text += num[2].ToString();
+    }
+
+    void ButtonFour()
+    {
+        b4.interactable = false;
+        displayField.text += num[3].ToString();
+    }
+
+    void ButtonReset()
+    {
+        b1.interactable = b2.interactable = b3.interactable = b4.interactable = true;
+        displayField.text = "";
+    }
+
+    void Add()
+    {
+        displayField.text += "+";
+    }
+    void Sub()
+    {
+        displayField.text += "-";
+    }
+    void Mult()
+    {
+        displayField.text += "*";
+    }
+    void Div()
+    {
+        displayField.text += "/";
+    }
+
+    void Regenerate()
+    {
+        bool check = false;
+        while (check != true)
+        {
+            num = GenerateProblem();
+            if (CanReach24(num))
+            {
+                check = true;
+            }
+        }
+        one.text = num[0].ToString();
+        two.text = num[1].ToString();
+        three.text = num[2].ToString();
+        four.text = num[3].ToString();
+        ButtonReset();
+    }
+    
 }
