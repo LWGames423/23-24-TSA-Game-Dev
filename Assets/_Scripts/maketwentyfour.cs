@@ -48,7 +48,7 @@ public class maketwentyfour : MonoBehaviour
         try
         {
             float r = Evaluate(displayField.text);
-            if (Mathf.Approximately(24f,r))
+            if (Mathf.Approximately(24f,r) && b1.interactable == false && b2.interactable == false && b3.interactable == false && b4.interactable == false)
             {
                 isSolved = true;
             }
