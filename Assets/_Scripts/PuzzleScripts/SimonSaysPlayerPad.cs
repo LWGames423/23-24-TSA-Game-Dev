@@ -10,6 +10,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
     public Color successColor, failColor;
     public List<int> ssCorrectList = new List<int>();
     public int losses = 0;
+    public GameObject loss1, loss2, loss3;
     public int runNum = 0;
 
     // Update is called once per frame
@@ -18,6 +19,19 @@ public class SimonSaysPlayerPad : MonoBehaviour
         if(ss.canStartInputting == true)
         {
             ssCorrectList = ss.followPattern;
+        }
+        if(losses >= 1)
+        {
+            loss1.GetComponent<Image>().color = failColor;
+        }
+        if (losses >= 2)
+        {
+            loss2.GetComponent<Image>().color = failColor;
+        }
+        if (losses >= 3)
+        {
+            loss3.GetComponent<Image>().color = failColor;
+            //add a fail function here
         }
     }
 
@@ -63,6 +77,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
+                    //add win function here
                     checkBar.color = successColor;
                 }
                 runNum++;
@@ -95,6 +110,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
+                    //add win function here
                     checkBar.color = successColor;
                 }
                 runNum++;
@@ -127,6 +143,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
+                    //add win function here
                     checkBar.color = successColor;
                 }
                 runNum++;
