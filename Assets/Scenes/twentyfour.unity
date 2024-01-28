@@ -291,58 +291,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 512776093397670346, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 512776093397670346, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 512776093397670346, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 512776093397670346, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631615590772402054, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631615590772402054, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631615590772402054, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631615590772402054, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631615590772402054, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618560144965908751, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432939969249629080, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_PixelPerfect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5432939969249629080, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7151084410136372985, guid: 191294b6943684077957beac30742c46, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8355555435884932735, guid: 191294b6943684077957beac30742c46, type: 3}
       propertyPath: m_Name
       value: 24System
@@ -428,8 +376,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3467906534195079842, guid: 191294b6943684077957beac30742c46, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191294b6943684077957beac30742c46, type: 3}

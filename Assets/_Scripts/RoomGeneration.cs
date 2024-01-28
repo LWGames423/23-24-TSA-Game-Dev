@@ -120,7 +120,7 @@ public class RoomGeneration : MonoBehaviour
                         else
                         {
                             dungeon[currentRoom].roomType = "Minor Treasure";
-                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(1, 3), Random.Range(1,3));
+                            dungeon[currentRoom].roomSize = new Vector2Int(Random.Range(2, 3), Random.Range(2,3));
                             minibossGeneration = 0;
                         }
                             
