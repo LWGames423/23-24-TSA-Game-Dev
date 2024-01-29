@@ -205,10 +205,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 0
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 0}
   Chest1: {fileID: 0}
   Chest2: {fileID: 0}
+  SimonUI: {fileID: 0}
   ChestText: 
   correctChest: 0
   thisChestNum: 0
@@ -237,7 +239,9 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
+  treasureManager: {fileID: 0}
 --- !u!212 &111072833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -599,10 +603,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 0
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 0}
   Chest1: {fileID: 0}
   Chest2: {fileID: 0}
+  SimonUI: {fileID: 0}
   ChestText: 
   correctChest: 0
   thisChestNum: 0
@@ -631,7 +637,9 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
+  treasureManager: {fileID: 0}
 --- !u!212 &285596422
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1387,10 +1395,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 0
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 0}
   Chest1: {fileID: 0}
   Chest2: {fileID: 0}
+  SimonUI: {fileID: 0}
   ChestText: 
   correctChest: 0
   thisChestNum: 0
@@ -1419,7 +1429,9 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
+  treasureManager: {fileID: 0}
 --- !u!212 &1769016818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1574,10 +1586,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 0
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 0}
   Chest1: {fileID: 0}
   Chest2: {fileID: 0}
+  SimonUI: {fileID: 0}
   ChestText: 
   correctChest: 0
   thisChestNum: 0
@@ -1606,7 +1620,9 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
+  treasureManager: {fileID: 0}
 --- !u!212 &1876446951
 SpriteRenderer:
   m_ObjectHideFlags: 0
