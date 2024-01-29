@@ -23,7 +23,7 @@ public class SimonSays : MonoBehaviour
 
     void Start()
     {
-        runFollowMeLights(followPattern[runNumber]);
+
     }
 
     ////Update is called once per frame

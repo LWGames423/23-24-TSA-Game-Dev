@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SimonSaysPlayerPad : MonoBehaviour
 {
     public SimonSays ss;
+    public DetectMouseHover dMH;
     public Image checkBar;
     public Color successColor, failColor;
     public List<int> ssCorrectList = new List<int>();
@@ -45,6 +46,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 {
                     //add win function here
                     checkBar.color = successColor;
+                    dMH.hasCompletedSimon = true;
                 }
                 runNum++;
             }
@@ -53,6 +55,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    dMH.hasCompletedSimon = true;
                 }
                 else
                 {
@@ -79,6 +82,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 {
                     //add win function here
                     checkBar.color = successColor;
+                    dMH.hasCompletedSimon = true;
                 }
                 runNum++;
             }
@@ -87,6 +91,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    dMH.hasCompletedSimon = true;
                 }
                 else
                 {
@@ -112,6 +117,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 {
                     //add win function here
                     checkBar.color = successColor;
+                    dMH.hasCompletedSimon = true;
                 }
                 runNum++;
             }
@@ -120,6 +126,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    dMH.hasCompletedSimon = true;
                 }
                 else
                 {
@@ -145,6 +152,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 {
                     //add win function here
                     checkBar.color = successColor;
+                    dMH.hasCompletedSimon = true;
                 }
                 runNum++;
             }
@@ -153,6 +161,7 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    dMH.hasCompletedSimon = true;
                 }
                 else
                 {
