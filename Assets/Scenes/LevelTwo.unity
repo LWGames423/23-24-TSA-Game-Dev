@@ -201,7 +201,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1515858527145681812, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: maxTime
-      value: 180
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 2736399225467655227, guid: cb876faae86c94924b89142d5756d47f, type: 3}
       propertyPath: m_LocalPosition.x
