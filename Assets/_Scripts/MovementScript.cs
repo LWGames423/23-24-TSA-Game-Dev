@@ -167,12 +167,12 @@ public class MovementScript : MonoBehaviour
         _input = value.Get<Vector2>();
     }
 
-    void LockMovement()
+    public void LockMovement()
     {
         canMove = false;
     }
 
-    void UnlockMovement()
+    public void UnlockMovement()
     {
         canMove = true;
     }
