@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimeCountdownScript : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class TimeCountdownScript : MonoBehaviour
         else
         {
             currentTime = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         DisplayTime(currentTime);

@@ -104,10 +104,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 1
   isChest: 0
+  isSimonDesk: 0
   PuzzleUI: {fileID: 3672359550313066029}
   ChestSpecificUI: {fileID: 0}
   Chest1: {fileID: 0}
   Chest2: {fileID: 0}
+  SimonUI: {fileID: 0}
   ChestText: 
   correctChest: 1
   thisChestNum: 0
@@ -136,6 +138,7 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
   treasureManager: {fileID: 0}
 --- !u!60 &8601467622148301447
@@ -697,10 +700,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 1
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 7443881960260216085}
   Chest1: {fileID: 4239577517833364347}
   Chest2: {fileID: 5006904146578639116}
+  SimonUI: {fileID: 0}
   ChestText: I do not contain the treasure.
   correctChest: 0
   thisChestNum: 2
@@ -729,6 +734,7 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
   treasureManager: {fileID: 0}
 --- !u!60 &2029791782089018645
@@ -1280,10 +1286,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 1
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 2484330597617575930}
   Chest1: {fileID: 2443545769352376086}
   Chest2: {fileID: 5006904146578639116}
+  SimonUI: {fileID: 0}
   ChestText: I contain the treasure.
   correctChest: 0
   thisChestNum: 1
@@ -1312,6 +1320,7 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
   treasureManager: {fileID: 0}
 --- !u!60 &6396578026948773196
@@ -1911,10 +1920,12 @@ MonoBehaviour:
   isOnSprite: 0
   isInstructions: 0
   isChest: 1
+  isSimonDesk: 0
   PuzzleUI: {fileID: 0}
   ChestSpecificUI: {fileID: 7435390186469065654}
   Chest1: {fileID: 4239577517833364347}
   Chest2: {fileID: 2443545769352376086}
+  SimonUI: {fileID: 0}
   ChestText: Chest 1 contains the treasure.
   correctChest: 0
   thisChestNum: 3
@@ -1943,6 +1954,7 @@ MonoBehaviour:
   - Both of the other chests tell the truth, and Chest 1 has the treasure.
   correctAnswers: 010000000200000002000000010000000100000003000000
   hasCompleted: 0
+  hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
   treasureManager: {fileID: 0}
 --- !u!60 &8222499928014323904

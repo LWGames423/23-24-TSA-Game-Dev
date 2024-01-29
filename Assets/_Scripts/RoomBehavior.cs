@@ -19,10 +19,14 @@ public class RoomBehavior : MonoBehaviour
     public int majorTreasureID;
 
     public GameObject[] puzzles;
+    public TreasureManager tm;
+    public TimeCountdownScript tcs;
 
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
+        tm = FindAnyObjectByType<TreasureManager>();
+        tcs = FindAnyObjectByType<TimeCountdownScript>();
         dungeon = roomGeneration.dungeon;
 
         majorTreasureID = 0;
@@ -248,6 +252,11 @@ public class RoomBehavior : MonoBehaviour
             GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
             puzzle.transform.parent = transform;
         }
+        else if (room.roomType == "Major Treasure")
+        {
+            GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
+            puzzle.transform.parent = transform;
+        }
     }
 
     public bool CheckForUnlock()
@@ -274,7 +283,12 @@ public class RoomBehavior : MonoBehaviour
 
                 dungeon[majorTreasureID].unlocked = true;
 
-                Debug.Log("jhousadhvsouvhjo");
+                if (roomGeneration.keyRooms != 0)
+                {
+                    tm.AddTreasure(100);
+                    tcs.currentTime += 60;
+                }
+                    
             }
         }
     }

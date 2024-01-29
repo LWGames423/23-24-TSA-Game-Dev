@@ -13,6 +13,16 @@ public class SimonSaysPlayerPad : MonoBehaviour
     public int losses = 0;
     public GameObject loss1, loss2, loss3;
     public int runNum = 0;
+    public TimeCountdownScript tcs;
+    public TreasureManager tm;
+    public RoomGeneration roomGeneration;
+
+    private void Awake()
+    {
+        tm = FindAnyObjectByType<TreasureManager>();
+        tcs = FindAnyObjectByType<TimeCountdownScript>();
+        roomGeneration = FindAnyObjectByType<RoomGeneration>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +54,9 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if(runNum >= 6)
                 {
-                    //add win function here
+                    tcs.currentTime += 30;
+                    tm.AddTreasure(10);
+                    roomGeneration.keyRooms--;
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -80,7 +92,9 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    //add win function here
+                    tcs.currentTime += 30;
+                    tm.AddTreasure(10);
+                    roomGeneration.keyRooms--;
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -115,7 +129,9 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    //add win function here
+                    tcs.currentTime += 30;
+                    tm.AddTreasure(10);
+                    roomGeneration.keyRooms--;
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -150,7 +166,9 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    //add win function here
+                    tcs.currentTime += 30;
+                    tm.AddTreasure(10);
+                    roomGeneration.keyRooms--;
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }

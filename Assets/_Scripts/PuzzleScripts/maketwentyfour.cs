@@ -17,6 +17,7 @@ public class maketwentyfour : MonoBehaviour
     public RoomGeneration roomGeneration;
 
     public TreasureManager tm;
+    public TimeCountdownScript tcs;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class maketwentyfour : MonoBehaviour
 
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
         tm = FindAnyObjectByType<TreasureManager>();
+        tcs = FindAnyObjectByType<TimeCountdownScript>();
 
         one.text = num[0].ToString();
         two.text = num[1].ToString();
@@ -61,6 +63,7 @@ public class maketwentyfour : MonoBehaviour
                 isSolved = true;
                 roomGeneration.keyRooms--;
                 tm.AddTreasure(rewardAmt);
+                tcs.currentTime += 30;
                 this.transform.parent.gameObject.SetActive(false);
             }
             result.text = Math.Round(r,3).ToString();

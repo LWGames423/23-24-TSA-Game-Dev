@@ -23,15 +23,26 @@ public class DetectMouseHover : MonoBehaviour
     public bool hasCompleted = false, hasCompletedSimon = false;
     public RoomGeneration roomGeneration;
     public TreasureManager treasureManager;
+    public TimeCountdownScript tcs;
 
     private void Awake()
     {
-        problemNum = numGenerator.problemNum;
+        if (isChest)
+        {
+            problemNum = numGenerator.problemNum;
+            correctChest = correctAnswers[problemNum];
+        }
+        
         renderer = this.gameObject.GetComponent<SpriteRenderer>();
-        correctChest = correctAnswers[problemNum];
 
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
         treasureManager = FindAnyObjectByType<TreasureManager>();
+        tcs = FindAnyObjectByType<TimeCountdownScript>();
+    }
+
+    private void Start()
+    {
+        this.enabled = true;
     }
 
     void OnMouseOver()
@@ -115,6 +126,7 @@ public class DetectMouseHover : MonoBehaviour
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
             treasureManager.AddTreasure(10);
+            tcs.currentTime += 30;
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -134,6 +146,7 @@ public class DetectMouseHover : MonoBehaviour
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
             treasureManager.AddTreasure(10);
+            tcs.currentTime += 30;
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -153,6 +166,7 @@ public class DetectMouseHover : MonoBehaviour
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
             treasureManager.AddTreasure(10);
+            tcs.currentTime += 30;
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
