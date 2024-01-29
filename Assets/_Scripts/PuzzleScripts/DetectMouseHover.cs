@@ -24,6 +24,7 @@ public class DetectMouseHover : MonoBehaviour
     public RoomGeneration roomGeneration;
     public TreasureManager treasureManager;
     public TimeCountdownScript tcs;
+    public bool isBossPuzzle;
 
     private void Awake()
     {

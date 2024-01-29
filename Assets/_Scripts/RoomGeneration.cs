@@ -222,7 +222,7 @@ public class RoomGeneration : MonoBehaviour
 
                     if (currentRoom.roomType == "Standard")
                     {
-                        if (Random.Range(0, 10) == 0)
+                        if (Random.Range(0, 4) == 0)
                         {
                             currentRoom.roomType = "Minor Treasure";
                         }

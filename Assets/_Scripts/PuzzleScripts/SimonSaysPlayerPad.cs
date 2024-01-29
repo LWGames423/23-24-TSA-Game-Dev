@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SimonSaysPlayerPad : MonoBehaviour
 {
@@ -54,9 +55,19 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if(runNum >= 6)
                 {
-                    tcs.currentTime += 30;
-                    tm.AddTreasure(10);
-                    roomGeneration.keyRooms--;
+                    
+
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                    else
+                    {
+                        tcs.currentTime += 30;
+                        tm.AddTreasure(10);
+                        roomGeneration.keyRooms--;
+                    }
+
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -67,6 +78,10 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        tcs.Restart();
+                    }
                     dMH.hasCompletedSimon = true;
                 }
                 else
@@ -92,9 +107,17 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    tcs.currentTime += 30;
-                    tm.AddTreasure(10);
-                    roomGeneration.keyRooms--;
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                    else
+                    {
+                        tcs.currentTime += 30;
+                        tm.AddTreasure(10);
+                        roomGeneration.keyRooms--;
+                    }
+
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -105,6 +128,10 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        tcs.Restart();
+                    }
                     dMH.hasCompletedSimon = true;
                 }
                 else
@@ -129,9 +156,17 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    tcs.currentTime += 30;
-                    tm.AddTreasure(10);
-                    roomGeneration.keyRooms--;
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                    else
+                    {
+                        tcs.currentTime += 30;
+                        tm.AddTreasure(10);
+                        roomGeneration.keyRooms--;
+                    }
+
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -142,6 +177,10 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        tcs.Restart();
+                    }
                     dMH.hasCompletedSimon = true;
                 }
                 else
@@ -166,9 +205,17 @@ public class SimonSaysPlayerPad : MonoBehaviour
             {
                 if (runNum >= 6)
                 {
-                    tcs.currentTime += 30;
-                    tm.AddTreasure(10);
-                    roomGeneration.keyRooms--;
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                    else
+                    {
+                        tcs.currentTime += 30;
+                        tm.AddTreasure(10);
+                        roomGeneration.keyRooms--;
+                    }
+
                     checkBar.color = successColor;
                     dMH.hasCompletedSimon = true;
                 }
@@ -179,6 +226,10 @@ public class SimonSaysPlayerPad : MonoBehaviour
                 if (losses >= 2)
                 {
                     Debug.Log("welp you lost");
+                    if (dMH.isBossPuzzle == true)
+                    {
+                        tcs.Restart();
+                    }
                     dMH.hasCompletedSimon = true;
                 }
                 else

@@ -11,11 +11,16 @@ public class TimeCountdownScript : MonoBehaviour
     public float maxTime;
     public TMP_Text timerText;
     public Slider timerHealth;
+    public TreasureManager tm;
+    public int initialScore;
 
     void Awake()
     {
         timerHealth = this.gameObject.GetComponent<Slider>();
         currentTime = maxTime;
+
+        tm = FindAnyObjectByType<TreasureManager>();
+        initialScore = tm.treasureCount;
     }
 
     // Update is called once per frame
@@ -27,8 +32,7 @@ public class TimeCountdownScript : MonoBehaviour
         }
         else
         {
-            currentTime = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Restart();
         }
 
         DisplayTime(currentTime);
@@ -61,5 +65,12 @@ public class TimeCountdownScript : MonoBehaviour
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
         timerHealth.value = timeToDisplay / maxTime;
+    }
+
+    public void Restart()
+    {
+        currentTime = 0;
+        tm.treasureCount = initialScore;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
