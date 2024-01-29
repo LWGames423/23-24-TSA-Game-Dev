@@ -274,7 +274,7 @@ public class RoomBehavior : MonoBehaviour
 
     public bool CheckForUnlock()
     {
-        if (roomGeneration.keyRooms <= 1)
+        if (roomGeneration.keyRooms <= 0)
         {
             return true;
         }
