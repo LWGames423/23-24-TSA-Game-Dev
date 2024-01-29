@@ -47,7 +47,7 @@ public class RoomGeneration : MonoBehaviour
     private int recentEnd;
     private int minibossGeneration = 0;
 
-    public int keyRooms = 0;
+    public int keyRooms = 1;
     #endregion
 
     /// I really hope that this comment is unnecessary, but this is called before the first update (when this script is loaded)

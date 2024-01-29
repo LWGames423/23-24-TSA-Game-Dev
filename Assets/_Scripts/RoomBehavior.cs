@@ -274,7 +274,7 @@ public class RoomBehavior : MonoBehaviour
 
     public bool CheckForUnlock()
     {
-        if (roomGeneration.keyRooms <= 0)
+        if (roomGeneration.keyRooms <= 1)
         {
             return true;
         }
@@ -308,7 +308,6 @@ public class RoomBehavior : MonoBehaviour
                     tm.AddTreasure(100);
                     tcs.currentTime += 60;
                 }
-                    
             }
         }
     }
