@@ -32,6 +32,7 @@ public class maketwentyfour : MonoBehaviour
         }
 
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
+        tm = FindAnyObjectByType<TreasureManager>();
 
         one.text = num[0].ToString();
         two.text = num[1].ToString();

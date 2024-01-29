@@ -22,6 +22,7 @@ public class DetectMouseHover : MonoBehaviour
     public List<int> correctAnswers = new List<int>() { 1, 2, 2, 1, 1, 3 };
     public bool hasCompleted = false;
     public RoomGeneration roomGeneration;
+    public TreasureManager treasureManager;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class DetectMouseHover : MonoBehaviour
         correctChest = correctAnswers[problemNum];
 
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
+        treasureManager = FindAnyObjectByType<TreasureManager>();
     }
 
     void OnMouseOver()
@@ -96,6 +98,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -114,6 +117,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -132,6 +136,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
