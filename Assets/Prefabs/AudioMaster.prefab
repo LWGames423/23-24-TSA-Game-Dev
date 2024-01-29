@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 8063749588039098022}
   buttonSound: {fileID: 8300000, guid: 18da3c0f13bb0453fb2d5ac123fe0530, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: c37059c8719ef46afa5bcc57ecea48e0, type: 3}
 --- !u!82 &8063749588039098022
 AudioSource:
   m_ObjectHideFlags: 0

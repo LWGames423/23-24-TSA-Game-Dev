@@ -1063,6 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8731952338345585725}
+  - component: {fileID: 409282935556667666}
   m_Layer: 0
   m_Name: BossPrompts
   m_TagString: Untagged
@@ -1086,3 +1087,17 @@ Transform:
   - {fileID: 6241562914530568588}
   m_Father: {fileID: 801780450460727109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &409282935556667666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8620273910104187287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e925023c0e7247a0af4c4e9636d4032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollSpeed: 30
+  textComponent: {fileID: 427868160850216184}
