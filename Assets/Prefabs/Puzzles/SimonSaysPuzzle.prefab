@@ -424,6 +424,7 @@ MonoBehaviour:
   hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
   treasureManager: {fileID: 0}
+  tcs: {fileID: 0}
 --- !u!60 &7441894364862510727
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -800,7 +801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5361977454622746176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1065,6 +1066,9 @@ MonoBehaviour:
   loss2: {fileID: 1722659221036300366}
   loss3: {fileID: 3973558369425895923}
   runNum: 0
+  tcs: {fileID: 0}
+  tm: {fileID: 0}
+  roomGeneration: {fileID: 0}
 --- !u!1 &3471718512650063334
 GameObject:
   m_ObjectHideFlags: 0
