@@ -76,3 +76,7 @@ MonoBehaviour:
   - {fileID: 4396865871213301767, guid: e280815a450b840a09a33710715b335c, type: 3}
   - {fileID: 3248511926667354700, guid: ab91b9988af6da0478f1535ca99e8002, type: 3}
   - {fileID: 7900765845034366530, guid: c56bff5adac4a4db38bcf2c216fbaa93, type: 3}
+  tm: {fileID: 0}
+  tcs: {fileID: 0}
+  boss: {fileID: 4427703330272482654, guid: 288b6157ae68545c1b95ac7bb45a6312, type: 3}
+  bossPuzzle: {fileID: 7900765845034366530, guid: ddd8e62150432ab46ba1f1c82603123f, type: 3}

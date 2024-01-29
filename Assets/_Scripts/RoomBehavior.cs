@@ -22,6 +22,9 @@ public class RoomBehavior : MonoBehaviour
     public TreasureManager tm;
     public TimeCountdownScript tcs;
 
+    public GameObject boss;
+    public GameObject bossPuzzle;
+
     private void Awake()
     {
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
@@ -77,11 +80,15 @@ public class RoomBehavior : MonoBehaviour
 
                 if (doorUp == i)
                 {
-                    if (dungeon[roomID - (int)roomGeneration.size.x].unlocked == true)
+                    if ((dungeon[roomID - (int)roomGeneration.size.x].unlocked == true) && (room.roomType != "Major Treasure"))
                     {
                         door.GetComponent<TilemapRenderer>().enabled = false;
                         door.GetComponent<CompositeCollider2D>().isTrigger = true;
                         door.GetComponent<CompositeCollider2D>().offset = new Vector2(0.5f, 0.25f);
+                    }
+                    else if (room.roomType == "Major Treasure")
+                    {
+                        Debug.Log("Boss Room");
                     }
                     else
                     {
@@ -130,6 +137,10 @@ public class RoomBehavior : MonoBehaviour
                         door.GetComponent<CompositeCollider2D>().isTrigger = true;
                         door.GetComponent<CompositeCollider2D>().offset = new Vector2(-0.5f, -0.25f);
                     }
+                    else if ((room.roomType == "Major Treasure") && (room.roomType != "Major Treasure"))
+                    {
+                        Debug.Log("Boss Room");
+                    }
                     else
                     {
                         lockedDoor = door;
@@ -176,6 +187,10 @@ public class RoomBehavior : MonoBehaviour
                         door.GetComponent<TilemapRenderer>().enabled = false;
                         door.GetComponent<CompositeCollider2D>().isTrigger = true;
                         door.GetComponent<CompositeCollider2D>().offset = new Vector2(0.5f, -0.25f);
+                    }
+                    else if ((room.roomType == "Major Treasure") && (room.roomType != "Major Treasure"))
+                    {
+                        Debug.Log("Boss Room");
                     }
                     else
                     {
@@ -224,6 +239,10 @@ public class RoomBehavior : MonoBehaviour
                         door.GetComponent<CompositeCollider2D>().isTrigger = true;
                         door.GetComponent<CompositeCollider2D>().offset = new Vector2(-0.5f, -0.25f);
                     }
+                    else if ((room.roomType == "Major Treasure") && (room.roomType != "Major Treasure"))
+                    {
+                        Debug.Log("Boss Room");
+                    }
                     else
                     {
                         lockedDoor = door;
@@ -249,13 +268,7 @@ public class RoomBehavior : MonoBehaviour
         Debug.Log(room.roomType);
         if (room.roomType == "Minor Treasure" || room.roomType == "Key Room")
         {
-            GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
-            puzzle.transform.parent = transform;
-        }
-        else if (room.roomType == "Major Treasure")
-        {
-            GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
-            puzzle.transform.parent = transform;
+            GeneratePuzzle();
         }
     }
 
@@ -281,6 +294,13 @@ public class RoomBehavior : MonoBehaviour
                 lockedDoor.GetComponent<CompositeCollider2D>().isTrigger = true;
                 lockedDoor.GetComponent<CompositeCollider2D>().offset = new Vector2(0.5f * lockedDoorPos.x, -0.25f * lockedDoorPos.y);
 
+                GameObject bossClone = Instantiate(boss, lockedDoor.GetComponent<TeleportPlayer>().oppositeDoor.transform.parent.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
+                bossClone.transform.parent = lockedDoor.GetComponent<TeleportPlayer>().oppositeDoor.transform.parent;
+                bossClone.GetComponent<Boss>().rb = lockedDoor.GetComponent<TeleportPlayer>().oppositeDoor.transform.parent.gameObject.GetComponent<RoomBehavior>();
+
+                lockedDoor.GetComponent<TeleportPlayer>().Teleport(GameObject.FindGameObjectWithTag("Player"), lockedDoor.GetComponent<TeleportPlayer>().oppositeDoor, lockedDoor);
+
+
                 dungeon[majorTreasureID].unlocked = true;
 
                 if (roomGeneration.keyRooms != 0)
@@ -291,5 +311,17 @@ public class RoomBehavior : MonoBehaviour
                     
             }
         }
+    }
+
+    public void GeneratePuzzle()
+    {
+        GameObject puzzle = Instantiate(puzzles[Random.Range(0, puzzles.Length)], transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
+        puzzle.transform.parent = transform;
+    }
+
+    public void GenerateBossPuzzle()
+    {
+        GameObject puzzle = Instantiate(bossPuzzle, transform.position + new Vector3(0.0f, 0.0f, 100.0f), Quaternion.identity, transform);
+        puzzle.transform.parent = transform;
     }
 }

@@ -30,12 +30,12 @@ public class TeleportPlayer : MonoBehaviour
 
             if (!teleportCooldown)
             {
-                Teleport(GameObject.FindGameObjectWithTag("Player"), oppositeDoor);
+                Teleport(GameObject.FindGameObjectWithTag("Player"), oppositeDoor, this.gameObject);
             }
         }
     }
 
-    public void Teleport(GameObject player, GameObject door)
+    public void Teleport(GameObject player, GameObject door, GameObject currentDoor)
     {
         Vector2 offset = Vector2.zero;
         if (Mathf.Abs(this.transform.parent.position.x - door.transform.parent.position.x) > 50.0f)
@@ -60,8 +60,6 @@ public class TeleportPlayer : MonoBehaviour
                 offset = new Vector2(-1.3f, -0.1f);
             }
         }
-
-        Debug.Log(offset);
 
         player.transform.position = new Vector3(offset.x + door.transform.localPosition.x, offset.y + door.transform.localPosition.y, 4.0f) + door.transform.parent.position;
     }
