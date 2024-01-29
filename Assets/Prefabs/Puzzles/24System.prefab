@@ -1329,6 +1329,9 @@ MonoBehaviour:
   div: {fileID: 3324945531820556734}
   regenerate: {fileID: 5027239629845373724}
   isSolved: 0
+  rewardAmt: 10
+  roomGeneration: {fileID: 0}
+  tm: {fileID: 0}
 --- !u!1 &4618560144965908751
 GameObject:
   m_ObjectHideFlags: 0

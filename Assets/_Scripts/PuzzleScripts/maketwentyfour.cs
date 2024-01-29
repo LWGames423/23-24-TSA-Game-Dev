@@ -12,8 +12,11 @@ public class maketwentyfour : MonoBehaviour
     public TMP_Text one, two, three, four, displayField, result;
     public Button b1, b2, b3, b4, reset, add, sub, mult, div, regenerate;
     public bool isSolved = false;
+    public int rewardAmt = 10;
 
     public RoomGeneration roomGeneration;
+
+    public TreasureManager tm;
     
     // Start is called before the first frame update
     void Start()
@@ -56,8 +59,8 @@ public class maketwentyfour : MonoBehaviour
             {
                 isSolved = true;
                 roomGeneration.keyRooms--;
+                tm.AddTreasure(rewardAmt);
                 this.transform.parent.gameObject.SetActive(false);
-
             }
             result.text = Math.Round(r,3).ToString();
         }
