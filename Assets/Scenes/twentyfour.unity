@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7232019114180187846, guid: 9677e33fd68a64454b5165dedfd4286a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -370,6 +374,18 @@ PrefabInstance:
     - target: {fileID: 4618560144965908751, guid: 191294b6943684077957beac30742c46, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151084410136372985, guid: 191294b6943684077957beac30742c46, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151084410136372985, guid: 191294b6943684077957beac30742c46, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151084410136372985, guid: 191294b6943684077957beac30742c46, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8355555435884932735, guid: 191294b6943684077957beac30742c46, type: 3}
       propertyPath: m_Name

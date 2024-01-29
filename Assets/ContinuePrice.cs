@@ -12,6 +12,6 @@ public class ContinuePrice : MonoBehaviour
     private void Awake()
     {
         tm = FindObjectOfType<TreasureManager>();
-        textComponent.SetText(string.Format("Continue {0}", (tm.treasureCount - Mathf.FloorToInt(tm.treasureCount / 2))));
+        textComponent.SetText(string.Format("Continue: {0}", (tm.treasureCount - Mathf.FloorToInt(tm.treasureCount / 2))));
     }
 }
