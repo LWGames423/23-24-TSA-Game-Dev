@@ -1734,6 +1734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimonSaysPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 7900765845034366530, guid: c56bff5adac4a4db38bcf2c216fbaa93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
