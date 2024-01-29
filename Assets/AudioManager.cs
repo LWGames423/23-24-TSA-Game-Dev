@@ -7,12 +7,13 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource source;
     public AudioClip buttonSound;
+    public AudioClip backgroundMusic;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        source.PlayOneShot(backgroundMusic);
     }
 
     // Update is called once per frame
