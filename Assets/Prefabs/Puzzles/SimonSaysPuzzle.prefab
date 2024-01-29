@@ -423,6 +423,7 @@ MonoBehaviour:
   hasCompleted: 0
   hasCompletedSimon: 0
   roomGeneration: {fileID: 0}
+  treasureManager: {fileID: 0}
 --- !u!60 &7441894364862510727
 PolygonCollider2D:
   m_ObjectHideFlags: 0
