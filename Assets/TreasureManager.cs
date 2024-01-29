@@ -5,17 +5,25 @@ using UnityEngine;
 
 public class TreasureManager : MonoBehaviour
 {
+    private static TreasureManager instance;
     public int treasureCount = 0;
     public TMP_Text treasureDisplay;
     
-    void Start()
+    
+    void Awake()
     {
-        
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
-        treasureDisplay.text = treasureCount.ToString();
+        treasureDisplay.text = "Treasure: " + treasureCount.ToString();
     }
 
     public void AddTreasure(int count)
