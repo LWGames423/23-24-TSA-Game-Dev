@@ -9,8 +9,8 @@ public class DetectMouseHover : MonoBehaviour
 {
     public SpriteRenderer renderer;
     public Sprite hoverSprite, regSprite;
-    public bool isOnSprite, isInstructions, isChest;
-    public GameObject PuzzleUI, ChestSpecificUI, Chest1, Chest2;
+    public bool isOnSprite, isInstructions, isChest, isSimonDesk;
+    public GameObject PuzzleUI, ChestSpecificUI, Chest1, Chest2, SimonUI;
     public String ChestText;
     public int correctChest;
     public int thisChestNum;
@@ -20,8 +20,9 @@ public class DetectMouseHover : MonoBehaviour
     public List<string> Chest2Strings = new List<string>() { "One chest tells the truth.", "At least one chest lies, and the treasure is not in Chest 3.", "This chest does not contain the treasure, however we all tell the truth.", "The other chests tell the truth, and the treasure is in Chest 3.", "The treasure is in this chest.", "This chest contains the treasure." };
     public List<string> Chest3Strings = new List<string>() { "The other chests tell the truth, and the treasure is not in Chest 1.", "Chest 1 tells the truth and the treasure is in his chest.", "One of the other chests lies.", "Both of the other chests lie, the treasure is in this chest.", "The treasure is not in this chest, and the others both lie.", "Both of the other chests tell the truth, and Chest 1 has the treasure." };
     public List<int> correctAnswers = new List<int>() { 1, 2, 2, 1, 1, 3 };
-    public bool hasCompleted = false;
+    public bool hasCompleted = false, hasCompletedSimon = false;
     public RoomGeneration roomGeneration;
+    public TreasureManager treasureManager;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class DetectMouseHover : MonoBehaviour
         correctChest = correctAnswers[problemNum];
 
         roomGeneration = FindAnyObjectByType<RoomGeneration>();
+        treasureManager = FindAnyObjectByType<TreasureManager>();
     }
 
     void OnMouseOver()
@@ -46,6 +48,10 @@ public class DetectMouseHover : MonoBehaviour
 
     void Update()
     {
+        if (hasCompletedSimon)
+        {
+            SimonUI.SetActive(false);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (isOnSprite)
@@ -55,6 +61,18 @@ public class DetectMouseHover : MonoBehaviour
                     if (!hasCompleted)
                     {
                         PuzzleUI.SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("you've already done this puzzle");
+                    }
+                }
+                if (isSimonDesk)
+                {
+                    if (!hasCompletedSimon)
+                    {
+                        SimonUI.SetActive(true);
+                        SimonUI.GetComponentInParent<SimonSays>().runFollowMeLights(SimonUI.gameObject.GetComponentInParent<SimonSays>().followPattern[SimonUI.gameObject.GetComponentInParent<SimonSays>().runNumber]);
                     }
                     else
                     {
@@ -96,6 +114,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -114,6 +133,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
@@ -132,6 +152,7 @@ public class DetectMouseHover : MonoBehaviour
         {
             PuzzleUI.SetActive(false);
             roomGeneration.keyRooms--;
+            treasureManager.AddTreasure(10);
             Debug.Log("correctamundo");
             Debug.Log(roomGeneration.keyRooms);
             hasCompleted = true;
