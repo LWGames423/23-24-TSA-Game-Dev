@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: play!
+  m_text: Puzzle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b64a89c7476e33844bb375d25d38c0b3, type: 2}
   m_sharedMaterial: {fileID: 4037351780508260149, guid: b64a89c7476e33844bb375d25d38c0b3, type: 2}
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: continue (amt)
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b64a89c7476e33844bb375d25d38c0b3, type: 2}
   m_sharedMaterial: {fileID: 4037351780508260149, guid: b64a89c7476e33844bb375d25d38c0b3, type: 2}
