@@ -41,6 +41,7 @@ public class PuzzleDetectClick : MonoBehaviour
                     if (!hasCompleted)
                     {
                         twentyFourGame.SetActive(true);
+                        this.gameObject.SetActive(false);
                     }
                     else
                     {
