@@ -65,6 +65,12 @@ public class MovementScript : MonoBehaviour
     bool _isMoving = false;
     public bool canMove = true;
 
+    [Header("Audio")] 
+    public AudioSource walk;
+    public AudioClip walkSound;
+    public float timeBetweenFootsteps = 0.3f;
+    private float _timeSinceLastFootstep;
+
 /*
     [Header("Sprint")]
     public float sprintMultiplier = 1.5f;
@@ -90,7 +96,7 @@ public class MovementScript : MonoBehaviour
     #endregion
 
     #region Audio
-
+    
     
     #endregion
 
@@ -124,6 +130,12 @@ public class MovementScript : MonoBehaviour
             //else
             //{
             _rb.velocity = Vector2.ClampMagnitude(_rb.velocity + (_input * (moveSpeed * Time.deltaTime)), maxSpeed);
+            if (Time.time - _timeSinceLastFootstep >= timeBetweenFootsteps)
+            {
+                walk.PlayOneShot(walkSound);
+                _timeSinceLastFootstep = Time.time;
+            }
+            
             
             //}
 
