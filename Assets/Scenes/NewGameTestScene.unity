@@ -333,20 +333,16 @@ MonoBehaviour:
   canMove: 1
   isStarting: 0
   isEnding: 0
-  moveSpeed: 20
-  acceleration: 10
+  moveSpeed: 12
+  acceleration: 4
   deceleration: 10
   frictionAmount: 0.2
   velPower: 0.9
-  jumpForce: 8.5
+  jumpForce: 7
   fallGravityMultiplier: 1.5
   jumpCutMultiplier: 0.95
-  dashForce: 70
-  dashTime: 0.1
-  horMult: 0.025
-  vertMult: 0.025
   checkRadius: {x: 0.95, y: 0.01}
-  coyoteTime: 0.1
+  coyoteTime: 0.05
 --- !u!4 &332642269
 Transform:
   m_ObjectHideFlags: 0
