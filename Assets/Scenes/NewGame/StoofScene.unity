@@ -333,18 +333,14 @@ MonoBehaviour:
   canMove: 1
   isStarting: 0
   isEnding: 0
-  moveSpeed: 20
-  acceleration: 10
+  moveSpeed: 12
+  acceleration: 6
   deceleration: 10
   frictionAmount: 0.2
   velPower: 0.9
-  jumpForce: 8.5
+  jumpForce: 7
   fallGravityMultiplier: 1.5
   jumpCutMultiplier: 0.95
-  dashForce: 70
-  dashTime: 0.1
-  horMult: 0.025
-  vertMult: 0.025
   checkRadius: {x: 0.95, y: 0.01}
   coyoteTime: 0.1
 --- !u!4 &332642269
@@ -357,7 +353,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1795146355}
