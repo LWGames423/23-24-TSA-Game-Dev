@@ -8,11 +8,13 @@ TagManager:
   - PlayerManager
   - InventoryManager
   - Enemy
+  - BluePlayer
+  - RedPlayer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
   - Obstacle
