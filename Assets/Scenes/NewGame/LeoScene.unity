@@ -258,9 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5755dfd77ac98ebb80c55f42bd958a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
-  isWalking: 0
-  yVel: 0
   pm: {fileID: 332642268}
   playerMovement:
     m_Name: Player Movement
@@ -280,7 +277,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: up
       m_Id: e4693e1e-507c-4209-a0a6-37aeb5beecb7
-      m_Path: <Keyboard>/w
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -288,7 +285,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: down
       m_Id: d928e668-d7df-479c-b995-638fe1189768
-      m_Path: <Keyboard>/s
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -296,7 +293,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: left
       m_Id: 573b5a40-5368-4fb1-b89c-b5f21027df91
-      m_Path: <Keyboard>/a
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -304,12 +301,29 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: right
       m_Id: 17bfc1c1-3dce-4d9a-9ebf-cb0067668362
-      m_Path: <Keyboard>/d
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 8
+    m_Flags: 0
+  dashInput:
+    m_Name: Dash Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fbb3ec55-c67a-4c28-b328-69bcadc1f436
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3c01aa13-6675-4adc-991b-e8e38ef26614
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Input
+      m_Flags: 0
     m_Flags: 0
   playerSpawn: {fileID: 305801681}
   groundLayer:
@@ -320,7 +334,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   waterCheck: {fileID: 2093204859}
-  _isSwimming: 0
 --- !u!114 &332642268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +357,9 @@ MonoBehaviour:
   jumpForce: 7
   fallGravityMultiplier: 1.5
   jumpCutMultiplier: 0.95
+  dashMult: 2
+  dashForce: 5
+  dashTime: 0.1
   swimSpeed: 5
   swimAcceleration: 3
   swimDeceleration: 7

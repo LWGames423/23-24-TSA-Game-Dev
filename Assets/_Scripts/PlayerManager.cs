@@ -8,6 +8,11 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
 {
     #region Variables
 
+    [Header("Player Stats")] 
+    public float health = 100f;
+    public float stamina = 100f;
+    public float attackStr = 5f;
+    
     [Header("Movement")] 
     public bool canMove = true;
 
@@ -29,6 +34,11 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     public float fallGravityMultiplier;
 
     public float jumpCutMultiplier;
+
+    [Header("Movement")] 
+    public float dashMult;
+    public float dashForce;
+    public float dashTime;
     
     [Header("Swim")]
     public float swimSpeed;
@@ -44,6 +54,7 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     
     [Header("Timer")] 
     public float coyoteTime;
+    
     
     #endregion
 

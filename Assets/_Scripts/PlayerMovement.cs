@@ -11,14 +11,16 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
-    // public Animator animator;
+    // animator stuff // 
+    /*public Animator animator;
     public float currentSpeed;
     public bool isWalking = false;
-    [FormerlySerializedAs("YVel")] public float yVel;
+    public float yVel;*/
 
     public PlayerManager pm;
 
     public InputAction playerMovement;
+    public InputAction dashInput;
 
     public GameObject playerSpawn;
     // public GameObject playerEnd; // add an prefab where the level will end & start ending cutscene
@@ -35,13 +37,18 @@ public class PlayerMovement : MonoBehaviour
     private bool _canJump;
     private bool _isJumping;
     
+    private Vector2 _dashDir;
+    private bool _isDashing;
+    private bool _canDash = true;
+    private float _dashInput;
+    
     public LayerMask waterLayer;
     public Transform waterCheck;
     
     private bool _isSubmerged;
     
     private bool _canSwim;
-    public bool _isSwimming;
+    private bool _isSwimming;
 
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
@@ -49,11 +56,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         playerMovement.Enable();
+        dashInput.Enable();
     }
 
     private void OnDisable()
     {
         playerMovement.Disable();
+        dashInput.Disable();
     }
 
     private void Awake()
@@ -76,11 +85,13 @@ public class PlayerMovement : MonoBehaviour
         if (pm.canMove)
         {
             _moveInput = playerMovement.ReadValue<Vector2>();
+            _dashInput = dashInput.ReadValue<float>();
         }
         else
         {
             _rb.velocity = Vector2.zero;
             _moveInput = Vector2.zero;
+            _dashInput = 0f;
         }
 
         if (pm.isStarting)
@@ -157,6 +168,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = true;
             _isJumping = false;
+
+            _canDash = true;
+            _isDashing = false;
             
             _ctc = pm.coyoteTime;
             _canSwim = false;
@@ -166,6 +180,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
             _isJumping = false;
+            
+            _canDash = false;
+            _isDashing = false;
 
             _canSwim = true;
             _isSwimming = true;
@@ -175,6 +192,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
             _isJumping = true;
+            
+            _canDash = false;
+            _isDashing = false;
             
             _canSwim = false;
             _isSwimming = false;
@@ -203,23 +223,23 @@ public class PlayerMovement : MonoBehaviour
         
         #region Dash
 
-        // if (_dashInput.x > 0 && _canDash)
-        // {
-        //     _canDash = false;
-        //     _isDashing = true;
-        //     _dashDir = new Vector2(_moveInput.x * pm.horMult, _moveInput.y * pm.vertMult);
-        //     if (_dashDir == Vector2.zero)
-        //     {
-        //         _dashDir = new Vector2(transform.localScale.x, 0);
-        //     }   
-        //     
-        //     StartCoroutine(StopDashing());
-        // }
-        //
-        // if(_isDashing)
-        // {
-        //     _rb.velocity = _dashDir * pm.dashForce;
-        // }
+        if (_dashInput > 0 && _canDash)
+        {
+             _canDash = false;
+             _isDashing = true;
+             _dashDir = new Vector2(_moveInput.x * pm.dashMult, 0);
+             if (_dashDir == Vector2.zero)
+             {
+                _dashDir = new Vector2(transform.localScale.x, 0);
+             }   
+             
+             StartCoroutine(StopDashing());
+        }
+        
+        if(_isDashing)
+        {
+             _rb.velocity = _dashDir * pm.dashForce;
+        }
         
         #endregion
         
@@ -318,7 +338,12 @@ public class PlayerMovement : MonoBehaviour
 
     #region Coroutines
 
-
+    private IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(pm.dashTime);
+        _isDashing = false;
+    }
+    
     #endregion
 
     #region Death
