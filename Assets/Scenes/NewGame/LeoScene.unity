@@ -367,7 +367,6 @@ MonoBehaviour:
   jumpForce: 7
   fallGravityMultiplier: 1.5
   jumpCutMultiplier: 0.95
-  jumpPreloadTime: 0.1
   dashMult: 2
   dashForce: 5
   dashTime: 0.1
