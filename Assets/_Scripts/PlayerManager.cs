@@ -30,11 +30,23 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
 
     public float jumpCutMultiplier;
     
+    [Header("Swim")]
+    public float swimSpeed;
+    public float swimAcceleration;
+    public float swimDeceleration;
+    public float swimForce;
+    
+    public float swimGravMultiplier;
+    
     [Header("Checks")]
     public Vector2 checkRadius;
+    public Vector2 waterCheckRadius;
     
     [Header("Timer")] 
     public float coyoteTime;
     
     #endregion
+
+
+    
 }

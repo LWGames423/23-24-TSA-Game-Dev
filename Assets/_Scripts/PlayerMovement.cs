@@ -28,12 +28,20 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector2 _moveInput;
     private Rigidbody2D _rb;
-    private bool _facingRight = true;
-    public bool _isGrounded;
     
-
-    public bool _canJump;
+    private bool _facingRight = true;
+    private bool _isGrounded;
+    
+    private bool _canJump;
     private bool _isJumping;
+    
+    public LayerMask waterLayer;
+    public Transform waterCheck;
+    
+    private bool _isSubmerged;
+    
+    private bool _canSwim;
+    public bool _isSwimming;
 
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
@@ -41,13 +49,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         playerMovement.Enable();
-        // playerDash.Enable();
     }
 
     private void OnDisable()
     {
         playerMovement.Disable();
-        // playerDash.Disable();
     }
 
     private void Awake()
@@ -67,16 +73,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         #region InputChecks
-        
-        // _moveInput.x = Input.GetAxisRaw(xInput);
-        // _moveInput.y = Input.GetAxisRaw(yInput);
-        // _dashInput.x = Input.GetAxisRaw(dashInput);
-        // _dashInput.y = 0f;
-
         if (pm.canMove)
         {
             _moveInput = playerMovement.ReadValue<Vector2>();
-            // _dashInput.x = playerDash.ReadValue<float>();
         }
         else
         {
@@ -93,10 +92,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = playerEnd.transform.position;
         }*/
-        
-        
-        
-
         #endregion
 
         #region Jump
@@ -115,6 +110,17 @@ public class PlayerMovement : MonoBehaviour
             JumpUp();
         } 
 
+        #endregion
+        
+        # region Swim
+        
+        if (_moveInput.y > 0  && _canSwim)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
+            _isSwimming = true;
+            Swim();
+        }
+        
         #endregion
 
         #region FlipPlayer
@@ -142,25 +148,50 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        #region pm.groundCheck
+        #region Checks
 
         _isGrounded = Physics2D.OverlapBox(groundCheck.position, pm.checkRadius, 0, groundLayer);
-        if (_isGrounded && _moveInput.y < 0.01)
+        _isSubmerged = Physics2D.OverlapBox(waterCheck.position, pm.waterCheckRadius, 0, waterLayer);
+        
+        if (_isGrounded && _moveInput.y < 0.01 && !_isSubmerged)
         {
             _canJump = true;
             _isJumping = false;
             
             _ctc = pm.coyoteTime;
+            _canSwim = false;
+            _isSwimming = false;
+        }
+        if ((_isGrounded && _isSubmerged) || _isSubmerged)
+        {
+            _canJump = false;
+            _isJumping = false;
+
+            _canSwim = true;
+            _isSwimming = true;
+        }
+
+        if (!_isSubmerged && !_isGrounded)
+        {
+            _canJump = false;
+            _isJumping = true;
+            
+            _canSwim = false;
+            _isSwimming = false;
         }
 
         #endregion
 
         #region Jump Gravity
 
-        if(_rb.velocity.y < 0)
+        if(_rb.velocity.y < 0 && !_isSubmerged)
         {
             _rb.gravityScale = _gravityScale * pm.fallGravityMultiplier;
             _isJumping = false;
+        }
+        else if (_rb.velocity.y < 0 && _isSubmerged)
+        {
+            _rb.gravityScale = _gravityScale * pm.swimGravMultiplier;
         }
         else
         {
@@ -193,14 +224,28 @@ public class PlayerMovement : MonoBehaviour
         #endregion
         
         #region Run
-        
-        float targetSpeed = _moveInput.x * pm.moveSpeed;
-        float speedDif = targetSpeed - _rb.velocity.x;
-        
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? pm.acceleration : pm.deceleration;
-        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, pm.velPower) * Mathf.Sign(speedDif);
 
-        _rb.AddForce(movement * Vector2.right);
+        if (_isSwimming)
+        {
+            float targetSpeed = _moveInput.x * pm.swimSpeed;
+            float speedDif = targetSpeed - _rb.velocity.x;
+        
+            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? pm.swimAcceleration : pm.swimDeceleration;
+            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, pm.velPower) * Mathf.Sign(speedDif);
+
+            _rb.AddForce(movement * Vector2.right);
+        }
+        else
+        {
+            float targetSpeed = _moveInput.x * pm.moveSpeed;
+            float speedDif = targetSpeed - _rb.velocity.x;
+        
+            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? pm.acceleration : pm.deceleration;
+            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, pm.velPower) * Mathf.Sign(speedDif);
+
+            _rb.AddForce(movement * Vector2.right);
+        }
+        
 
         #endregion
         
@@ -258,6 +303,15 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - pm.jumpCutMultiplier), ForceMode2D.Impulse);
             // _rb.AddForce(Vector2.down * _rb.velocity.y * -0.8f, ForceMode2D.Impulse);
         }
+    }
+    
+    #endregion
+    
+    # region Swim Stuff
+
+    private void Swim()
+    {
+        _rb.AddForce(Vector2.up * pm.swimForce, ForceMode2D.Impulse);
     }
     
     #endregion
