@@ -48,10 +48,12 @@ public class PlayerMovement : MonoBehaviour
     private bool _isSubmerged;
     
     private bool _canSwim;
-    private bool _isSwimming;
+    public bool _isSwimming;
 
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
+
+    public float currentHealth;
 
     private void OnEnable()
     {
@@ -74,9 +76,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         
-        
         _facingRight = true;
         _canJump = true;
+
+        currentHealth = pm.health;
     }
     
     private void Update()
@@ -106,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region Jump
-
-        if (_moveInput.y > 0  && _canJump && _ctc > 0 && _isJumping==false)
+        
+        if ((_moveInput.y > 0  && _canJump && _ctc > 0 && _isJumping==false))
         {
             _ctc = 0;
             _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
@@ -190,8 +193,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (!_isSubmerged && !_isGrounded)
         {
-            _canJump = false;
-            _isJumping = true;
+            if (_ctc > 0)
+            {
+                _canJump = true;
+                _isJumping = false;
+            }
+            else
+            {
+                _canJump = false;
+                _isJumping = true;
+            }
             
             _canDash = false;
             _isDashing = false;
