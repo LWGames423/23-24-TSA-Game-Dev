@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b97d1dba3034866861eca48d2c9758
-      internalID: 1684202255
+      spriteID: fa7e35231ff944cfcb89817e776e459a
+      internalID: -119563095
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17203392611154182b5b6958fb298126
-      internalID: 597261638
+      spriteID: baea5f76f713d45c4ae7e0ce7240aeae
+      internalID: -1492510973
       vertices: []
       indices: 
       edges: []
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6956b976e6fd45f58860ba3eb7bfc02
-      internalID: 2134139728
+      spriteID: 361a0fc43d9cd403eaa7b7beeb0eabdb
+      internalID: -1318584996
       vertices: []
       indices: 
       edges: []
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a86df1af02a7446692a17be2a241c79
-      internalID: -1902134825
+      spriteID: b7926959d9a1e4c7c9f8ae9cc9cd2ac3
+      internalID: -1515113358
       vertices: []
       indices: 
       edges: []
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a467241ec55cc45968b16b257bcaa2d9
-      internalID: -476875977
+      spriteID: f6ee7262010dc40e2af42b8ac8131d93
+      internalID: -968939715
       vertices: []
       indices: 
       edges: []
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 002a028e477ad4b2c9948aaef91414fe
-      internalID: 193862279
+      spriteID: a6ecec9c006bc4895b3b428e252331db
+      internalID: 850651345
       vertices: []
       indices: 
       edges: []
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f0fa31141ae0439aa74be7ed3b17139
-      internalID: 603326424
+      spriteID: fef1309dd80374f7cb9ca1af7c9ea805
+      internalID: -2059366875
       vertices: []
       indices: 
       edges: []
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7e7b27fcccc24c9184708a7cc414d72
-      internalID: 873349916
+      spriteID: 0e6b3cd24d2e24c2db7082a8cc823cd0
+      internalID: -1846336887
       vertices: []
       indices: 
       edges: []
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83f631f0be07c4a68af28587ec89293e
-      internalID: -370241539
+      spriteID: 05f41024f5c6040eb8fbc76296218a41
+      internalID: -322007039
       vertices: []
       indices: 
       edges: []
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0eb4e551587e4dd8a6e64331202c9c3
-      internalID: 1288594412
+      spriteID: 6a47a0600d2ce4bc99e957e37d46dd22
+      internalID: 31420516
       vertices: []
       indices: 
       edges: []
@@ -347,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ec4c5a267f6347b2a50a81df648ba36
-      internalID: -1251349414
+      spriteID: f7b3ce5325d064f0aaa686f1889dced0
+      internalID: 1511363155
       vertices: []
       indices: 
       edges: []
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17ffa67a1a6c9430586ff4eecd4f19cc
-      internalID: -1324544759
+      spriteID: 0b44b2cb33b874171a05547571fce984
+      internalID: -1743933671
       vertices: []
       indices: 
       edges: []
@@ -389,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98be5e54f15074d97b805fc0dd2790ae
-      internalID: -1815130484
+      spriteID: 77e459e7020064c4395092a145d64d8e
+      internalID: 300832984
       vertices: []
       indices: 
       edges: []
@@ -410,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e36b14275f34d45458d6daae1983a6c4
-      internalID: 1275012507
+      spriteID: 44afe9c64cd8d479b86da3269e0db27f
+      internalID: 1011549782
       vertices: []
       indices: 
       edges: []
@@ -431,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec4521103b32d41c28996d7cec4937a8
-      internalID: 516601961
+      spriteID: 7cf58db684b3143efa40f7f3b0105d30
+      internalID: 1322080179
       vertices: []
       indices: 
       edges: []
@@ -452,8 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 572351489258c42b3ad439764d708da5
-      internalID: -351725237
+      spriteID: 846b96d132ffd4e5f9242ac7906b36a1
+      internalID: 553404889
       vertices: []
       indices: 
       edges: []
@@ -473,8 +473,512 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665e7d947db454c1f8a4021002208255
-      internalID: 503693698
+      spriteID: c1c650833328b47ccbd883caa19a484a
+      internalID: -1282294087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46a37526372344058a2c9db0a44fc4b
+      internalID: -752892133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d128f6ae704b4fcc8c965f84880bbd6
+      internalID: -158852898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e2cefbc407541189a18bb3cde06c9b
+      internalID: -334666082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae659bae54014f3dbb1fbc30da58413
+      internalID: 425549060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 385a1402446a94848819452a86208e3f
+      internalID: -120710357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cecdb20031b8d4f67bcaac45e8d8e4e5
+      internalID: -2064006518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4eda2b4b433497d96615046fc28a73
+      internalID: 691688242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b2624968caa4d3c942b401907b3c42
+      internalID: 1921455882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4015ffde28dfb4e05bbb6c5a3bafe715
+      internalID: -184153028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7954f5a676d44db4a7be4fbee84f5dc
+      internalID: -1188197937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21679eabda0f44d1aa93c2ee62021bf
+      internalID: -538531110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2041348fdba84f4fa3e1410ff821a0a
+      internalID: 1980127618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa217eb0fc3fa405a84f2b61b85e52ed
+      internalID: 77368885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad95427644cb44d488c6d054b02d9a4
+      internalID: -757512485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d70def896f4469c9612509c5da953f
+      internalID: -1522841178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95deb3d7ab2e467fa6cc741cf025a96
+      internalID: -1363696983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5174a97dcf304daeb3cda8549c5067a
+      internalID: 768995491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778ec8aa325714f3fa153970388e5606
+      internalID: 1374779640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ce98c7ee1954b67895ae7060026558
+      internalID: 268421000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87823d1f8bb94b919071256a11dd5b2
+      internalID: 1512140999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92e315996a1a4f5281fc9d733e53ad4
+      internalID: -1726657046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1111ac93f7cc24807adf1d5957fdf3a9
+      internalID: -1361347188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbd5f83ee4904670a33b18280c36449
+      internalID: 631722495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeetleBug-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d811073ca084019a799cb313f0a84a
+      internalID: 603761985
       vertices: []
       indices: 
       edges: []
@@ -490,23 +994,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BeetleBug-Sheet_0: 1684202255
-      BeetleBug-Sheet_1: 597261638
-      BeetleBug-Sheet_10: -1251349414
-      BeetleBug-Sheet_11: -1324544759
-      BeetleBug-Sheet_12: -1815130484
-      BeetleBug-Sheet_13: 1275012507
-      BeetleBug-Sheet_14: 516601961
-      BeetleBug-Sheet_15: -351725237
-      BeetleBug-Sheet_16: 503693698
-      BeetleBug-Sheet_2: 2134139728
-      BeetleBug-Sheet_3: -1902134825
-      BeetleBug-Sheet_4: -476875977
-      BeetleBug-Sheet_5: 193862279
-      BeetleBug-Sheet_6: 603326424
-      BeetleBug-Sheet_7: 873349916
-      BeetleBug-Sheet_8: -370241539
-      BeetleBug-Sheet_9: 1288594412
+      BeetleBug-Sheet_0: -119563095
+      BeetleBug-Sheet_1: -1492510973
+      BeetleBug-Sheet_10: 1511363155
+      BeetleBug-Sheet_11: -1743933671
+      BeetleBug-Sheet_12: 300832984
+      BeetleBug-Sheet_13: 1011549782
+      BeetleBug-Sheet_14: 1322080179
+      BeetleBug-Sheet_15: 553404889
+      BeetleBug-Sheet_16: -1282294087
+      BeetleBug-Sheet_17: -752892133
+      BeetleBug-Sheet_18: -158852898
+      BeetleBug-Sheet_19: -334666082
+      BeetleBug-Sheet_2: -1318584996
+      BeetleBug-Sheet_20: 425549060
+      BeetleBug-Sheet_21: -120710357
+      BeetleBug-Sheet_22: -2064006518
+      BeetleBug-Sheet_23: 691688242
+      BeetleBug-Sheet_24: 1921455882
+      BeetleBug-Sheet_25: -184153028
+      BeetleBug-Sheet_26: -1188197937
+      BeetleBug-Sheet_27: -538531110
+      BeetleBug-Sheet_28: 1980127618
+      BeetleBug-Sheet_29: 77368885
+      BeetleBug-Sheet_3: -1515113358
+      BeetleBug-Sheet_30: -757512485
+      BeetleBug-Sheet_31: -1522841178
+      BeetleBug-Sheet_32: -1363696983
+      BeetleBug-Sheet_33: 768995491
+      BeetleBug-Sheet_34: 1374779640
+      BeetleBug-Sheet_35: 268421000
+      BeetleBug-Sheet_36: 1512140999
+      BeetleBug-Sheet_37: -1726657046
+      BeetleBug-Sheet_38: -1361347188
+      BeetleBug-Sheet_39: 631722495
+      BeetleBug-Sheet_4: -968939715
+      BeetleBug-Sheet_40: 603761985
+      BeetleBug-Sheet_5: 850651345
+      BeetleBug-Sheet_6: -2059366875
+      BeetleBug-Sheet_7: -1846336887
+      BeetleBug-Sheet_8: -322007039
+      BeetleBug-Sheet_9: 31420516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
