@@ -356,6 +356,7 @@ MonoBehaviour:
   currentHealth: 0
   stamina: 100
   attackStr: 5
+  isInvuln: 0
   canMove: 1
   isStarting: 0
   isEnding: 0
@@ -949,6 +950,7 @@ GameObject:
   - component: {fileID: 946479360}
   - component: {fileID: 946479363}
   - component: {fileID: 946479362}
+  - component: {fileID: 946479364}
   m_Layer: 5
   m_Name: RustEffect
   m_TagString: Untagged
@@ -1013,6 +1015,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946479359}
   m_CullTransparentMesh: 1
+--- !u!114 &946479364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946479359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09813f7137de6e78e848d2ac535a2c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 946479362}
+  pm: {fileID: 332642268}
 --- !u!1 &1026760325 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1088546510384821046, guid: 0b8aea4b84b8acc6f95b6468a97297a7, type: 3}

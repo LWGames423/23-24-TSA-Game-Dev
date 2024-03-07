@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     public float currentHealth;
     public float stamina = 100f;
     public float attackStr = 5f;
+
+    public bool isInvuln;
     
     [Header("Movement")] 
     public bool canMove = true;
@@ -62,7 +64,6 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     private float _timeElapsed; 
     public float regenDelay = 2f;
     
-    
     #endregion
 
     private void Start()
@@ -87,9 +88,12 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     
     public void TakeDamage(float damage)
     {
-        currentHealth = Mathf.Max(0, currentHealth - damage);
+        if (!isInvuln)
+        {
+            currentHealth = Mathf.Max(0, currentHealth - damage);
         
-        _timeElapsed = Time.time;
+            _timeElapsed = Time.time;
+        }
     }
 
     void RegenHealth()

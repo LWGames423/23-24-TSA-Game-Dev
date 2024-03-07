@@ -303,6 +303,14 @@ public class PlayerMovement : MonoBehaviour
         //
         //
         // #endregion
+        if (_isDashing)
+        {
+            pm.isInvuln = true;
+        }
+        else
+        {
+            pm.isInvuln = false;
+        }
     }
 
     #region Flip
