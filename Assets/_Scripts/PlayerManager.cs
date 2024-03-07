@@ -48,7 +48,8 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     public float swimForce;
     
     public float swimGravMultiplier;
-    
+
+    public float maxWaterVel;
     [Header("Checks")]
     public Vector2 checkRadius;
     public Vector2 waterCheckRadius;
