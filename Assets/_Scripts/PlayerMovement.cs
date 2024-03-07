@@ -53,8 +53,6 @@ public class PlayerMovement : MonoBehaviour
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
 
-    public float currentHealth;
-
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -78,8 +76,6 @@ public class PlayerMovement : MonoBehaviour
         
         _facingRight = true;
         _canJump = true;
-
-        currentHealth = pm.health;
     }
     
     private void Update()

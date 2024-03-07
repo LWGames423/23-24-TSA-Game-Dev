@@ -13,7 +13,7 @@ public class DamageDealer : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isCollided = true;
-            StartCoroutine(DealDmg());
+            /*StartCoroutine(DealDmg());*/
         }
     }
 
@@ -25,13 +25,13 @@ public class DamageDealer : MonoBehaviour
         }
     }
 
-    IEnumerator DealDmg()
+    /*IEnumerator DealDmg()
     {
        while (isCollided)
        {
-        FindObjectOfType<HealthBarControler>().TakeDamage(dmgAmt);
+        FindObjectOfType<HealthBarController>().TakeDamage(dmgAmt);
 
         yield return new WaitForSeconds(dmgCooldown);
        }
-    }
+    }*/
 }
