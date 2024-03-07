@@ -12,13 +12,13 @@ public class PlayerStatsController : MonoBehaviour
     void Start()
     {
         pManager = transform.GetComponent<PlayerManager>();
-        maxHealth = pManager.health;
-        maxStamina = pManager.health;
+        maxHealth = pManager.maxHealth;
+        maxStamina = pManager.stamina;
     }
 
     void Update()
     {
-        pManager.health = health;
+        pManager.currentHealth = health;
         pManager.stamina = stamina;
     }
 

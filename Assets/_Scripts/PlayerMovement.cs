@@ -218,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (_rb.velocity.y < 0 && _isSubmerged)
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Max(-(pm.maxWaterVel), _rb.velocity.y));
             _rb.gravityScale = _gravityScale * pm.swimGravMultiplier;
         }
         else
