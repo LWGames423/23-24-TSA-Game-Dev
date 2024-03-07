@@ -53,8 +53,6 @@ public class PlayerMovement : MonoBehaviour
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
 
-    public float currentHealth;
-
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -78,8 +76,6 @@ public class PlayerMovement : MonoBehaviour
         
         _facingRight = true;
         _canJump = true;
-
-        currentHealth = pm.health;
     }
     
     private void Update()
@@ -222,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (_rb.velocity.y < 0 && _isSubmerged)
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Max(-(pm.maxWaterVel), _rb.velocity.y));
             _rb.gravityScale = _gravityScale * pm.swimGravMultiplier;
         }
         else
@@ -306,6 +303,14 @@ public class PlayerMovement : MonoBehaviour
         //
         //
         // #endregion
+        if (_isDashing)
+        {
+            pm.isInvuln = true;
+        }
+        else
+        {
+            pm.isInvuln = false;
+        }
     }
 
     #region Flip
