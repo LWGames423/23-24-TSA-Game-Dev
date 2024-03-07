@@ -4,27 +4,15 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator swordAnimator, bowAnimator, staffAnimator;
-    public bool isSword, isBow, isStaff;
+    public ParticleSystem disablerParticles;
 
-    void OnFire()
-    {
-        if(isSword){
-            swordAnimator.SetTrigger("Swipe");
-        }
-        if(isStaff){
-            staffAnimator.SetTrigger("Swipe");
-        }
-    
-    }
+    public bool hasDisabler;
 
     void Update(){
-        if(Input.GetMouseButtonDown(1)){
-            if(isSword){
-                swordAnimator.SetTrigger("Stab");
-            }
-            if(isStaff){
-                staffAnimator.SetTrigger("Beam");
+        if(Input.GetKeyDown(KeyCode.X)){
+            if(hasDisabler){
+                disablerParticles.gameObject.SetActive(true);
+                disablerParticles.Play();
             }
         }
     }

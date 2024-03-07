@@ -19,10 +19,13 @@ public class EnemyManager : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public float speed;
-    public bool isStopped, isAggro;
-    public Transform playerTransform;
-    public float ogScaleX;
-    public float ogPlayerSpeed;
+    private bool isStopped, isAggro;
+    private Transform playerTransform;
+    private float ogScaleX;
+    private float ogPlayerSpeed;
+
+    public float collideDamage;
+    public float slashDamage;
 
     public float knockForce;
 
@@ -139,7 +142,7 @@ public class EnemyManager : MonoBehaviour
             if (collision.gameObject.name == "Player")
             {
                 Transform player = collision.gameObject.transform;
-                DamagePlayer(player);
+                DamagePlayer(player, collideDamage);
             }
         }
     }
@@ -156,7 +159,7 @@ public class EnemyManager : MonoBehaviour
         anim.SetTrigger("Attack");
     }
 
-    public void DamagePlayer(Transform player)
+    public void DamagePlayer(Transform player, float damage)
     {
         if (transform.position.x <= player.position.x)
         {
@@ -164,7 +167,7 @@ public class EnemyManager : MonoBehaviour
             {
                 player.GetComponent<Rigidbody2D>().velocity = new Vector2(knockForce, knockForce);
                 player.GetComponent<PlayerManager>().moveSpeed = 0;
-                player.GetComponent<PlayerStatsController>().Damage(10f);
+                player.GetComponent<PlayerStatsController>().Damage(damage);
                 StartCoroutine(delaySpeedRegain(0.75f, player));
             }
         }
@@ -174,7 +177,7 @@ public class EnemyManager : MonoBehaviour
             {
                 player.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockForce, knockForce);
                 player.GetComponent<PlayerManager>().moveSpeed = 0;
-                player.GetComponent<PlayerStatsController>().Damage(10f);
+                player.GetComponent<PlayerStatsController>().Damage(damage);
                 StartCoroutine(delaySpeedRegain(0.75f, player));
             }
         }
@@ -188,7 +191,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (hitPlayers.transform.name == "Player")
             {
-                DamagePlayer(hitPlayers.transform);
+                DamagePlayer(hitPlayers.transform, slashDamage);
             }
         }
     }

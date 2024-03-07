@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -8,18 +9,22 @@ public class PlayerStatsController : MonoBehaviour
     public float invulFrames;
     public float health, maxHealth, stamina, maxStamina;
     public PlayerManager pManager;
+    public Image corruptMeter;
 
     void Start()
     {
         pManager = transform.GetComponent<PlayerManager>();
         maxHealth = pManager.health;
         maxStamina = pManager.health;
+        health = maxHealth;
+        stamina = maxStamina;
     }
 
     void Update()
     {
         pManager.health = health;
         pManager.stamina = stamina;
+        corruptMeter.fillAmount = (maxHealth - health)/maxHealth;
     }
 
     public void Damage(float damage)
