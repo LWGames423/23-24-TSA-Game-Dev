@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public float speed;
-    private bool isStopped, isAggro;
+    public bool isStopped, isAggro, isHacked;
     private Transform playerTransform;
     private float ogScaleX;
     private float ogPlayerSpeed;
@@ -137,12 +137,15 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision != null)
+        if (!isHacked)
         {
-            if (collision.gameObject.name == "Player")
+            if (collision != null)
             {
-                Transform player = collision.gameObject.transform;
-                DamagePlayer(player, collideDamage);
+                if (collision.gameObject.name == "Player")
+                {
+                    Transform player = collision.gameObject.transform;
+                    DamagePlayer(player, collideDamage);
+                }
             }
         }
     }
