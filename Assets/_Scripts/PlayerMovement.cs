@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Vector2 = UnityEngine.Vector2;
@@ -364,10 +365,11 @@ public class PlayerMovement : MonoBehaviour
 
     #region Death
 
-    public void Death()
+    public void Respawn()
     {
         _rb.velocity = Vector2.zero;
         transform.position = playerSpawn.transform.position;
+        pm.currentHealth = pm.maxHealth;
     }
 
     #endregion
