@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
 {
     #region Variables
 
+    public PlayerMovement pm;
+    
     [Header("Player Stats")] 
     public float maxHealth = 100f;
     public float currentHealth;
@@ -75,6 +77,7 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     private void Update()
     {
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        
         if (Time.time - _timeElapsed > regenDelay)
         {
             RegenHealth();
@@ -83,6 +86,11 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
         if (Input.GetKeyDown(KeyCode.E))
         {
             TakeDamage(10);
+        }
+
+        if (currentHealth <= 0)
+        {
+            pm.Respawn();
         }
     }
     
