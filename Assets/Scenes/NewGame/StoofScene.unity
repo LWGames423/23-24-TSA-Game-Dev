@@ -11072,6 +11072,7 @@ MonoBehaviour:
   isStopped: 0
   isAggro: 0
   isHacked: 0
+  isBeetle: 1
   collideDamage: 10
   slashDamage: 20
   knockForce: 32

@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     public float speed;
-    public bool isStopped, isAggro, isHacked;
+    public bool isStopped, isAggro, isHacked, isBeetle;
     private Transform playerTransform;
     private float ogScaleX;
     private float ogPlayerSpeed;
@@ -41,65 +41,68 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAggro)
+        if (isBeetle)
         {
-            RaycastHit2D hit = Physics2D.Linecast(castPoint.position, maxPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
-            if (hit.collider != null)
+            if (!isAggro)
             {
-                if (hit.collider.name == "Player")
+                RaycastHit2D hit = Physics2D.Linecast(castPoint.position, maxPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
+                if (hit.collider != null)
                 {
-                    isStopped = true;
-                    initAnger();
-                    rb.velocity = new Vector2(0, rb.velocity.y);
+                    if (hit.collider.name == "Player")
+                    {
+                        isStopped = true;
+                        initAnger();
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+                    }
                 }
             }
-        }
 
-        if (!isStopped && !isAggro)
-        {
-            if (pointDest == 0)
+            if (!isStopped && !isAggro)
             {
-                rb.velocity = new Vector2(-speed, rb.velocity.y);
-                if (Mathf.Abs(transform.position.x - points[0].position.x) < 0.5f)
+                if (pointDest == 0)
                 {
-                    pointDest = 1;
-                    Flip();
+                    rb.velocity = new Vector2(-speed, rb.velocity.y);
+                    if (Mathf.Abs(transform.position.x - points[0].position.x) < 0.5f)
+                    {
+                        pointDest = 1;
+                        Flip();
+                    }
+                }
+                if (pointDest == 1)
+                {
+                    rb.velocity = new Vector2(speed, rb.velocity.y);
+                    if (Mathf.Abs(transform.position.x - points[1].position.x) < 0.5f)
+                    {
+                        pointDest = 0;
+                        Flip();
+                    }
                 }
             }
-            if (pointDest == 1)
+
+            if (!isStopped && isAggro)
             {
-                rb.velocity = new Vector2(speed, rb.velocity.y);
-                if (Mathf.Abs(transform.position.x - points[1].position.x) < 0.5f)
+                if (transform.position.x > playerTransform.position.x)
                 {
-                    pointDest = 0;
-                    Flip();
+                    transform.localScale = new Vector3(ogScaleX, transform.localScale.y, transform.localScale.z);
+                    rb.velocity = new Vector2(-speed, rb.velocity.y);
+
                 }
-            }
-        }
-
-        if(!isStopped && isAggro)
-        {
-            if(transform.position.x > playerTransform.position.x)
-            {
-                transform.localScale = new Vector3(ogScaleX, transform.localScale.y, transform.localScale.z);
-                rb.velocity = new Vector2(-speed, rb.velocity.y);
-                
-            }
-            else if (transform.position.x < playerTransform.position.x)
-            {
-                transform.localScale = new Vector3(-ogScaleX, transform.localScale.y, transform.localScale.z);
-                rb.velocity = new Vector2(speed, rb.velocity.y);
-               
-            }
-
-            RaycastHit2D hit = Physics2D.Linecast(castPoint.position, attackPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
-            if (hit.collider != null)
-            {
-                if (hit.collider.name == "Player")
+                else if (transform.position.x < playerTransform.position.x)
                 {
-                    isStopped = true;
-                    initAttack();
-                    rb.velocity = new Vector2(0, rb.velocity.y);
+                    transform.localScale = new Vector3(-ogScaleX, transform.localScale.y, transform.localScale.z);
+                    rb.velocity = new Vector2(speed, rb.velocity.y);
+
+                }
+
+                RaycastHit2D hit = Physics2D.Linecast(castPoint.position, attackPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
+                if (hit.collider != null)
+                {
+                    if (hit.collider.name == "Player")
+                    {
+                        isStopped = true;
+                        initAttack();
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+                    }
                 }
             }
         }
