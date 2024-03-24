@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class BackgroundScript : MonoBehaviour
 {
-    Material mat;
-    float distance;
+    [SerializeField] private Vector2 parallaxEffectMultiplier;
 
-    [Range(0f, 0.5f)]
-    public float speed = 0.2f;
+    private Transform cameraTransform;
+    private Vector3 lastCameraPosition;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        mat = GetComponent<Renderer>().material;
+        cameraTransform = Camera.main.transform;
+        lastCameraPosition = cameraTransform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        distance += Time.deltaTime * speed;
-        mat.SetTextureOffset("_MainTex", Vector2.right * distance);
+        Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
+        transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier.x, deltaMovement.y * parallaxEffectMultiplier.y, 0);
+        lastCameraPosition = cameraTransform.position;
     }
 }
