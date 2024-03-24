@@ -52,6 +52,7 @@ public class EnemyStatsController : MonoBehaviour
             {
                 fireWallHealth = 0;
                 isFireWallCleared = true;
+                fireWallBar.transform.parent.gameObject.SetActive(false);
             }
             else
             {

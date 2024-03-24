@@ -169,9 +169,7 @@ public class EnemyManager : MonoBehaviour
             if (!player.GetComponent<PlayerStatsController>().isInvul)
             {
                 player.GetComponent<Rigidbody2D>().velocity = new Vector2(knockForce, knockForce);
-                player.GetComponent<PlayerManager>().moveSpeed = 0;
                 player.GetComponent<PlayerStatsController>().Damage(damage);
-                StartCoroutine(delaySpeedRegain(0.75f, player));
             }
         }
         else if (transform.position.x > player.position.x)
@@ -179,9 +177,7 @@ public class EnemyManager : MonoBehaviour
             if (!player.GetComponent<PlayerStatsController>().isInvul)
             {
                 player.GetComponent<Rigidbody2D>().velocity = new Vector2(-knockForce, knockForce);
-                player.GetComponent<PlayerManager>().moveSpeed = 0;
                 player.GetComponent<PlayerStatsController>().Damage(damage);
-                StartCoroutine(delaySpeedRegain(0.75f, player));
             }
         }
     }
