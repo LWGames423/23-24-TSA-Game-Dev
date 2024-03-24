@@ -22,14 +22,15 @@ public class EnemyStatsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Damage(10);
-        }
         fireWallBar.localScale = new Vector3((fireWallHealth*20 / maxWallHealth), fireWallBar.localScale.y, fireWallBar.localScale.z);
         healthBar.localScale = new Vector3((currentHealth*20 / maxHealth), healthBar.localScale.y, healthBar.localScale.z);
 
         barsParent.position = new Vector3(transform.position.x, transform.position.y + yOffset, barsParent.position.z);
+
+        if (isHacked)
+        {
+            transform.parent.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        }
     }
 
     public void Damage(float damage)

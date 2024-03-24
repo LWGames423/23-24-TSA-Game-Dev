@@ -18,11 +18,14 @@ public class DebuggerDmgTracker : MonoBehaviour
     {
         if (isVacuuming)
         {
-            if (collision.GetComponent<Collider>().gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Enemy")
             {
-                GameObject enemy = collision.GetComponent<Collider>().gameObject;
+                GameObject enemy = collision.gameObject;
                 EnemyStatsController enemyStats = enemy.GetComponent<EnemyStatsController>();
-                enemyStats.Damage(damagePerFrame);
+                if(enemyStats.fireWallHealth > 0)
+                {
+                    enemyStats.Damage(damagePerFrame);
+                }
             }
         }
     }

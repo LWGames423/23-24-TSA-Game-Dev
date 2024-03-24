@@ -29,14 +29,17 @@ public class PlayerCombat : MonoBehaviour
                     EnemyManager eManager = e.GetComponent<EnemyManager>();
                     Animator eAnim = e.GetComponent<Animator>();
 
-                    eManager.enabled = false;
-                    eManager.isStopped = true;
-                    eManager.isAggro = false;
-                    eManager.isHacked = true;
+                    if (!eManager.isHacked)
+                    {
+                        eManager.enabled = false;
+                        eManager.isStopped = true;
+                        eManager.isAggro = false;
+                        eManager.isHacked = true;
 
-                    eAnim.SetTrigger("Hacked");
+                        eAnim.SetTrigger("Hacked");
 
-                    StartCoroutine(delayReboot(rebootTime, e));
+                        StartCoroutine(delayReboot(rebootTime, e));
+                    }
                 }
             }
 
