@@ -40,9 +40,10 @@ public class PlayerCombat : MonoBehaviour
                 foreach(Collider2D e in hitEnemies)
                 {
                     EnemyManager eManager = e.GetComponent<EnemyManager>();
+                    EnemyStatsController eStats = e.GetComponent<EnemyStatsController>();
                     Animator eAnim = e.GetComponent<Animator>();
 
-                    if (!eManager.isHacked)
+                    if (!eManager.isHacked && eStats.fireWallHealth <= 0)
                     {
                         eManager.enabled = false;
                         eManager.isStopped = true;
@@ -60,6 +61,11 @@ public class PlayerCombat : MonoBehaviour
             {
                 hasTriggered = true;
                 warningCircle.gameObject.SetActive(true);
+
+                mender.GetComponent<MenderDmgTracker>().isMending = false;
+                mender.gameObject.SetActive(false);
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+                debugger.gameObject.SetActive(false);
             }
         }
 
