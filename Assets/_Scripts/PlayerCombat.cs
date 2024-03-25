@@ -6,20 +6,33 @@ public class PlayerCombat : MonoBehaviour
 {
     public ParticleSystem disablerParticles;
 
-    public Transform warningCircle;
+    public Transform warningCircle, mender, debugger;
 
     public float disablerRange, rebootTime;
 
     public LayerMask enemyLayer;
 
-    public bool hasDisabler, hasTriggered;
+    public bool hasDisabler, hasMender, hasDebugger, hasTriggered, triggeredMender, triggeredDebugger;
+
+    public KeyCode disablerKey, menderKey, debuggerKey;
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.X)){
+        if(Input.GetKeyDown(disablerKey)){
             if(hasDisabler && hasTriggered){
+
+                triggeredMender = false;
+                triggeredDebugger = false;
+
                 hasTriggered = false;
+
                 warningCircle.gameObject.SetActive(false);
                 disablerParticles.gameObject.SetActive(true);
+                mender.GetComponent<MenderDmgTracker>().isMending = false;
+                mender.gameObject.SetActive(false);
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+                debugger.gameObject.SetActive(false);
+
+
                 disablerParticles.Play();
 
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(warningCircle.position, disablerRange, enemyLayer);
@@ -50,12 +63,86 @@ public class PlayerCombat : MonoBehaviour
             }
         }
 
+        //Debugger
+
+        if (Input.GetKeyDown(debuggerKey))
+        {
+            if (hasDebugger && !triggeredDebugger)
+            {
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+                debugger.gameObject.SetActive(true);
+                mender.GetComponent<MenderDmgTracker>().isMending = false;
+                mender.gameObject.SetActive(false);
+                hasTriggered = false;
+                warningCircle.gameObject.SetActive(false);
+                triggeredMender = false;
+                triggeredDebugger = true; 
+            }
+            else if (hasDebugger && triggeredDebugger)
+            {
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = true;
+                debugger.gameObject.SetActive(true);
+            }
+        }
+        if (Input.GetKeyUp(debuggerKey))
+        {
+            if (hasDebugger && triggeredDebugger)
+            {
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+            }
+        }
+
+        //Mender
+
+        if (Input.GetKeyDown(menderKey))
+        {
+            if (hasMender && !triggeredMender)
+            {
+                mender.gameObject.SetActive(true);
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+                debugger.gameObject.SetActive(false);
+                hasTriggered = false;
+                warningCircle.gameObject.SetActive(false);
+                triggeredMender = true;
+                triggeredDebugger = false;
+            }
+            else if (hasMender && triggeredMender)
+            {
+                mender.GetComponent<MenderDmgTracker>().isMending = true;
+                mender.gameObject.SetActive(true);
+            }
+        }
+        if (Input.GetKeyUp(menderKey))
+        {
+            if (hasMender && triggeredMender)
+            {
+                mender.GetComponent<MenderDmgTracker>().isMending = false;
+
+            }
+        }
+
+
+
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(hasDisabler && hasTriggered)
             {
                 hasTriggered = false;
                 warningCircle.gameObject.SetActive(false);
+            }
+            if (hasDebugger)
+            {
+                triggeredDebugger = false;
+                debugger.GetComponent<DebuggerDmgTracker>().isVacuuming = false;
+                debugger.gameObject.SetActive(false);
+            }
+            if (hasMender)
+            {
+                triggeredMender = false;
+                mender.GetComponent<MenderDmgTracker>().isMending = false;
+                mender.gameObject.SetActive(false);
             }
         }
     }
@@ -68,12 +155,15 @@ public class PlayerCombat : MonoBehaviour
 
         yield return new WaitForSeconds(seconds);
 
-        eManager.enabled = true;
-        eManager.isStopped = false;
-        eManager.isAggro = true;
-        eManager.isHacked = false;
+        if(eManager != null)
+        {
+            eManager.enabled = true;
+            eManager.isStopped = false;
+            eManager.isAggro = true;
+            eManager.isHacked = false;
 
-        eAnim.SetTrigger("Reboot");
+            eAnim.SetTrigger("Reboot");
+        }
     }
 
 
