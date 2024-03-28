@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool interactable;
 
+
     private void Start()
     {
         dialogueCanvas.SetActive(false);
@@ -19,13 +20,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        interactCanvas.GetComponent<Animator>().SetBool("Acivated", true);
+        Debug.Log("Object detected");
+        interactCanvas.GetComponent<Animator>().SetBool("Activated", true);
         interactable = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        interactCanvas.GetComponent<Animator>().SetBool("Acivated", false);
+        interactCanvas.GetComponent<Animator>().SetBool("Activated", false);
         interactable = false;
     }
 

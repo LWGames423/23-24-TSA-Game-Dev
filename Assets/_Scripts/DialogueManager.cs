@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [TextArea(3, 10)]
+    public string[] text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public TMP_Text dialogueText;
+    public GameObject dialoguePanel;
+
+    public float timePerSection;
+    public bool flex;
+
+
 }
