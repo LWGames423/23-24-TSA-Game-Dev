@@ -916,7 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76a1f4790cb5e5479a8bf4241f3921a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: []
+  text:
+  - You've got a lot of nerve coming here...
   dialogueText: {fileID: 1454680114}
   dialoguePanel: {fileID: 1695596707}
   timePerSection: 0
