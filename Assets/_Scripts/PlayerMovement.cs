@@ -37,9 +37,11 @@ public class PlayerMovement : MonoBehaviour
     
     private bool _canJump;
     private bool _isJumping;
+
+    private int _jumpCount;
     
     private Vector2 _dashDir;
-    private bool _isDashing;
+    public bool _isDashing;
     private bool _canDash = true;
     private float _dashInput;
     
@@ -53,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
+
+    public float testDashTime = 0.5f;
 
     private void OnEnable()
     {
@@ -69,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         transform.position = playerSpawn.transform.position;
+        
     }
     
     void Start()
@@ -77,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         
         _facingRight = true;
         _canJump = true;
+        _jumpCount = pm.jumpCount;
     }
     
     private void Update()
@@ -168,9 +174,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = true;
             _isJumping = false;
-
-            _canDash = true;
-            _isDashing = false;
             
             _ctc = pm.coyoteTime;
             _canSwim = false;
@@ -180,8 +183,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _canJump = false;
             _isJumping = false;
-            
-            _canDash = false;
+
             _isDashing = false;
 
             _canSwim = true;
@@ -201,8 +203,6 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = true;
             }
             
-            _canDash = false;
-            _isDashing = false;
             
             _canSwim = false;
             _isSwimming = false;
@@ -236,18 +236,13 @@ public class PlayerMovement : MonoBehaviour
         {
              _canDash = false;
              _isDashing = true;
-             _dashDir = new Vector2(_moveInput.x * pm.dashMult, 0);
-             if (_dashDir == Vector2.zero)
-             {
-                _dashDir = new Vector2(transform.localScale.x, 0);
-             }   
-             
-             StartCoroutine(StopDashing());
+             _dashDir = new Vector2(transform.localScale.x, 0);
+             StartCoroutine(Dash());
         }
         
         if(_isDashing)
         {
-             _rb.velocity = _dashDir * pm.dashForce;
+            _rb.velocity = _dashDir * pm.dashForce;
         }
         
         #endregion
@@ -355,10 +350,36 @@ public class PlayerMovement : MonoBehaviour
 
     #region Coroutines
 
-    private IEnumerator StopDashing()
-    {
-        yield return new WaitForSeconds(pm.dashTime);
+    IEnumerator Dash()
+    { 
+        _isDashing = true;
+        
+        
+        _rb.gravityScale = 0f;
+
+        float dashEndTime = Time.time + pm.dashTime;
+        float originalVel = _rb.velocity.x;
+
+        while (Time.time < dashEndTime)
+        {
+            _rb.velocity = _dashDir * pm.dashForce;
+            yield return null; 
+        }
+
+        _rb.gravityScale = 1f;
+
+        _rb.velocity = new Vector2(originalVel, _rb.velocity.y);
+
         _isDashing = false;
+        
+        StartCoroutine(DashCooldown());
+
+    }
+    
+    IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(pm.dashCooldown);
+        _canDash = true;
     }
     
     #endregion

@@ -40,10 +40,13 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
 
     public float jumpCutMultiplier;
 
-    [Header("Movement")] 
+    public int jumpCount = 1;
+
+    [Header("Dash")] 
     public float dashMult;
     public float dashForce;
     public float dashTime;
+    public float dashCooldown;
     
     [Header("Swim")]
     public float swimSpeed;
