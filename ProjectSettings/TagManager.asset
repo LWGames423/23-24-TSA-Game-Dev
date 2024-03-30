@@ -8,8 +8,7 @@ TagManager:
   - PlayerManager
   - InventoryManager
   - Enemy
-  - BluePlayer
-  - RedPlayer
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -21,8 +20,8 @@ TagManager:
   - Enemy
   - water
   - player
-  - 
-  - 
+  - box
+  - button
   - 
   - 
   - 

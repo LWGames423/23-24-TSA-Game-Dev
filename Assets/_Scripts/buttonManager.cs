@@ -1,20 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class buttonManager : MonoBehaviour
 {
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    public GameObject door;
+    [FormerlySerializedAs("toggled")] public bool closed = true;
+
+    private void Update()
     {
-        
+        door.SetActive(closed);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Toggle()
     {
-        
+        closed = !closed;
     }
 }
