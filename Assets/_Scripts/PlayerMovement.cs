@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerManager pm;
 
     public InputAction playerMovement;
+    public InputAction jumpInput;
     public InputAction dashInput;
 
     public GameObject playerSpawn;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public Transform groundCheck;
     
-    private Vector2 _moveInput;
+    private float _moveInput;
     private Rigidbody2D _rb;
     
     private bool _facingRight = true;
@@ -38,19 +39,22 @@ public class PlayerMovement : MonoBehaviour
     private bool _canJump;
     private bool _isJumping;
 
-    private int _jumpCount;
+    public int _jumpCount;
+
+    private float _jumpInput;
+    private bool _jumpButtonUp;
     
     private Vector2 _dashDir;
-    public bool _isDashing;
+    private bool _isDashing;
     private bool _canDash = true;
     private float _dashInput;
     
     public LayerMask waterLayer;
     public Transform waterCheck;
     
-    private bool _isSubmerged;
+    public bool _isSubmerged;
     
-    private bool _canSwim;
+    public bool _canSwim;
     public bool _isSwimming;
 
     private readonly float _gravityScale = 1f;
@@ -62,11 +66,13 @@ public class PlayerMovement : MonoBehaviour
     {
         playerMovement.Enable();
         dashInput.Enable();
+        jumpInput.Enable();
     }
 
     private void OnDisable()
     {
         playerMovement.Disable();
+        jumpInput.Disable();
         dashInput.Disable();
     }
 
@@ -90,14 +96,16 @@ public class PlayerMovement : MonoBehaviour
         #region InputChecks
         if (pm.canMove)
         {
-            _moveInput = playerMovement.ReadValue<Vector2>();
+            _moveInput = playerMovement.ReadValue<float>();
             _dashInput = dashInput.ReadValue<float>();
+            _jumpInput = jumpInput.ReadValue<float>();
         }
         else
         {
             _rb.velocity = Vector2.zero;
-            _moveInput = Vector2.zero;
+            _moveInput = 0f;
             _dashInput = 0f;
+            _jumpInput = 0f;
         }
 
         if (pm.isStarting)
@@ -109,20 +117,30 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = playerEnd.transform.position;
         }*/
+
+        if (_jumpInput == 0)
+        {
+            _jumpButtonUp = true;
+        }
+        else
+        {
+            _jumpButtonUp = false;
+        }
         #endregion
 
         #region Jump
         
-        if ((_moveInput.y > 0  && _canJump && _ctc > 0 && _isJumping==false))
+        if (_jumpInput > 0  && _canJump)
         {
             _ctc = 0;
             _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
             _canJump = false;
             _isJumping = true;
+            _jumpCount--;
             Jump();
         }
 
-        if (_moveInput.y < 0.01 && _isJumping)
+        if (_jumpInput < 0.01 && _isJumping)
         {
             JumpUp();
         } 
@@ -131,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         
         # region Swim
         
-        if (_moveInput.y > 0  && _canSwim)
+        if (_jumpInput > 0  && _canSwim)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
             _isSwimming = true;
@@ -142,12 +160,12 @@ public class PlayerMovement : MonoBehaviour
 
         #region FlipPlayer
 
-        if (_moveInput.x > 0 && !_facingRight)
+        if (_moveInput > 0 && !_facingRight)
         {
             Flip();
             _facingRight = true;
         }
-        else if(_moveInput.x < 0 && _facingRight)
+        else if(_moveInput < 0 && _facingRight)
         {
             Flip();
             _facingRight = false;
@@ -170,14 +188,12 @@ public class PlayerMovement : MonoBehaviour
         _isGrounded = Physics2D.OverlapBox(groundCheck.position, pm.checkRadius, 0, groundLayer);
         _isSubmerged = Physics2D.OverlapBox(waterCheck.position, pm.waterCheckRadius, 0, waterLayer);
         
-        if (_isGrounded && _moveInput.y < 0.01 && !_isSubmerged)
+        if (_isGrounded && _jumpInput < 0.01 && !_isSubmerged)
         {
-            _canJump = true;
+            _jumpCount = pm.jumpCount;
             _isJumping = false;
             
             _ctc = pm.coyoteTime;
-            _canSwim = false;
-            _isSwimming = false;
         }
         if ((_isGrounded && _isSubmerged) || _isSubmerged)
         {
@@ -186,26 +202,33 @@ public class PlayerMovement : MonoBehaviour
 
             _isDashing = false;
 
+            _jumpCount = 0;
+            
             _canSwim = true;
             _isSwimming = true;
         }
 
-        if (!_isSubmerged && !_isGrounded)
+        if (!_isSubmerged)
         {
-            if (_ctc > 0)
-            {
-                _canJump = true;
-                _isJumping = false;
-            }
-            else
-            {
-                _canJump = false;
-                _isJumping = true;
-            }
-            
             
             _canSwim = false;
             _isSwimming = false;
+        }
+
+        if ((_ctc > 0 || _jumpCount > 0) && _jumpButtonUp)
+        {
+            if ((_isGrounded && _isSubmerged) || _isSubmerged)
+            {
+                _canJump = false;
+            }
+            else
+            {
+                _canJump = true;
+            }
+        }
+        else
+        {
+            _canJump = false;
         }
 
         #endregion
@@ -251,7 +274,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_isSwimming)
         {
-            float targetSpeed = _moveInput.x * pm.swimSpeed;
+            float targetSpeed = _moveInput * pm.swimSpeed;
             float speedDif = targetSpeed - _rb.velocity.x;
         
             float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? pm.swimAcceleration : pm.swimDeceleration;
@@ -261,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            float targetSpeed = _moveInput.x * pm.moveSpeed;
+            float targetSpeed = _moveInput * pm.moveSpeed;
             float speedDif = targetSpeed - _rb.velocity.x;
         
             float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? pm.acceleration : pm.deceleration;
@@ -275,7 +298,7 @@ public class PlayerMovement : MonoBehaviour
         
         #region Friction
 
-        if (_isGrounded && Mathf.Abs(_moveInput.x) < 0.01f)
+        if (_isGrounded && Mathf.Abs(_moveInput) < 0.01f)
         {
             float amount = Mathf.Min(Mathf.Abs(_rb.velocity.x), Mathf.Abs(pm.frictionAmount));
 
@@ -289,7 +312,7 @@ public class PlayerMovement : MonoBehaviour
         // #region AnimationComponents
         //
         // currentSpeed = _rb.velocity.x;
-        // isWalking = Mathf.Abs(_moveInput.x) > 0.01f;
+        // isWalking = Mathf.Abs(_moveInput) > 0.01f;
         // yVel = _rb.velocity.y;
         //
         // animator.SetFloat("Speed", Mathf.Abs(currentSpeed));

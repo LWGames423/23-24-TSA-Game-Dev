@@ -475,46 +475,47 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: 0dd86fb9-9cce-40e4-8052-36b4ea592d48
-      m_Path: 2DVector
+    - m_Name: 1D Axis
+      m_Id: 48216fc6-dbce-4fce-9ed1-f20cca28dbca
+      m_Path: 1DAxis
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 4
-    - m_Name: up
-      m_Id: e4693e1e-507c-4209-a0a6-37aeb5beecb7
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: d928e668-d7df-479c-b995-638fe1189768
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 573b5a40-5368-4fb1-b89c-b5f21027df91
+    - m_Name: negative
+      m_Id: 097936d2-850d-4fea-b6bb-97b4c90cf935
       m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 8
-    - m_Name: right
-      m_Id: 17bfc1c1-3dce-4d9a-9ebf-cb0067668362
+    - m_Name: positive
+      m_Id: cbecdcc6-0fef-4c8b-9964-508c9c1a5b09
       m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Player Movement
       m_Flags: 8
+    m_Flags: 0
+  jumpInput:
+    m_Name: Jump Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bc03486c-af85-40f3-8017-b74161d15e0e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 290797f5-7c46-47ce-9575-afc756cada2b
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump Input
+      m_Flags: 0
     m_Flags: 0
   dashInput:
     m_Name: Dash Input
@@ -538,11 +539,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 1795146355}
-  _isDashing: 0
+  _jumpCount: 0
   waterLayer:
     serializedVersion: 2
     m_Bits: 256
   waterCheck: {fileID: 2093204859}
+  _isSubmerged: 0
+  _canSwim: 0
   _isSwimming: 0
   testDashTime: 0.5
 --- !u!114 &332642268
@@ -574,7 +577,7 @@ MonoBehaviour:
   jumpForce: 7
   fallGravityMultiplier: 1.5
   jumpCutMultiplier: 0.95
-  jumpCount: 1
+  jumpCount: 2
   dashMult: 2
   dashForce: 45
   dashTime: 0.2
