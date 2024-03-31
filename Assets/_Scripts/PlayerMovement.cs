@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isDashing;
     private bool _canDash = true;
     private float _dashInput;
+
     
     public LayerMask waterLayer;
     public Transform waterCheck;
@@ -192,6 +193,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _jumpCount = pm.jumpCount;
             _isJumping = false;
+
+            _canDash = true;
             
             _ctc = pm.coyoteTime;
         }
@@ -200,8 +203,11 @@ public class PlayerMovement : MonoBehaviour
             _canJump = false;
             _isJumping = false;
 
+            _canDash = true;
+            
             _isDashing = false;
 
+            
             _jumpCount = 0;
             
             _canSwim = true;
@@ -394,15 +400,9 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector2(originalVel, _rb.velocity.y);
 
         _isDashing = false;
-        
-        StartCoroutine(DashCooldown());
 
-    }
-    
-    IEnumerator DashCooldown()
-    {
-        yield return new WaitForSeconds(pm.dashCooldown);
-        _canDash = true;
+        _canDash = false;
+
     }
     
     #endregion

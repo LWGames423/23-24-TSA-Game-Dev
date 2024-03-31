@@ -711,7 +711,7 @@ MonoBehaviour:
   dashMult: 2
   dashForce: 45
   dashTime: 0.2
-  dashCooldown: 1
+  dashCooldown: 0.2
   swimSpeed: 5
   swimAcceleration: 3
   swimDeceleration: 7
