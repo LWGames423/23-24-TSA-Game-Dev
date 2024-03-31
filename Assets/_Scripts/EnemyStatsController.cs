@@ -16,14 +16,14 @@ public class EnemyStatsController : MonoBehaviour
         currentHealth = maxHealth;
         fireWallHealth = maxWallHealth;
         enemyAnimator = GetComponent<Animator>();
-        yOffset = barsParent.position.y-transform.position.y;
+        yOffset = barsParent.position.y - transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        fireWallBar.localScale = new Vector3((fireWallHealth*20 / maxWallHealth), fireWallBar.localScale.y, fireWallBar.localScale.z);
-        healthBar.localScale = new Vector3((currentHealth*20 / maxHealth), healthBar.localScale.y, healthBar.localScale.z);
+        fireWallBar.localScale = new Vector3((fireWallHealth * 20 / maxWallHealth), fireWallBar.localScale.y, fireWallBar.localScale.z);
+        healthBar.localScale = new Vector3((currentHealth * 20 / maxHealth), healthBar.localScale.y, healthBar.localScale.z);
 
         barsParent.position = new Vector3(transform.position.x, transform.position.y + yOffset, barsParent.position.z);
 
