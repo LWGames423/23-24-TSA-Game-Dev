@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask groundLayer;
     public Transform groundCheck;
+
+    public bool pubIsDashing;
     
     private float _moveInput;
     private Rigidbody2D _rb;
@@ -206,6 +208,7 @@ public class PlayerMovement : MonoBehaviour
             _canDash = true;
             
             _isDashing = false;
+            pubIsDashing = false;
 
             
             _jumpCount = 0;
@@ -265,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
         {
              _canDash = false;
              _isDashing = true;
+             pubIsDashing = true;
              _dashDir = new Vector2(transform.localScale.x, 0);
              StartCoroutine(Dash());
         }
@@ -382,6 +386,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash()
     { 
         _isDashing = true;
+        pubIsDashing = true;
         
         
         _rb.gravityScale = 0f;
@@ -400,6 +405,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector2(originalVel, _rb.velocity.y);
 
         _isDashing = false;
+        pubIsDashing = false;
 
         _canDash = false;
 
