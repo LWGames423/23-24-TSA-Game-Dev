@@ -16,30 +16,49 @@ public class DialogueManager : MonoBehaviour
     public float timePerSection;
     public bool flex;
 
-    private void Awake()
+    private List<string> characters;
+    private IEnumerator typeDialogue;
+
+    private void OnEnable()
     {
         currentTextID = 0;
+        characters = new List<string>();
+
+        TypeText();
+    }
+
+    public void TypeText()
+    {
         currentText = text[currentTextID];
-        List<string> characters = new List<string>();
 
         for (int i = 0; i < currentText.Length; i++)
         {
             characters.Add(currentText[i].ToString());
-            Debug.Log(characters[i]);
         }
+
+        typeDialogue = typeCharacters(characters, timePerSection / characters.Count);
+        StartCoroutine(typeDialogue);
     }
 
-    IEnumerator typeCharacter(string character, float time)
+    IEnumerator typeCharacters(List<string> character, float time)
     {
-        dialogueText.text += character;
-        yield return new WaitForSeconds(time);
+        for (int i = 0; i < currentText.Length; i++)
+        {
+            dialogueText.text += character[i];
+            yield return new WaitForSeconds(time);
+        }
     }
 
     public void FastForwardText()
     {
+        StopCoroutine(typeDialogue);
         dialogueText.text = currentText;
         currentTextID++;
-        currentText = text[currentTextID];
+
+        if (currentTextID < text.Length)
+        {
+            currentText = text[currentTextID];
+        }
     }
     
     public void NextText()
@@ -50,5 +69,10 @@ public class DialogueManager : MonoBehaviour
             currentTextID++;
             currentText = text[currentTextID];
         }
+    }
+
+    public void Clear()
+    {
+        dialogueText.text = "";
     }
 }
