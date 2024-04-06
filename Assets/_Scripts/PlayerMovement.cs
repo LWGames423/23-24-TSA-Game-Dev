@@ -269,13 +269,8 @@ public class PlayerMovement : MonoBehaviour
              _canDash = false;
              _isDashing = true;
              pubIsDashing = true;
-             _dashDir = new Vector2(transform.localScale.x, 0);
+             _dashDir = new Vector2(transform.localScale.x * 1, 0).normalized;
              StartCoroutine(Dash());
-        }
-        
-        if(_isDashing)
-        {
-            _rb.velocity = _dashDir * pm.dashForce;
         }
         
         #endregion
@@ -402,7 +397,9 @@ public class PlayerMovement : MonoBehaviour
 
         _rb.gravityScale = 1f;
 
-        _rb.velocity = new Vector2(originalVel, _rb.velocity.y);
+        // _rb.velocity = new Vector2(originalVel, _rb.velocity.y);
+        _rb.velocity = new Vector2(0, _rb.velocity.y);
+
 
         _isDashing = false;
         pubIsDashing = false;
@@ -422,6 +419,15 @@ public class PlayerMovement : MonoBehaviour
         pm.currentHealth = pm.maxHealth;
     }
 
+    #endregion
+    
+    #region Getters
+
+    public Vector2 GetDash()
+    {
+        return _dashDir;
+    }
+    
     #endregion
     
 }
