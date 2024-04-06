@@ -18,6 +18,7 @@ public class PlayerStatsController : MonoBehaviour
         stamina = maxStamina;
         maxHealth = pManager.maxHealth;
         maxStamina = pManager.stamina;
+        isInvul = pManager.isInvuln;
     }
 
     void Update()
@@ -25,6 +26,7 @@ public class PlayerStatsController : MonoBehaviour
         pManager.currentHealth = health;
         pManager.stamina = stamina;
         corruptMeter.fillAmount = (maxHealth - health)/maxHealth;
+        isInvul = pManager.isInvuln;
     }
 
     public void Damage(float damage)
