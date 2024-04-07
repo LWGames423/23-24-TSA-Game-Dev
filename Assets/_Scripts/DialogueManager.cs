@@ -12,12 +12,15 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text dialogueText;
     public GameObject dialoguePanel;
+    public GameObject continueObject;
 
     public float timePerSection;
     public bool flex;
 
     private List<string> characters;
     private IEnumerator typeDialogue;
+    private IEnumerator nextDialogue;
+    private bool finished;
 
     private void OnEnable()
     {
@@ -29,6 +32,9 @@ public class DialogueManager : MonoBehaviour
 
     public void TypeText()
     {
+        Clear();
+        Debug.Log(currentTextID);
+        continueObject.SetActive(false);
         currentText = text[currentTextID];
 
         for (int i = 0; i < currentText.Length; i++)
@@ -37,6 +43,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         typeDialogue = typeCharacters(characters, timePerSection / characters.Count);
+        nextDialogue = nextSection();
+
         StartCoroutine(typeDialogue);
     }
 
@@ -47,32 +55,52 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += character[i];
             yield return new WaitForSeconds(time);
         }
+
+        finished = true;
+        character.Clear();
+        StartCoroutine(nextDialogue);
+    }
+
+    IEnumerator nextSection()
+    {
+        yield return new WaitUntil(() => finished == true);
+        continueObject.SetActive(true);
+
+        yield return new WaitUntil(() => Input.GetKeyDown("space"));
+        finished = false;
+        continueObject.SetActive(false);
+        NextText();
+        TypeText();
     }
 
     public void FastForwardText()
     {
         StopCoroutine(typeDialogue);
-        dialogueText.text = currentText;
-        currentTextID++;
+        characters.Clear();
+        finished = true;
 
-        if (currentTextID < text.Length)
-        {
-            currentText = text[currentTextID];
-        }
+        dialogueText.text = currentText;
+        StartCoroutine(nextDialogue);
     }
     
     public void NextText()
     {
-        if (text.Length - 1 > currentTextID)
+        if (currentTextID + 1 < text.Length)
         {
             dialogueText.text = "";
             currentTextID++;
             currentText = text[currentTextID];
+        }
+        else
+        {
+            StopAllCoroutines();
+            this.gameObject.SetActive(false);
         }
     }
 
     public void Clear()
     {
         dialogueText.text = "";
+        StopAllCoroutines();
     }
 }
