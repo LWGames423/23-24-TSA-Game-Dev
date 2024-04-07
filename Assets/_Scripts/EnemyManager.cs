@@ -5,32 +5,53 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
+    #region Variables
+
+    [Header("General Enemy Variables")]
     public Slider enemyHealth;
     //add anim here
     public GameObject enemyHitbox;
+    private Rigidbody2D rb;
+    private Animator anim;
+    public float speed;
+    private EnemyAttacks enemyAttacks;
 
+    [Header("Attack Points and Info")]
     public Transform[] points;
     public Transform castPoint, maxPoint, attackPoint, hitPoint;
 
     public float attackRange;
     public LayerMask playerLayer;
-
     public int pointDest;
-    private Rigidbody2D rb;
-    private Animator anim;
-    public float speed;
-    public bool isStopped, isAggro, isHacked, isBeetle;
+
+    [Header("Booleans")]
+    public bool isStopped;
+    public bool isAggro;
+    public bool isHacked;
+    public bool isBeetle;
+
+    [Header("Misc. Player and Self Info")]
     private Transform playerTransform;
     private float ogScaleX;
     private float ogPlayerSpeed;
 
+    [Header("Damage and Force")]
     public float collideDamage;
     public float slashDamage;
 
     public float knockForce;
+    public float chargeForce;
+
+    [Header("Timing")]
+    public float chargeCooldown;
+    private float currentCooldownTime;
+    private bool canCharge = true;
+
+    #endregion
 
     private void Start()
     {
+        enemyAttacks = GetComponent<EnemyAttacks>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ogScaleX = transform.localScale.x;
@@ -103,6 +124,22 @@ public class EnemyManager : MonoBehaviour
                         initAttack();
                         rb.velocity = new Vector2(0, rb.velocity.y);
                     }
+                    
+                }
+                else if (hit.collider == null && canCharge)
+                {
+                    enemyAttacks.ChargeAttack(anim, chargeForce);
+                    canCharge = false;
+                    currentCooldownTime = chargeCooldown;
+                }
+
+                if (!canCharge)
+                {
+                    currentCooldownTime -= Time.deltaTime;
+                }
+                if (currentCooldownTime <= 0)
+                {
+                    canCharge = true;
                 }
             }
         }
@@ -124,6 +161,7 @@ public class EnemyManager : MonoBehaviour
     public void StopEnemy()
     {
         isStopped = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     public void UnStopEnemy()
