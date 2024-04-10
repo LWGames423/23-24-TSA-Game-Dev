@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             if (_jumpInput > 0)
             {
                 _ctc = 0;
-                _rb.velocity = new Vector2(_rb.velocity.x, pm.climbSpeed);
+                _rb.velocity = new Vector2(_rb.velocity.x / 2.0f, pm.climbSpeed);
                 _canJump = false;
                 _isJumping = true;
                 _jumpCount--;
