@@ -15,7 +15,7 @@ public class MovingPlatformScript : MonoBehaviour
     private int nextID = 1;
     private bool reversed = false;
 
-    private Vector3 distance;   
+    private Vector3 distance;       
 
     // Start is called before the first frame update
     void Start()
@@ -63,11 +63,27 @@ public class MovingPlatformScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             transform.position += distance.normalized * movementSpeed;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(null);
         }
     }
 }
