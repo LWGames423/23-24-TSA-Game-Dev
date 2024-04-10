@@ -25,6 +25,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool isAFadeDialogue;
 
+    public AudioSource speakingNoise;
+
     private void OnEnable()
     {
         currentTextID = 0;
@@ -53,12 +55,15 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator typeCharacters(List<string> character, float time)
     {
+        speakingNoise.Play();
+
         for (int i = 0; i < currentText.Length; i++)
         {
             dialogueText.text += character[i];
             yield return new WaitForSeconds(time);
         }
 
+        speakingNoise.Stop();
         finished = true;
         character.Clear();
         StartCoroutine(nextDialogue);
@@ -80,6 +85,7 @@ public class DialogueManager : MonoBehaviour
     {
         StopCoroutine(typeDialogue);
         characters.Clear();
+        speakingNoise.Stop();
         finished = true;
 
         dialogueText.text = currentText;
