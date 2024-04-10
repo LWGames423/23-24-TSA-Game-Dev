@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _canDash = true;
     private float _dashInput;
 
+    public LayerMask ladderLayer;
+    private bool _touchingLadder;
     
     public LayerMask waterLayer;
     public Transform waterCheck;
@@ -128,27 +130,47 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
-        #region Jump
+        #region Jump and Ladder
         
-        if (_jumpInput > 0  && _canJump)
+        if (!_touchingLadder)
         {
-            _ctc = 0;
-            _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
-            _canJump = false;
-            _isJumping = true;
-            _jumpCount--;
-            Jump();
+            if (_jumpInput > 0 && _canJump)
+            {
+                _ctc = 0;
+                _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
+                _canJump = false;
+                _isJumping = true;
+                _jumpCount--;
+                Jump();
+            }
+
+            if (_jumpInput < 0.01 && _isJumping)
+            {
+                JumpUp();
+            }
+        }
+        else if (_touchingLadder)
+        {
+            if (_jumpInput > 0)
+            {
+                _ctc = 0;
+                _rb.velocity = new Vector2(_rb.velocity.x, pm.climbSpeed);
+                _canJump = false;
+                _isJumping = true;
+                _jumpCount--;
+                Jump();
+            }
+
+            if (_jumpInput < 0.01)
+            {
+                JumpUp();
+            }
         }
 
-        if (_jumpInput < 0.01 && _isJumping)
-        {
-            JumpUp();
-        } 
-
         #endregion
-        
-        # region Swim
-        
+
+        #region Swim
+
         if (_jumpInput > 0  && _canSwim)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, pm.jumpForce);
@@ -187,7 +209,8 @@ public class PlayerMovement : MonoBehaviour
 
         _isGrounded = Physics2D.OverlapBox(groundCheck.position, pm.checkRadius, 0, groundLayer);
         _isSubmerged = Physics2D.OverlapBox(waterCheck.position, pm.waterCheckRadius, 0, waterLayer);
-        
+        _touchingLadder = Physics2D.OverlapBox(groundCheck.position, pm.checkRadius, 0, ladderLayer);
+
         if (_isGrounded && _jumpInput < 0.01 && !_isSubmerged)
         {
             _jumpCount = pm.jumpCount;
