@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -21,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator typeDialogue;
     private IEnumerator nextDialogue;
     private bool finished;
+
+    public bool isAFadeDialogue;
 
     private void OnEnable()
     {
@@ -95,6 +98,17 @@ public class DialogueManager : MonoBehaviour
         {
             StopAllCoroutines();
             this.gameObject.SetActive(false);
+            if (isAFadeDialogue)
+            {
+                Animator[] anims = FindObjectsOfType<Animator>();
+                foreach(Animator anim in anims)
+                {
+                    if (anim.transform.tag == "FadeCanvas")
+                    {
+                        anim.SetTrigger("FadeOut");
+                    }
+                }
+            }
         }
     }
 
@@ -103,4 +117,5 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         StopAllCoroutines();
     }
+
 }
