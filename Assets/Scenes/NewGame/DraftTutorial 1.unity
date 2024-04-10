@@ -5691,7 +5691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &302953103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71641,6 +71641,9 @@ MonoBehaviour:
     m_Bits: 8
   groundCheck: {fileID: 249151106}
   pubIsDashing: 0
+  ladderLayer:
+    serializedVersion: 2
+    m_Bits: 0
   waterLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -71809,6 +71812,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   regenRate: 5
   regenDelay: 2
+  climbSpeed: 10
 --- !u!95 &1556004639
 Animator:
   serializedVersion: 5
