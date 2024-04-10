@@ -43,15 +43,27 @@ public class DebuggerDmgTracker : MonoBehaviour
         {
             if (collision.gameObject.tag == "Enemy")
             {
-                GameObject enemy = collision.gameObject;
-                EnemyStatsController enemyStats = enemy.GetComponent<EnemyStatsController>();
-                if(enemyStats.fireWallHealth > 0)
+                Debug.Log("chat i'm not cooking");
+                if (collision.gameObject.GetComponent<WeaponInteractable>() != null)
                 {
-                    enemyStats.Damage(damagePerFrame);
+                    Debug.Log("chat i'm not cooking");
+                    if(collision.gameObject.GetComponent<WeaponInteractable>().interactableType == 3)
+                    {
+                        collision.gameObject.GetComponent<WeaponInteractable>().Damage(damagePerFrame);
+                    }
                 }
-                if (!bugSystem.isEmitting)
+                else
                 {
-                    bugSystem.Play();
+                    GameObject enemy = collision.gameObject;
+                    EnemyStatsController enemyStats = enemy.GetComponent<EnemyStatsController>();
+                    if (enemyStats.fireWallHealth > 0)
+                    {
+                        enemyStats.Damage(damagePerFrame);
+                    }
+                    if (!bugSystem.isEmitting)
+                    {
+                        bugSystem.Play();
+                    }
                 }
             }
         }

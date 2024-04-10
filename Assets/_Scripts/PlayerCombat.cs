@@ -89,20 +89,30 @@ public class PlayerCombat : MonoBehaviour
 
                 foreach(Collider2D e in hitEnemies)
                 {
-                    EnemyManager eManager = e.GetComponent<EnemyManager>();
-                    EnemyStatsController eStats = e.GetComponent<EnemyStatsController>();
-                    Animator eAnim = e.GetComponent<Animator>();
-
-                    if (!eManager.isHacked && eStats.fireWallHealth <= 0)
+                    if(e.gameObject.GetComponent<WeaponInteractable>() != null)
                     {
-                        eManager.enabled = false;
-                        eManager.isStopped = true;
-                        eManager.isAggro = false;
-                        eManager.isHacked = true;
+                        if(e.gameObject.GetComponent<WeaponInteractable>().interactableType == 1)
+                        {
+                            e.gameObject.GetComponent<WeaponInteractable>().anim.SetTrigger("Open");
+                        }
+                    }
+                    else
+                    {
+                        EnemyManager eManager = e.GetComponent<EnemyManager>();
+                        EnemyStatsController eStats = e.GetComponent<EnemyStatsController>();
+                        Animator eAnim = e.GetComponent<Animator>();
 
-                        eAnim.SetTrigger("Hacked");
+                        if (!eManager.isHacked && eStats.fireWallHealth <= 0)
+                        {
+                            eManager.enabled = false;
+                            eManager.isStopped = true;
+                            eManager.isAggro = false;
+                            eManager.isHacked = true;
 
-                        StartCoroutine(delayReboot(rebootTime, e));
+                            eAnim.SetTrigger("Hacked");
+
+                            StartCoroutine(delayReboot(rebootTime, e));
+                        }
                     }
                 }
             }
