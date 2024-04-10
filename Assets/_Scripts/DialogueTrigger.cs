@@ -27,16 +27,22 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Object detected");
-        interactCanvas.GetComponent<Animator>().SetBool("Activated", true);
-        interactable = true;
+        if (collision.tag == "Player")
+        {
+            interactCanvas.GetComponent<Animator>().SetBool("Activated", true);
+            interactable = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        interactCanvas.GetComponent<Animator>().SetBool("Activated", false);
-        dialogueCanvas.GetComponent<DialogueManager>().Clear();
-        dialogueCanvas.SetActive(false);
-        interactable = false;
+        if (collision.tag == "Player")
+        {
+            interactCanvas.GetComponent<Animator>().SetBool("Activated", false);
+            dialogueCanvas.GetComponent<DialogueManager>().Clear();
+            dialogueCanvas.SetActive(false);
+            interactable = false;
+        }
     }
 
     private void Update()

@@ -12,11 +12,17 @@ public class MenderDmgTracker : MonoBehaviour
     {
         if (isMending)
         {
-            this.GetComponent<Animator>().SetTrigger("Mend");
+            if(this.GetComponent<Animator>().GetBool("StopMend") == false)
+            {
+                this.GetComponent<Animator>().SetTrigger("Mend");
+            }
         }
         else if (!isMending)
         {
-            this.GetComponent<Animator>().SetTrigger("StopMend");
+            if (this.GetComponent<Animator>().GetBool("Mend") == false)
+            {
+                this.GetComponent<Animator>().SetTrigger("StopMend");
+            }
         }
     }
 
