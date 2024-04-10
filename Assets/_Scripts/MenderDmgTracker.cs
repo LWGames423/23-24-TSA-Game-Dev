@@ -12,18 +12,15 @@ public class MenderDmgTracker : MonoBehaviour
     {
         if (isMending)
         {
-            if(this.GetComponent<Animator>().GetBool("StopMend") == false)
-            {
-                this.GetComponent<Animator>().SetTrigger("Mend");
-            }
+            this.GetComponent<Animator>().SetBool("StopMend", false);
+            this.GetComponent<Animator>().SetTrigger("Mend");
         }
         else if (!isMending)
         {
-            if (this.GetComponent<Animator>().GetBool("Mend") == false)
-            {
-                this.GetComponent<Animator>().SetTrigger("StopMend");
-            }
+            this.GetComponent<Animator>().SetBool("Mend", false);
+            this.GetComponent<Animator>().SetTrigger("StopMend");
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
