@@ -68,6 +68,9 @@ public class PlayerManager : MonoBehaviour // manage vars. for playermovement
     public float regenRate = 5f; 
     private float _timeElapsed; 
     public float regenDelay = 2f;
+
+    [Header("Ladder")]
+    public float climbSpeed = 10.0f;
     
     #endregion
 
