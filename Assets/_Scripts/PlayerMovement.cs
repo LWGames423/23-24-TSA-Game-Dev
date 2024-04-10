@@ -13,10 +13,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // animator stuff // 
-    /*public Animator animator;
-    public float currentSpeed;
-    public bool isWalking = false;
-    public float yVel;*/
+    public Animator animator;
 
     public PlayerManager pm;
 
@@ -41,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _canJump;
     private bool _isJumping;
 
-    public int _jumpCount;
+    private int _jumpCount;
 
     private float _jumpInput;
     private bool _jumpButtonUp;
@@ -55,10 +52,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask waterLayer;
     public Transform waterCheck;
     
-    public bool _isSubmerged;
+    private bool _isSubmerged;
     
-    public bool _canSwim;
-    public bool _isSwimming;
+    private bool _canSwim;
+    private bool _isSwimming;
 
     private readonly float _gravityScale = 1f;
     private float _ctc; // coyote time counter
@@ -314,19 +311,33 @@ public class PlayerMovement : MonoBehaviour
         
         #endregion
 
-        // #region AnimationComponents
-        //
-        // currentSpeed = _rb.velocity.x;
-        // isWalking = Mathf.Abs(_moveInput) > 0.01f;
-        // yVel = _rb.velocity.y;
-        //
-        // animator.SetFloat("Speed", Mathf.Abs(currentSpeed));
-        // animator.SetFloat("YVel", yVel);
-        // animator.SetBool("isWalking", isWalking);
-        // animator.SetBool("isGrounded", _isGrounded);
-        //
-        //
-        // #endregion
+        #region AnimationComponents
+
+        var velocity = _rb.velocity;
+        
+        float currentSpeed = velocity.x;
+
+        float yVel = velocity.y;
+
+        bool appxZero = Mathf.Approximately(0f, velocity.y);
+
+        bool isFalling = !appxZero && !_isGrounded && velocity.y < 0;
+
+        bool isSwimming = _isSwimming;
+
+        bool isDashing = _isDashing;
+        
+        animator.SetFloat("playerSpeed", Mathf.Abs(currentSpeed));
+        
+        animator.SetBool("isFalling", isFalling);
+        
+        animator.SetBool("isDashing", isDashing);
+        
+        animator.SetBool("isSwimming", isSwimming);
+        
+        animator.SetBool("isJumping", _isJumping);
+        
+        #endregion
         if (_isDashing)
         {
             pm.isInvuln = true;
