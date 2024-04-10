@@ -9,6 +9,10 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueCanvas;
 
     private bool interactable;
+    private PlayerCombat playerCombat;
+
+    public bool givesItem;
+    public int itemSelector; //1 for disabler, 2 for debugger, 3 for mender
 
 
     private void Start()
@@ -16,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour
         dialogueCanvas.SetActive(false);
 
         interactable = false;
+
+        playerCombat = FindObjectOfType<PlayerCombat>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +44,21 @@ public class DialogueTrigger : MonoBehaviour
         if (interactable && Input.GetKeyDown(KeyCode.E))
         {
             dialogueCanvas.SetActive(true);
+            if (givesItem)
+            {
+                if(itemSelector == 1)
+                {
+                    playerCombat.hasDisabler = true;
+                }
+                else if (itemSelector == 2)
+                {
+                    playerCombat.hasDebugger = true;
+                }
+                else if (itemSelector == 3)
+                {
+                    playerCombat.hasMender = true;
+                }
+            }
         }
     }
 }

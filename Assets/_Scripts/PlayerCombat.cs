@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -16,8 +18,56 @@ public class PlayerCombat : MonoBehaviour
 
     public KeyCode disablerKey, menderKey, debuggerKey;
 
+    public Transform disablerObject, debuggerObject, menderObject;
+
     void Update(){
-        if(Input.GetKeyDown(disablerKey)){
+        if (hasDebugger)
+        {
+            foreach(Transform child in debuggerObject)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform child in debuggerObject)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        if (hasDisabler)
+        {
+            foreach (Transform child in disablerObject)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform child in disablerObject)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        if (hasMender)
+        {
+            foreach (Transform child in menderObject)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform child in menderObject)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+
+        if (Input.GetKeyDown(disablerKey)){
             if(hasDisabler && hasTriggered){
 
                 triggeredMender = false;
