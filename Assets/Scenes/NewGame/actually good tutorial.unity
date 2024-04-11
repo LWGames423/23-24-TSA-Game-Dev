@@ -5150,7 +5150,7 @@ MonoBehaviour:
   interactableType: 2
   doorEnemies:
   - {fileID: 242636813}
-  anim: {fileID: 0}
+  anim: {fileID: 803480644}
   fireWallBar: {fileID: 0}
   ogScaleX: 0
   fireWallHealth: 0
@@ -5679,7 +5679,7 @@ Transform:
   m_GameObject: {fileID: 184020685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.61, y: -1.6, z: -10}
+  m_LocalPosition: {x: 10.61, y: 0.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6244,7 +6244,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1556004634}
@@ -6290,7 +6290,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 19fdcd1aa2d53f24ead5f080d57ae501, type: 3}
+  m_Sprite: {fileID: 1507058015, guid: 2c001c783310d462583e5df90c4d21c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6326,7 +6326,7 @@ Transform:
   m_GameObject: {fileID: 305801681}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: 0, z: 0}
+  m_LocalPosition: {x: 187.2, y: -181.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6688,7 +6688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &371384282
 Animator:
   serializedVersion: 5
@@ -13430,7 +13430,7 @@ Transform:
   m_GameObject: {fileID: 787841370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.610001, y: 2.4, z: -10}
+  m_LocalPosition: {x: 10.610001, y: 4.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93415,8 +93415,8 @@ Transform:
   m_GameObject: {fileID: 1556004629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.61, y: -1.6, z: 0}
-  m_LocalScale: {x: 2, y: 4, z: 1}
+  m_LocalPosition: {x: 10.61, y: 0.3, z: 0}
+  m_LocalScale: {x: 3.5, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 249151106}
@@ -93482,10 +93482,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8125, y: 0.96875}
+    newSize: {x: 0.8125, y: 0.96875}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
