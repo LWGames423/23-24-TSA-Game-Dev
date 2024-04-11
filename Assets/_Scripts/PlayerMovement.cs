@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     
     private bool _facingRight = true;
-    private bool _isGrounded;
+    public bool _isGrounded;
     
-    private bool _canJump;
+    public bool _canJump;
     private bool _isJumping;
 
     private int _jumpCount;
@@ -153,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
                 JumpUp();
             }
         }
+        
         else if (_touchingLadder)
         {
             if (_jumpInput > 0)
@@ -338,7 +339,7 @@ public class PlayerMovement : MonoBehaviour
         
         #endregion
 
-        #region AnimationComponents
+        #region Animation Components
 
         var velocity = _rb.velocity;
         
@@ -369,6 +370,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isJumping", _isJumping);
         
         #endregion
+        
         if (_isDashing)
         {
             pm.isInvuln = true;
