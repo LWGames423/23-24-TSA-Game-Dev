@@ -34,7 +34,7 @@ public class DiverEnemyScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Linecast(castPoint.position, maxPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
             if (hit.collider != null)
             {
-                if (hit.collider.name == "Player")
+                if (hit.collider.name == "Player" || hit.collider.name == "Player 1")
                 {
                     initAnger();
                 }
