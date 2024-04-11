@@ -6,19 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
-    public GameObject tutorialPanel;
     public GameObject menu;
-    private bool _tutorialActive = false;
     
     
     public void PlayGame() {  
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  
     }  
     
-    public void PlayTutorial()
-    {
-        _tutorialActive = true;
-    }
 
     public void QuitGame()
     {
@@ -26,31 +20,4 @@ public class mainMenu : MonoBehaviour
         Application.Quit();
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        _tutorialActive = false;
-        tutorialPanel.SetActive(_tutorialActive);
-        menu.SetActive(!_tutorialActive);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Back();
-
-        }
-        
-        tutorialPanel.SetActive(_tutorialActive);
-        menu.SetActive(!_tutorialActive);
-
-    }
-
-    public void Back()
-    {
-        _tutorialActive = false;
-    }
 }
