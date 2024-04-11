@@ -125566,6 +125566,7 @@ MonoBehaviour:
   maxStamina: 100
   pManager: {fileID: 1556004638}
   corruptMeter: {fileID: 260269183}
+  fade: {fileID: 0}
 --- !u!61 &1556004636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125641,9 +125642,9 @@ MonoBehaviour:
   disablerKey: 120
   menderKey: 99
   debuggerKey: 100
-  disablerObject: {fileID: 0}
-  debuggerObject: {fileID: 0}
-  menderObject: {fileID: 0}
+  disablerObject: {fileID: 237625468}
+  debuggerObject: {fileID: 1228554197}
+  menderObject: {fileID: 374957994}
 --- !u!114 &1556004638
 MonoBehaviour:
   m_ObjectHideFlags: 0
