@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStatsController : MonoBehaviour
@@ -10,7 +11,11 @@ public class PlayerStatsController : MonoBehaviour
     public float health, maxHealth, stamina, maxStamina;
     public PlayerManager pManager;
     public Image corruptMeter;
+    
+    public Animator fade;
 
+    private float _waitTime = 2.2f;
+    
     void Start()
     {
         pManager = transform.GetComponent<PlayerManager>();
@@ -27,6 +32,21 @@ public class PlayerStatsController : MonoBehaviour
         pManager.stamina = stamina;
         corruptMeter.fillAmount = (maxHealth - health)/maxHealth;
         isInvul = pManager.isInvuln;
+
+        if (health <= 0)
+        {
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        fade.SetTrigger("FadeOut");
+        _waitTime -= Time.deltaTime;
+        if (_waitTime <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void Damage(float damage)
@@ -44,5 +64,7 @@ public class PlayerStatsController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         isInvul = false;
     }
+    
+    
 
 }
