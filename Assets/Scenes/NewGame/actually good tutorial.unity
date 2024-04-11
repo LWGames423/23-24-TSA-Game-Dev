@@ -7058,7 +7058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &371384282
 Animator:
   serializedVersion: 5
@@ -7109,6 +7109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 0
+  isMenu: 0
   fade: {fileID: 0}
 --- !u!1 &374957992
 GameObject:
@@ -12970,12 +12971,12 @@ MonoBehaviour:
   m_margin: {x: 3.487958, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 652731411}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 652731411}
+  m_maskType: 0
 --- !u!23 &652731411
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13290,12 +13291,12 @@ MonoBehaviour:
   m_margin: {x: 3.487958, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 707628471}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 707628471}
+  m_maskType: 0
 --- !u!23 &707628471
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13834,12 +13835,12 @@ MonoBehaviour:
   m_margin: {x: 3.487958, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 775721151}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 775721151}
+  m_maskType: 0
 --- !u!23 &775721151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15851,6 +15852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 0
+  isMenu: 0
   fade: {fileID: 0}
 --- !u!212 &1107301264
 SpriteRenderer:
@@ -98569,9 +98571,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  hasDisabler: 1
-  hasMender: 1
-  hasDebugger: 1
+  hasDisabler: 0
+  hasMender: 0
+  hasDebugger: 0
   hasTriggered: 0
   triggeredMender: 0
   triggeredDebugger: 0
@@ -99400,12 +99402,12 @@ MonoBehaviour:
   m_margin: {x: 3.487958, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1617010063}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1617010063}
+  m_maskType: 0
 --- !u!23 &1617010063
 MeshRenderer:
   m_ObjectHideFlags: 0

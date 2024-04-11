@@ -10,15 +10,7 @@ public class FadeCanvFunctions : MonoBehaviour
 
     public void transitionScene()
     {
-        if (isMenu)
-        {
-            fade.SetTrigger("FadeOut");
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-           
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
