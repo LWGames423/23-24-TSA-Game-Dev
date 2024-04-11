@@ -118,7 +118,7 @@ public class EnemyManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Linecast(castPoint.position, attackPoint.position, 1 << LayerMask.NameToLayer("ground") | 1 << LayerMask.NameToLayer("player"));
                 if (hit.collider != null)
                 {
-                    if (hit.collider.name == "Player")
+                    if (hit.collider.name == "Player" || hit.transform.name == "Player 1")
                     {
                         isStopped = true;
                         initAttack();
@@ -182,7 +182,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (collision != null)
             {
-                if (collision.gameObject.name == "Player")
+                if (collision.gameObject.name == "Player" || collision.transform.name == "Player 1")
                 {
                     Transform player = collision.gameObject.transform;
                     DamagePlayer(player, collideDamage);
@@ -229,7 +229,7 @@ public class EnemyManager : MonoBehaviour
 
         if (hitPlayers != null)
         {
-            if (hitPlayers.transform.name == "Player")
+            if (hitPlayers.transform.name == "Player" || hitPlayers.transform.name == "Player 1")
             {
                 DamagePlayer(hitPlayers.transform, slashDamage);
             }
