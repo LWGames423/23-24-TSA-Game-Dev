@@ -64,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float testDashTime = 0.5f;
 
+    public float yv;
+
     private void OnEnable()
     {
         playerMovement.Enable();
@@ -95,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        yv = _rb.velocity.y;
+        
         #region InputChecks
         if (pm.canMove)
         {
@@ -342,15 +346,19 @@ public class PlayerMovement : MonoBehaviour
 
         float yVel = velocity.y;
 
-        bool appxZero = Mathf.Approximately(0f, velocity.y);
+        bool isMoving = !myApproximation(0f, velocity.x, 1E-02f);
 
-        bool isFalling = !appxZero && !_isGrounded && velocity.y < 0;
+        bool appxZero = myApproximation(0f, velocity.y, 1E-02f);
+
+        bool isFalling = !appxZero && velocity.y < 0;
 
         bool isSwimming = _isSwimming;
 
         bool isDashing = _isDashing;
         
         animator.SetFloat("playerSpeed", Mathf.Abs(currentSpeed));
+        
+        animator.SetBool("isMoving", isMoving);
         
         animator.SetBool("isFalling", isFalling);
         
@@ -464,4 +472,9 @@ public class PlayerMovement : MonoBehaviour
     
     #endregion
     
+    private bool myApproximation(float a, float b, float tolerance)
+    {
+        return (Mathf.Abs(a - b) < tolerance);
+    }
+
 }
