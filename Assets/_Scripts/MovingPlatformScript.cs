@@ -65,17 +65,19 @@ public class MovingPlatformScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.transform.gameObject.tag == "Player" && !automatic)
         {
             transform.position += distance.normalized * movementSpeed;
         }
     }
 
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.transform.root.gameObject.tag == "Player")
         {
-            collision.transform.SetParent(transform);
+            collision.transform.root.SetParent(transform);
         }
     }
 
