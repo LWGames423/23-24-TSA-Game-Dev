@@ -98571,9 +98571,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  hasDisabler: 1
-  hasMender: 1
-  hasDebugger: 1
+  hasDisabler: 0
+  hasMender: 0
+  hasDebugger: 0
   hasTriggered: 0
   triggeredMender: 0
   triggeredDebugger: 0
