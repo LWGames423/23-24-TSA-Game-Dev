@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class FadeCanvFunctions : MonoBehaviour
 {
-    public bool isLevel;
+    public bool isLevel, isMenu;
     public Animator fade;
 
     public void transitionScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (isMenu)
+        {
+            fade.SetTrigger("FadeOut");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+           
     }
 
     private void OnTriggerEnter2D(Collider2D other)

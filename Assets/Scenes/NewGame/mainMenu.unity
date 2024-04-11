@@ -1550,7 +1550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 0
-  fade: {fileID: 0}
+  isMenu: 1
+  fade: {fileID: 1766861482}
 --- !u!95 &1766861482
 Animator:
   serializedVersion: 5
