@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewGame/DraftLevel1.unity
     guid: eb98a3de608344c67962c05a10d944a4
+  - enabled: 1
+    path: Assets/Scenes/NewGame/winScene.unity
+    guid: dd3825444f65a04fca6e6c64129d3275
   m_configObjects: {}
