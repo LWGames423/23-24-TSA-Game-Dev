@@ -41,12 +41,7 @@ public class PlayerStatsController : MonoBehaviour
 
     private void Respawn()
     {
-        fade.SetTrigger("FadeOut");
-        _waitTime -= Time.deltaTime;
-        if (_waitTime <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Damage(float damage)
