@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewGame/actually good tutorial.unity
     guid: 2798937c378c4b9449a79877557cba6e
+  - enabled: 1
+    path: Assets/Scenes/NewGame/DraftLevel1.unity
+    guid: eb98a3de608344c67962c05a10d944a4
   m_configObjects: {}
